@@ -1,0 +1,107 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: v7x-spot-flux-stage-probe
+  namespace: default
+  labels:
+    app: v7x-spot-flux-stage-probe
+    workload: flux-image-diffusion-serving
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
+      labels:
+        app: v7x-spot-flux-stage-probe
+        workload: flux-image-diffusion-serving
+    spec:
+      restartPolicy: Never
+      serviceAccountName: default
+      nodeSelector:
+        cloud.google.com/gke-nodepool: ank-v7-spot-pool
+        cloud.google.com/gke-tpu-accelerator: tpu7x
+        cloud.google.com/gke-tpu-topology: 2x2x1
+      tolerations:
+      - key: google.com/tpu
+        operator: Exists
+        effect: NoSchedule
+      - key: cloud.google.com/gke-spot
+        operator: Exists
+        effect: NoSchedule
+      initContainers:
+      - name: probe-vllm-omni
+        image: us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/vllm-torchtpu-omni:v0.32.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        command:
+        - bash
+        - -lc
+        - |
+          set -euo pipefail
+          mount -o remount,size=900G /dev/shm || true
+          if [ ! -s /dev/shm/probe_vllm_omni.json ]; then
+            TOK=$(curl -sS -H "Metadata-Flavor: Google" "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+            curl -fsSL -H "Authorization: Bearer ${TOK}" \
+              "https://storage.googleapis.com/storage/v1/b/ank-usc1-bucket-314837540096/o/flux-serving-scripts%2Finspect_containers.py?alt=media" \
+              -o /tmp/inspect_containers.py
+            python3 /tmp/inspect_containers.py vllm_omni /dev/shm/probe_vllm_omni.json
+          fi
+        volumeMounts:
+        - name: dshm
+          mountPath: /dev/shm
+      containers:
+      - name: stage-and-probe
+        image: us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/sglang-torchtpu-diffusion:v0.2.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        env:
+        - name: PJRT_DEVICE
+          value: "TPU"
+        - name: TPU_SKIP_MDS_QUERY
+          value: "1"
+        - name: HF_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hf-secret
+              key: hf_api_token
+        command:
+        - bash
+        - -lc
+        - |
+          set -euo pipefail
+          mount -o remount,size=900G /dev/shm || true
+          df -h /dev/shm
+          TOK=$(curl -sS -H "Metadata-Flavor: Google" "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+          if [ ! -s /dev/shm/probe_sglang_full.json ]; then
+            curl -fsSL -H "Authorization: Bearer ${TOK}" \
+              "https://storage.googleapis.com/storage/v1/b/ank-usc1-bucket-314837540096/o/flux-serving-scripts%2Finspect_containers.py?alt=media" \
+              -o /tmp/inspect_containers.py
+            python3 /tmp/inspect_containers.py sglang /dev/shm/probe_sglang_full.json
+          fi
+          curl -fsSL -X POST -H "Authorization: Bearer ${TOK}" -H "Content-Type: application/json" \
+            --data-binary @/dev/shm/probe_sglang_full.json \
+            "https://storage.googleapis.com/upload/storage/v1/b/ank-usc1-bucket-314837540096/o?uploadType=media&name=flux-serving-results%2Fprobe%2Finspect_sglang_full.json" >/dev/null
+          curl -fsSL -X POST -H "Authorization: Bearer ${TOK}" -H "Content-Type: application/json" \
+            --data-binary @/dev/shm/probe_vllm_omni.json \
+            "https://storage.googleapis.com/upload/storage/v1/b/ank-usc1-bucket-314837540096/o?uploadType=media&name=flux-serving-results%2Fprobe%2Finspect_vllm_omni_full.json" >/dev/null
+          curl -fsSL -H "Authorization: Bearer ${TOK}" \
+            "https://storage.googleapis.com/storage/v1/b/ank-usc1-bucket-314837540096/o/flux-serving-scripts%2Fstage_and_probe_flux.py?alt=media" \
+            -o /tmp/stage_and_probe_flux.py
+          exec python3 -u /tmp/stage_and_probe_flux.py --gcs-bucket=ank-usc1-bucket-314837540096
+        resources:
+          requests:
+            google.com/tpu: "4"
+            memory: "256Gi"
+          limits:
+            google.com/tpu: "4"
+        volumeMounts:
+        - name: dshm
+          mountPath: /dev/shm
+      volumes:
+      - name: dshm
+        hostPath:
+          path: /dev/shm
+          type: Directory

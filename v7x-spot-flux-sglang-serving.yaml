@@ -1,0 +1,73 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: v7x-spot-flux-sglang-serving
+  namespace: default
+  labels:
+    app: v7x-spot-flux-sglang-serving
+    workload: flux-image-diffusion-serving
+spec:
+  backoffLimit: 12
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
+      labels:
+        app: v7x-spot-flux-sglang-serving
+        workload: flux-image-diffusion-serving
+    spec:
+      restartPolicy: Never
+      serviceAccountName: default
+      nodeSelector:
+        cloud.google.com/gke-nodepool: ank-v7-spot-pool
+        cloud.google.com/gke-tpu-accelerator: tpu7x
+        cloud.google.com/gke-tpu-topology: 2x2x1
+      tolerations:
+      - key: google.com/tpu
+        operator: Exists
+        effect: NoSchedule
+      - key: cloud.google.com/gke-spot
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: sglang-flux-bench
+        image: us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/sglang-torchtpu-diffusion:v0.2.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        env:
+        - name: PJRT_DEVICE
+          value: "TPU"
+        - name: TPU_SKIP_MDS_QUERY
+          value: "1"
+        - name: HF_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hf-secret
+              key: hf_api_token
+        command:
+        - bash
+        - -lc
+        - |
+          set -euo pipefail
+          mount -o remount,size=900G /dev/shm || true
+          df -h /dev/shm
+          TOK=$(curl -sS -H "Metadata-Flavor: Google" "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+          curl -fsSL -H "Authorization: Bearer ${TOK}" \
+            "https://storage.googleapis.com/storage/v1/b/ank-usc1-bucket-314837540096/o/flux-serving-scripts%2Frun_v7x_flux_sglang_serving.py?alt=media" \
+            -o /tmp/run_v7x_flux_sglang_serving.py
+          exec python3 -u /tmp/run_v7x_flux_sglang_serving.py --gcs-bucket=ank-usc1-bucket-314837540096 --gcs-prefix=flux-serving-results
+        resources:
+          requests:
+            google.com/tpu: "4"
+            memory: "256Gi"
+          limits:
+            google.com/tpu: "4"
+        volumeMounts:
+        - name: dshm
+          mountPath: /dev/shm
+      volumes:
+      - name: dshm
+        hostPath:
+          path: /dev/shm
+          type: Directory

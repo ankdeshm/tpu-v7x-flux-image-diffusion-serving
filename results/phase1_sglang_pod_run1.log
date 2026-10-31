@@ -1,0 +1,673 @@
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           900G     0  900G   0% /dev/shm
+[2026-10-31T19:54:00.941521+00:00][sglang-flux-v7x] Phase 1 SGLang benchmark plan: 14 server groups, 131 total points (0 already done).
+[2026-10-31T19:54:00.941566+00:00][sglang-flux-v7x] 
+==================== [1/14] Group: sglang_flux1_schnell_dp8_u1_bf16_splash (19/19 pending) ====================
+[2026-10-31T19:54:01.134201+00:00][sglang-flux-v7x] Staging black-forest-labs/FLUX.1-schnell into /dev/shm/hf_cache/FLUX.1-schnell (checking regional GCS mirror first)...
+[2026-10-31T19:54:41.018103+00:00][sglang-flux-v7x] Hydrated 33.73 GB from gs://ank-usc1-bucket-314837540096/models/black-forest-labs/FLUX.1-schnell/ -> /dev/shm/hf_cache/FLUX.1-schnell in 39.8s (0.85 GB/s)
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files:   8%|▊         | 2/25 [00:00<00:01, 17.62it/s]Fetching 25 files:  56%|█████▌    | 14/25 [00:00<00:00, 71.87it/s]Fetching 25 files:  88%|████████▊ | 22/25 [00:03<00:00,  5.01it/s]Fetching 25 files: 100%|██████████| 25/25 [00:08<00:00,  3.06it/s]
+[2026-10-31T19:54:49.414870+00:00][sglang-flux-v7x] Model black-forest-labs/FLUX.1-schnell ready at /dev/shm/hf_cache/FLUX.1-schnell (33.73 GB in 48.3s)
+[2026-10-31T19:54:51.931471+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T19:55:30.000956+00:00][sglang-flux-v7x] SGLang ready on :30180 in 38.07s (dp=8, ulysses=1, attn=tpu_splash_attn, quant=bf16)
+[2026-10-31T19:55:30.001075+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c1: running 1st cold request (512x512, steps=1)...
+[2026-10-31T19:55:54.195731+00:00][sglang-flux-v7x]   [COLD OK] 512x512 steps=1: cold_compile_infer_s=24.18s (pixel_std=62.57)
+[2026-10-31T19:55:54.195758+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 512x512 (steps=1)...
+[2026-10-31T19:56:00.827938+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T19:56:02.166922+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c1 -> p50=0.276s (275.9 ms/step) | img/s=3.462 (207.7 IPM) | cold=24.18s | HBM=24.89 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T19:56:05.508686+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T19:56:14.625077+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c8 -> p50=4.433s (4432.8 ms/step) | img/s=1.790 (107.4 IPM) | cold=24.18s | HBM=32.25 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
+[2026-10-31T19:56:16.029942+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T19:56:33.042771+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_512x512_4step.png
+[2026-10-31T19:56:33.205520+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c1 -> p50=4.229s (1057.4 ms/step) | img/s=0.236 (14.2 IPM) | cold=24.18s | HBM=32.22 GiB (measured) | hosts@60IPM=5 hosts@300IPM=22
+[2026-10-31T19:56:37.519961+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T19:56:44.511295+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c8 -> p50=3.378s (844.6 ms/step) | img/s=2.347 (140.8 IPM) | cold=24.18s | HBM=32.26 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
+[2026-10-31T19:56:44.511332+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c1: running 1st cold request (1024x1024, steps=1)...
+[2026-10-31T19:58:45.910942+00:00][sglang-flux-v7x]   [COLD OK] 1024x1024 steps=1: cold_compile_infer_s=121.35s (pixel_std=68.04)
+[2026-10-31T19:58:45.910970+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 1024x1024 (steps=1)...
+[2026-10-31T19:58:52.833140+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T19:58:56.347483+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c1 -> p50=0.783s (782.6 ms/step) | img/s=1.208 (72.5 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=1 hosts@300IPM=5
+[2026-10-31T19:58:57.170897+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T19:59:04.312360+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c8 -> p50=3.269s (3269.2 ms/step) | img/s=2.293 (137.6 IPM) | cold=121.35s | HBM=34.58 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
+[2026-10-31T19:59:05.141284+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c16: running n=32 warm requests at concurrency c=16...
+[2026-10-31T19:59:13.739304+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c16 -> p50=3.062s (3062.0 ms/step) | img/s=3.805 (228.3 IPM) | cold=121.35s | HBM=34.49 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T19:59:16.786794+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T19:59:26.913162+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1024x1024_4step.png
+[2026-10-31T19:59:27.088942+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c1 -> p50=2.461s (615.4 ms/step) | img/s=0.399 (23.9 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=3 hosts@300IPM=13
+[2026-10-31T19:59:29.591717+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c2: running n=8 warm requests at concurrency c=2...
+[2026-10-31T19:59:42.350988+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c2 -> p50=2.465s (616.4 ms/step) | img/s=0.636 (38.2 IPM) | cold=121.35s | HBM=34.23 GiB (measured) | hosts@60IPM=2 hosts@300IPM=8
+[2026-10-31T19:59:44.829145+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c4: running n=8 warm requests at concurrency c=4...
+[2026-10-31T19:59:50.056434+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c4 -> p50=2.465s (616.1 ms/step) | img/s=1.583 (95.0 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=1 hosts@300IPM=4
+[2026-10-31T19:59:52.535213+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T19:59:57.836614+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c8 -> p50=2.476s (619.0 ms/step) | img/s=3.124 (187.4 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T20:00:00.317174+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c16: running n=32 warm requests at concurrency c=16...
+[2026-10-31T20:00:10.444844+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c16 -> p50=4.809s (1202.3 ms/step) | img/s=3.220 (193.2 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T20:00:12.930536+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c32: running n=32 warm requests at concurrency c=32...
+[2026-10-31T20:00:26.716650+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c32 -> p50=6.135s (1533.8 ms/step) | img/s=2.352 (141.1 IPM) | cold=121.35s | HBM=34.29 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
+[2026-10-31T20:00:26.716682+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c1: running 1st cold request (1344x768, steps=4)...
+[2026-10-31T20:02:25.799065+00:00][sglang-flux-v7x]   [COLD OK] 1344x768 steps=4: cold_compile_infer_s=119.04s (pixel_std=71.5)
+[2026-10-31T20:02:25.799099+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 1344x768 (steps=4)...
+[2026-10-31T20:02:31.127356+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T20:02:41.197161+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1344x768_4step.png
+[2026-10-31T20:02:41.386292+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c1 -> p50=2.428s (607.0 ms/step) | img/s=0.402 (24.1 IPM) | cold=119.04s | HBM=32.52 GiB (measured) | hosts@60IPM=3 hosts@300IPM=13
+[2026-10-31T20:02:43.873119+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T20:02:49.144129+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c8 -> p50=2.458s (614.4 ms/step) | img/s=3.145 (188.7 IPM) | cold=119.04s | HBM=32.52 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T20:02:49.144172+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|768x1344|s4|c1: running 1st cold request (768x1344, steps=4)...
+[2026-10-31T20:04:59.803863+00:00][sglang-flux-v7x]   [COLD OK] 768x1344 steps=4: cold_compile_infer_s=130.61s (pixel_std=73.41)
+[2026-10-31T20:04:59.803899+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 768x1344 (steps=4)...
+[2026-10-31T20:05:04.912783+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|768x1344|s4|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T20:05:14.960299+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|768x1344|s4|c1 -> p50=2.416s (604.1 ms/step) | img/s=0.406 (24.4 IPM) | cold=130.61s | HBM=32.63 GiB (measured) | hosts@60IPM=3 hosts@300IPM=13
+[2026-10-31T20:05:17.419647+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|768x1344|s4|c8: running n=16 warm requests at concurrency c=8...
+[2026-10-31T20:05:22.692737+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|768x1344|s4|c8 -> p50=2.449s (612.3 ms/step) | img/s=3.150 (189.0 IPM) | cold=130.61s | HBM=32.63 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
+[2026-10-31T20:05:22.692770+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c1: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:12:58.916841+00:00][sglang-flux-v7x]   [COLD OK] 2048x2048 steps=4: cold_compile_infer_s=456.04s (pixel_std=59.86)
+[2026-10-31T20:12:58.916880+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 2048x2048 (steps=4)...
+[2026-10-31T20:13:19.613827+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c1: running n=3 warm requests at concurrency c=1...
+[2026-10-31T20:13:49.924104+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_2048x2048_4step.png
+[2026-10-31T20:13:50.099121+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c1 -> p50=9.900s (2475.1 ms/step) | img/s=0.100 (6.0 IPM) | cold=456.04s | HBM=63.07 GiB (measured) | hosts@60IPM=11 hosts@300IPM=51
+[2026-10-31T20:14:00.140550+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c8: running n=8 warm requests at concurrency c=8...
+[2026-10-31T20:14:10.667624+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c8 -> p50=9.966s (2491.5 ms/step) | img/s=0.774 (46.4 IPM) | cold=456.04s | HBM=63.07 GiB (measured) | hosts@60IPM=2 hosts@300IPM=7
+[2026-10-31T20:14:13.489126+00:00][sglang-flux-v7x] 
+==================== [2/14] Group: sglang_flux1_schnell_dp4_u2_bf16_splash (17/17 pending) ====================
+[2026-10-31T20:14:16.006864+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 4 --ulysses-degree 2 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:14:48.185166+00:00][sglang-flux-v7x] SGLang ready on :30180 in 32.18s (dp=4, ulysses=2, attn=tpu_splash_attn, quant=bf16)
+[2026-10-31T20:14:48.185289+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|512x512|s4|c1: running 1st cold request (512x512, steps=4)...
+[2026-10-31T20:24:21.927056+00:00][sglang-flux-v7x]   [COLD OK] 512x512 steps=4: cold_compile_infer_s=573.73s (pixel_std=65.11)
+[2026-10-31T20:24:21.927087+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 4 DP replicas concurrently on 512x512 (steps=4)...
+[2026-10-31T20:24:33.453377+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|512x512|s4|c1: running n=4 warm requests at concurrency c=1...
+[2026-10-31T20:26:51.596291+00:00][sglang-flux-v7x]   [ERROR] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|512x512|s4|c1 0/4 succeeded: RemoteDisconnected('Remote end closed connection without response')
+[2026-10-31T20:26:53.288394+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|512x512|s4|c4: running n=8 warm requests at concurrency c=4...
+[2026-10-31T20:26:53.290740+00:00][sglang-flux-v7x]   [ERROR] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|512x512|s4|c4 0/8 succeeded: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:53.457528+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s1|c1: running 1st cold request (1024x1024, steps=1)...
+[2026-10-31T20:26:53.457714+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s1|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:53.727332+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s1|c4: running 1st cold request (1024x1024, steps=1)...
+[2026-10-31T20:26:53.727528+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s1|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:54.013413+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c1: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:54.013721+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:54.275223+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c2: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:54.275428+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c2: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:54.545470+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c4: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:54.545690+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:54.809535+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c8: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:54.809760+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c8: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:55.060980+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c16: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:55.061229+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c16: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:55.319033+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c32: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:26:55.319277+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1024x1024|s4|c32: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:55.557240+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1344x768|s4|c1: running 1st cold request (1344x768, steps=4)...
+[2026-10-31T20:26:55.557485+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1344x768|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:26:57.893362+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1344x768|s4|c4: running 1st cold request (1344x768, steps=4)...
+[2026-10-31T20:26:57.893592+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|1344x768|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:00.359125+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|768x1344|s4|c1: running 1st cold request (768x1344, steps=4)...
+[2026-10-31T20:27:00.359356+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|768x1344|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:02.682504+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|768x1344|s4|c4: running 1st cold request (768x1344, steps=4)...
+[2026-10-31T20:27:02.682707+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|768x1344|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:02.927729+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c1: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:27:02.927891+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:03.185651+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c4: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:27:03.185829+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:03.439268+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c8: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:27:03.439457+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp4_u2|BF16|tpu_splash_attn|2048x2048|s4|c8: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:27:06.212547+00:00][sglang-flux-v7x] 
+==================== [3/14] Group: sglang_flux1_schnell_dp2_u4_bf16_splash (13/13 pending) ====================
+[2026-10-31T20:27:08.729927+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 2 --ulysses-degree 4 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:27:42.804236+00:00][sglang-flux-v7x] SGLang ready on :30180 in 34.07s (dp=2, ulysses=4, attn=tpu_splash_attn, quant=bf16)
+[2026-10-31T20:27:42.804347+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|512x512|s4|c1: running 1st cold request (512x512, steps=4)...
+[2026-10-31T20:38:59.633562+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|512x512|s4|c1: RemoteDisconnected('Remote end closed connection without response')
+[2026-10-31T20:38:59.919361+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s1|c1: running 1st cold request (1024x1024, steps=1)...
+[2026-10-31T20:38:59.919531+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s1|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:00.178666+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c1: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:39:00.178832+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:00.493697+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c2: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:39:00.493879+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c2: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:00.755253+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c4: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:39:00.755411+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:01.042890+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c8: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:39:01.043079+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c8: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:01.305793+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c16: running 1st cold request (1024x1024, steps=4)...
+[2026-10-31T20:39:01.305953+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1024x1024|s4|c16: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:01.590147+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1344x768|s4|c1: running 1st cold request (1344x768, steps=4)...
+[2026-10-31T20:39:01.590303+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1344x768|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:01.837051+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1344x768|s4|c2: running 1st cold request (1344x768, steps=4)...
+[2026-10-31T20:39:01.837219+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|1344x768|s4|c2: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:02.116273+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|768x1344|s4|c1: running 1st cold request (768x1344, steps=4)...
+[2026-10-31T20:39:02.116438+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|768x1344|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:02.388350+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c1: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:39:02.388526+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c1: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:04.716620+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c2: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:39:04.716794+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c2: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:04.985660+00:00][sglang-flux-v7x]   [COLD+WARMUP] sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c4: running 1st cold request (2048x2048, steps=4)...
+[2026-10-31T20:39:04.985848+00:00][sglang-flux-v7x]   [ERROR] Cold request failed for sglang|FLUX.1-schnell|dp2_u4|BF16|tpu_splash_attn|2048x2048|s4|c4: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[2026-10-31T20:39:08.123052+00:00][sglang-flux-v7x] 
+==================== [4/14] Group: sglang_flux1_schnell_dp1_u8_bf16_splash (13/13 pending) ====================
+[2026-10-31T20:39:10.642210+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 1 --ulysses-degree 8 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:39:36.676617+00:00][sglang-flux-v7x] Group sglang_flux1_schnell_dp1_u8_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+ch_tpu::AtenZeros()
+    @     0x7f6fd337ce09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7f6ff0a87a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7f70a8bd7eec,7f70a8b8904f&map= 
+*** SIGABRT received by PID 98473 (TID 98473) on cpu 8, si_code=-6, from PID 98473; stack trace: ***
+PC: @     0x7f70a8bd7eec  (unknown)  (unknown)
+    @     0x7f6fd0f00137       1888  FailureSignalHandler()
+    @     0x7f70a8b89050  (unknown)  (unknown)
+    @     0x56f141279e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7f70a8bd7eec,7f6fd0f00136,7f70a8b8904f,56f141279e0f&map= 
+E1031 20:39:32.572528   98473 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:39:32.572538   98473 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:39:32.572540   98473 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:39:32.572556   98473 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:39:32.572563   98473 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:39:33.008048   98471 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:39:33] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:39:33] Exit code: -6[0;0m
+[10-31 20:39:33] kill_process_tree called: parent_pid=96404, include_parent=False, pid=96404
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:39:39.302579+00:00][sglang-flux-v7x] 
+==================== [5/14] Group: sglang_flux1_schnell_dp8_u1_bf16_sdpa (4/4 pending) ====================
+[2026-10-31T20:39:42.029684+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend torch_sdpa --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:40:06.040605+00:00][sglang-flux-v7x] Group sglang_flux1_schnell_dp8_u1_bf16_sdpa failed at server startup/execution: sglang serve exited early (rc=1):
+u::AtenZeros()
+    @     0x7a6c0d04ce09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7a6c2a887a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7a6ce28a2eec,7a6ce285404f&map= 
+*** SIGABRT received by PID 105598 (TID 105598) on cpu 0, si_code=-6, from PID 105598; stack trace: ***
+PC: @     0x7a6ce28a2eec  (unknown)  (unknown)
+    @     0x7a6c0ad00137       1888  FailureSignalHandler()
+    @     0x7a6ce2854050  (unknown)  (unknown)
+    @     0x597ffb6b2c10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a6ce28a2eec,7a6c0ad00136,7a6ce285404f,597ffb6b2c0f&map= 
+E1031 20:40:03.345431  105598 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:40:03.345440  105598 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:40:03.345442  105598 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:40:03.345454  105598 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:40:03.345456  105598 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:40:03.738078  105591 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:40:03] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:40:03] Exit code: -6[0;0m
+[10-31 20:40:03] kill_process_tree called: parent_pid=103460, include_parent=False, pid=103460
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:40:08.643360+00:00][sglang-flux-v7x] 
+==================== [6/14] Group: sglang_flux1_schnell_dp1_u8_bf16_sdpa (2/2 pending) ====================
+[2026-10-31T20:40:11.163611+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 1 --ulysses-degree 8 --attention-backend torch_sdpa --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:40:37.585295+00:00][sglang-flux-v7x] Group sglang_flux1_schnell_dp1_u8_bf16_sdpa failed at server startup/execution: sglang serve exited early (rc=-9):
+ORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479232.553645  109124 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:40:32] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:45395,localhost:35617,localhost:46573,localhost:41979,localhost:36951,localhost:38387,localhost:40509,localhost:41745
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479232.568194  109128 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:40:32] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:45395,localhost:35617,localhost:46573,localhost:41979,localhost:36951,localhost:38387,localhost:40509,localhost:41745
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479232.787594  109123 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+
+[2026-10-31T20:40:42.547211+00:00][sglang-flux-v7x] 
+==================== [7/14] Group: sglang_flux1_schnell_dp8_u1_fp8_splash (5/5 pending) ====================
+[2026-10-31T20:40:45.229277+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs --quantization fp8
+[2026-10-31T20:41:11.234472+00:00][sglang-flux-v7x] Group sglang_flux1_schnell_dp8_u1_fp8_splash failed at server startup/execution: sglang serve exited early (rc=1):
+    @     0x58d8efbbc410  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7b9d8e6aeeec,7b9cb6b00136,7b9d8e66004f,58d8efbbc40f&map= 
+E1031 20:41:06.447234  116569 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:41:06.447242  116569 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:41:06.447244  116569 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:41:06.447255  116569 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:41:06.447256  116569 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:41:06.990620  116566 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:07.272721  116565 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:07.474428  116567 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:07.563655  116564 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:07.931137  116570 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:08.156779  116563 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:41:08] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:41:08] Exit code: -6[0;0m
+[10-31 20:41:08] kill_process_tree called: parent_pid=114713, include_parent=False, pid=114713
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:41:14.771564+00:00][sglang-flux-v7x] 
+==================== [8/14] Group: sglang_flux1_schnell_dp1_u8_fp8_splash (2/2 pending) ====================
+[2026-10-31T20:41:17.292414+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 1 --ulysses-degree 8 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs --quantization fp8
+[2026-10-31T20:41:41.297482+00:00][sglang-flux-v7x] Group sglang_flux1_schnell_dp1_u8_fp8_splash failed at server startup/execution: sglang serve exited early (rc=1):
+cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:41:37.177173  120098 coredump_hook.cc:466] RAW: Dumping core locally.
+    @     0x5b7de2b18410  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7d82dc3bdeec,7d8204700136,7d82dc36f04f,5b7de2b1840f&map= 
+E1031 20:41:37.177218  120097 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:41:37.177226  120097 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:41:37.177228  120097 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:41:37.177241  120097 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:41:37.177243  120097 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:41:37.361587  120100 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:37.741966  120095 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:41:37.959357  120094 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:41:38] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:41:38] Exit code: -6[0;0m
+[10-31 20:41:38] kill_process_tree called: parent_pid=119955, include_parent=False, pid=119955
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:41:44.328290+00:00][sglang-flux-v7x] 
+==================== [9/14] Group: sglang_flux1_dev_dp8_u1_bf16_splash (18/18 pending) ====================
+[2026-10-31T20:41:44.328431+00:00][sglang-flux-v7x] Staging black-forest-labs/FLUX.1-dev into /dev/shm/hf_cache/FLUX.1-dev (checking regional GCS mirror first)...
+[2026-10-31T20:42:28.903668+00:00][sglang-flux-v7x] Hydrated 33.75 GB from gs://ank-usc1-bucket-314837540096/models/black-forest-labs/FLUX.1-dev/ -> /dev/shm/hf_cache/FLUX.1-dev in 44.5s (0.76 GB/s)
+Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]Fetching 26 files:   4%|▍         | 1/26 [00:00<00:02,  8.91it/s]Fetching 26 files:  58%|█████▊    | 15/26 [00:00<00:00, 70.73it/s]Fetching 26 files:  85%|████████▍ | 22/26 [00:03<00:00,  5.66it/s]Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  2.50it/s]Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  3.48it/s]
+[2026-10-31T20:42:36.553717+00:00][sglang-flux-v7x] Model black-forest-labs/FLUX.1-dev ready at /dev/shm/hf_cache/FLUX.1-dev (33.75 GB in 52.2s)
+[2026-10-31T20:42:39.077076+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-dev --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:43:03.083194+00:00][sglang-flux-v7x] Group sglang_flux1_dev_dp8_u1_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+    @     0x5879a1e1a410  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7cec71592eec,7ceb99900136,7cec7154404f,5879a1e1a40f&map= 
+E1031 20:42:58.604015  123698 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:42:58.604023  123698 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:42:58.604026  123698 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:42:58.604038  123698 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:42:58.604039  123698 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:42:59.260368  123700 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:42:59.519285  123701 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:42:59.837683  123696 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:42:59.979442  123697 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:43:00.181228  123702 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:43:00.517952  123695 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:43:00] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:43:00] Exit code: -6[0;0m
+[10-31 20:43:00] kill_process_tree called: parent_pid=123559, include_parent=False, pid=123559
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:43:05.710364+00:00][sglang-flux-v7x] 
+==================== [10/14] Group: sglang_flux1_dev_dp4_u2_bf16_splash (8/8 pending) ====================
+[2026-10-31T20:43:08.230418+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-dev --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 4 --ulysses-degree 2 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:43:30.235947+00:00][sglang-flux-v7x] Group sglang_flux1_dev_dp4_u2_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+u::AtenZeros()
+    @     0x7a82bb127e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7a82d8887a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7a8390983eec,7a839093504f&map= 
+*** SIGABRT received by PID 127228 (TID 127228) on cpu 0, si_code=-6, from PID 127228; stack trace: ***
+PC: @     0x7a8390983eec  (unknown)  (unknown)
+    @     0x7a82b8d00137       1888  FailureSignalHandler()
+    @     0x7a8390935050  (unknown)  (unknown)
+    @     0x59f5f0ea1e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a8390983eec,7a82b8d00136,7a839093504f,59f5f0ea1e0f&map= 
+E1031 20:43:28.024483  127228 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:28.024492  127228 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:28.024494  127228 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:28.024506  127228 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:28.024507  127228 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:43:28.746647  127225 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:43:28] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:43:28] Exit code: -6[0;0m
+[10-31 20:43:28] kill_process_tree called: parent_pid=127092, include_parent=False, pid=127092
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:43:32.839715+00:00][sglang-flux-v7x] 
+==================== [11/14] Group: sglang_flux1_dev_dp2_u4_bf16_splash (5/5 pending) ====================
+[2026-10-31T20:43:35.360862+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-dev --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 2 --ulysses-degree 4 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:44:01.366251+00:00][sglang-flux-v7x] Group sglang_flux1_dev_dp2_u4_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+:AtenZeros()
+    @     0x7fba0ae52e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7fba28487a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7fbae05aaeec,7fbae055c04f&map= 
+*** SIGABRT received by PID 130737 (TID 130737) on cpu 113, si_code=-6, from PID 130737; stack trace: ***
+PC: @     0x7fbae05aaeec  (unknown)  (unknown)
+    @     0x7fba08b00137       1888  FailureSignalHandler()
+    @     0x7fbae055c050  (unknown)  (unknown)
+    @     0x562c94e07e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7fbae05aaeec,7fba08b00136,7fbae055c04f,562c94e07e0f&map= 
+E1031 20:43:56.975828  130737 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:56.975836  130737 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:56.975837  130737 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:56.975854  130737 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:56.975855  130737 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:43:57.779664  130734 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:43:57] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:43:57] Exit code: -6[0;0m
+[10-31 20:43:57] kill_process_tree called: parent_pid=130592, include_parent=False, pid=130592
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:44:03.993675+00:00][sglang-flux-v7x] 
+==================== [12/14] Group: sglang_flux1_dev_dp1_u8_bf16_splash (11/11 pending) ====================
+[2026-10-31T20:44:06.514822+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-dev --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 1 --ulysses-degree 8 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:44:30.771164+00:00][sglang-flux-v7x] Group sglang_flux1_dev_dp1_u8_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+:AtenZeros()
+    @     0x790a1ad5be09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x790a38487a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=790af05bceec,790af056e04f&map= 
+*** SIGABRT received by PID 136369 (TID 136369) on cpu 113, si_code=-6, from PID 136369; stack trace: ***
+PC: @     0x790af05bceec  (unknown)  (unknown)
+    @     0x790a18900137       1888  FailureSignalHandler()
+    @     0x790af056e050  (unknown)  (unknown)
+    @     0x57f9678e3e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=790af05bceec,790a18900136,790af056e04f,57f9678e3e0f&map= 
+E1031 20:44:26.947886  136369 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:44:26.947897  136369 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:44:26.947899  136369 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:44:26.947912  136369 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:44:26.947921  136369 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:44:27.878397  136368 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:44:27] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:44:27] Exit code: -6[0;0m
+[10-31 20:44:27] kill_process_tree called: parent_pid=136235, include_parent=False, pid=136235
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:44:33.371038+00:00][sglang-flux-v7x] 
+==================== [13/14] Group: sglang_zimage_turbo_dp8_u1_bf16_splash (10/10 pending) ====================
+[2026-10-31T20:44:33.371175+00:00][sglang-flux-v7x] Staging Tongyi-MAI/Z-Image-Turbo into /dev/shm/hf_cache/Z-Image-Turbo (checking regional GCS mirror first)...
+[2026-10-31T20:45:16.661516+00:00][sglang-flux-v7x] Hydrated 32.85 GB from gs://ank-usc1-bucket-314837540096/models/Tongyi-MAI/Z-Image-Turbo/ -> /dev/shm/hf_cache/Z-Image-Turbo in 43.2s (0.76 GB/s)
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:  10%|▉         | 2/21 [00:00<00:01, 17.68it/s]Fetching 21 files:  43%|████▎     | 9/21 [00:00<00:00, 44.68it/s]Fetching 21 files:  67%|██████▋   | 14/21 [00:00<00:00, 44.55it/s]Fetching 21 files:  90%|█████████ | 19/21 [00:03<00:00,  3.54it/s]Fetching 21 files: 100%|██████████| 21/21 [00:07<00:00,  2.71it/s]
+[2026-10-31T20:45:24.568514+00:00][sglang-flux-v7x] Model Tongyi-MAI/Z-Image-Turbo ready at /dev/shm/hf_cache/Z-Image-Turbo (32.85 GB in 51.2s)
+[2026-10-31T20:45:27.089646+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/Z-Image-Turbo --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:45:51.116514+00:00][sglang-flux-v7x] Group sglang_zimage_turbo_dp8_u1_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+ac897eec,7fe7ac84904f&map= 
+*** SIGABRT received by PID 140278 (TID 140278) on cpu 112, si_code=-6, from PID 140278; stack trace: ***
+PC: @     0x7fe7ac897eec  (unknown)  (unknown)
+    @     0x7fe6d4d00137       1888  FailureSignalHandler()
+    @     0x7fe7ac849050  (unknown)  (unknown)
+    @     0x5c4c27859e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7fe7ac897eec,7fe6d4d00136,7fe7ac84904f,5c4c27859e0f&map= 
+E1031 20:45:47.608609  140278 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:45:47.608618  140278 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:45:47.608619  140278 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:45:47.608631  140278 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:45:47.608633  140278 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:45:48.357607  140277 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:45:48.706556  140276 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:45:48.862674  140275 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:45:48] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:45:48] Exit code: -6[0;0m
+[10-31 20:45:48] kill_process_tree called: parent_pid=140135, include_parent=False, pid=140135
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:45:53.737706+00:00][sglang-flux-v7x] 
+==================== [14/14] Group: sglang_zimage_turbo_dp1_u8_bf16_splash (4/4 pending) ====================
+[2026-10-31T20:45:56.257481+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/Z-Image-Turbo --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 1 --ulysses-degree 8 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
+[2026-10-31T20:46:20.268741+00:00][sglang-flux-v7x] Group sglang_zimage_turbo_dp1_u8_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
+55765eec,7c605571704f&map= 
+*** SIGABRT received by PID 144025 (TID 144025) on cpu 113, si_code=-6, from PID 144025; stack trace: ***
+PC: @     0x7c6055765eec  (unknown)  (unknown)
+    @     0x7c5f7dd00137       1888  FailureSignalHandler()
+    @     0x7c6055717050  (unknown)  (unknown)
+    @     0x59b46ced0410  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7c6055765eec,7c5f7dd00136,7c605571704f,59b46ced040f&map= 
+E1031 20:46:16.914545  144025 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:46:16.914553  144025 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:46:16.914555  144025 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:46:16.914572  144025 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:46:16.914574  144025 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:46:17.495117  144026 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:46:17.682533  144027 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:46:18.005203  144024 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:46:18] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:46:18] Exit code: -6[0;0m
+[10-31 20:46:18] kill_process_tree called: parent_pid=143891, include_parent=False, pid=143891
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+[2026-10-31T20:46:22.973406+00:00][sglang-flux-v7x] ALL PHASE 1 SGLANG BENCHMARKS COMPLETE! Total points recorded: 56
