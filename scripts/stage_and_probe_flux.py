@@ -443,9 +443,14 @@ def main() -> None:
 
     log("1/3 Probing sglang-torchtpu internals...")
     sglang_probe = probe_sglang_internals()
+    gcs_upload_bytes(args.gcs_bucket, "flux-serving-results/probe/sglang_probe.json", json.dumps(sglang_probe, indent=2).encode("utf-8"))
+    gcs_upload_bytes(args.gcs_bucket, "flux-serving-results/probe/vllm_omni_probe.json", json.dumps(vllm_probe, indent=2).encode("utf-8"))
+    log("Uploaded sglang_probe.json & vllm_omni_probe.json to GCS!")
 
     log("2/3 Probing TPU v7x-8 hardware & sub-host multi-process partitioning...")
     hw_probe = probe_tpu_hardware_and_partitioning()
+    gcs_upload_bytes(args.gcs_bucket, "flux-serving-results/probe/hw_probe.json", json.dumps(hw_probe, indent=2).encode("utf-8"))
+    log("Uploaded hw_probe.json to GCS!")
 
     log("3/3 Staging FLUX.1-schnell, FLUX.1-dev, and Z-Image-Turbo into /dev/shm/hf_cache + GCS...")
     staged = stage_models(args.gcs_bucket, cache_root)
