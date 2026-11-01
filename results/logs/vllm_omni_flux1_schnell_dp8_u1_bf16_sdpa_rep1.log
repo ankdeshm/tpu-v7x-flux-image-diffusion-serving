@@ -1,0 +1,42 @@
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793524995.596200   82306 pjrt_api.cc:119] GetPjrtApi was found for TPU at /usr/local/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1793524996.358376   82306 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1793524996.360763   82306 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+[0;36m(MainProcess pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:24[0m [90m[serve.py:344][0m Detected diffusion model: /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:24[0m [90m[api_utils.py:347][0m vLLM server version 0.32.0, serving model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:24[0m [90m[api_utils.py:286][0m non-default args: {'model_tag': '/dev/shm/hf_cache/FLUX.1-schnell', 'host': '0.0.0.0', 'port': 30300, 'model': '/dev/shm/hf_cache/FLUX.1-schnell'}
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:24[0m [90m[omni_base.py:211][0m [AsyncOmni] Initializing with model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:24[0m [90m[omni_engine_base.py:166][0m [OmniEngine] Initializing with model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=82306)[0;0m [33mWARNING[0m [90m11-01 09:23:24[0m [90m[ring_globals.py:76][0m FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:25[0m [90m[config_factory.py:684][0m Resolved generic diffusion final_output_type='image' for model_class_name='FluxPipeline'.
+/usr/local/lib/python3.12/site-packages/vllm_omni/config/omni_config.py:1507: FutureWarning: Diffusion config field 'diffusion_attention_backend' is deprecated; use 'diffusion_attention_config'.
+  normalized = normalize_omni_diffusion_kwargs(mixed_kwargs)
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:25[0m [90m[omni_engine_base.py:316][0m [OmniEngine] Launching Orchestrator thread with 1 stages
+[0;36m(APIServer pid=82306)[0;0m [32mINFO[0m [90m11-01 09:23:25[0m [90m[initialization.py:443][0m Loaded OmniTransferConfig with 0 connector configurations
+[0;36m(APIServer pid=82306)[0;0m [33mWARNING[0m [90m11-01 09:23:25[0m [90m[stage_utils.py:147][0m Stage 0 has device IDs ['1'], none of which are < the visible device count 1 (visible=['1']). Treating them as physical device IDs and passing through.
+I0000 00:00:1793525005.135230   84061 pjrt_api.cc:168] The PJRT plugin has PJRT API version 0.116. The framework PJRT API version is 0.116.
+[W1101 09:23:25.152238111 tpu_hooks.cc:85] Warning: <TorchTpu/> PJRT client not available, using TPU device index 0 unchecked: ABORTED: failed to initialize the PjRt plugin: Internal error when accessing libtpu multi-process lockfile. Run "$ sudo rm /tmp/libtpu_lockfile". (function ValidateDeviceIndex)
+F0000 00:00:1793525005.138917   84061 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: ABORTED: failed to initialize the PjRt plugin: Internal error when accessing libtpu multi-process lockfile. Run "$ sudo rm /tmp/libtpu_lockfile".
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7a2946a998b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7a2946a99831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7a29403bce37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7a29403b8d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7a29403b8c2c  torch_tpu::GetContextState<>()
+    @     0x7a29403b9395  torch_tpu::GetCompilationContext()
+    @     0x7a29403417d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7a294033e07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7a294033d9f6  torch_tpu::RecordDeviceSnapshots()
+    @     0x7a294032e8d3  torch_tpu::MaterializeDevice()
+    @     0x7a294042394d  torch_tpu::(anonymous namespace)::TpuDeviceGuardImpl::synchronizeDevice()
+    @     0x7a2a13d95709  pybind11::cpp_function::initialize<>()::{lambda()#1}::_FUN()

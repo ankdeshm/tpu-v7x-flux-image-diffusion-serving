@@ -1,0 +1,440 @@
+absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479407.355701  127227 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:43:27] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:42075,localhost:35621,localhost:45061,localhost:38811,localhost:36059,localhost:38911,localhost:43397,localhost:34471
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479407.397145  127232 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+F0000 00:00:1793479407.490671  127226 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/3' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113008 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+[10-31 20:43:27] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:42075,localhost:35621,localhost:45061,localhost:38811,localhost:36059,localhost:38911,localhost:43397,localhost:34471
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479407.530235  127228 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+*** Check failure stack trace: ***
+    @     0x7fbfdf86a8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7fbfdf86a831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7fbfd918de37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7fbfd9189d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7fbfd9189c2c  torch_tpu::GetContextState<>()
+    @     0x7fbfd918a395  torch_tpu::GetCompilationContext()
+    @     0x7fbfd91127d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7fbfd910f07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7fbfd910f42e  torch_tpu::EventSnapshot::Record()
+    @     0x7fbfd90fb72e  torch_tpu::Materialize()
+    @     0x7fbfd90a2e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7fbfd90a26a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7fbfd9084fc5  torch_tpu::DispatchOp<>()
+    @     0x7fbfd9934892  torch_tpu::ApplyNullaryOp()
+    @     0x7fbfd9880947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7fbfd9880284  torch_tpu::AtenZeros()
+    @     0x7fbfd9289e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7fbff6a87a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7fc0aeae2eec,7fc0aea9404f&map= 
+*** SIGABRT received by PID 127226 (TID 127226) on cpu 2, si_code=-6, from PID 127226; stack trace: ***
+PC: @     0x7fc0aeae2eec  (unknown)  (unknown)
+    @     0x7fbfd6f00137       1888  FailureSignalHandler()
+    @     0x7fc0aea94050  (unknown)  (unknown)
+    @     0x56dd6cebe410  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7fc0aeae2eec,7fbfd6f00136,7fc0aea9404f,56dd6cebe40f&map= 
+E1031 20:43:27.564471  127226 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.564480  127226 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.564482  127226 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.564495  127226 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.564497  127226 coredump_hook.cc:466] RAW: Dumping core locally.
+F0000 00:00:1793479407.564563  127225 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/4' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113007 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+F0000 00:00:1793479407.580337  127227 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/5' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113009 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+F0000 00:00:1793479407.593950  127230 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/6' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 114778 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+F0000 00:00:1793479407.594546  127229 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/2' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 114777 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+F0000 00:00:1793479407.594935  127231 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/1' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 114779 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x78ad753798b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x78ad75379831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x78ad6ec9ce37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x78ad6ec98d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x78ad6ec98c2c  torch_tpu::GetContextState<>()
+    @     0x78ad6ec99395  torch_tpu::GetCompilationContext()
+    @     0x78ad6ec217d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x78ad6ec1e07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x78ad6ec1e42e  torch_tpu::EventSnapshot::Record()
+    @     0x78ad6ec0a72e  torch_tpu::Materialize()
+    @     0x78ad6ebb1e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x78ad6ebb16a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x78ad6eb93fc5  torch_tpu::DispatchOp<>()
+    @     0x78ad6f443892  torch_tpu::ApplyNullaryOp()
+    @     0x78ad6f38f947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x78ad6f38f284  torch_tpu::AtenZeros()
+    @     0x78ad6ed98e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x78ad8c487a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=78ae445f1eec,78ae445a304f&map= 
+*** SIGABRT received by PID 127225 (TID 127225) on cpu 223, si_code=-6, from PID 127225; stack trace: ***
+PC: @     0x78ae445f1eec  (unknown)  (unknown)
+    @     0x78ad6c900137       1888  FailureSignalHandler()
+    @     0x78ae445a3050  (unknown)  (unknown)
+    @     0x5d3cd23a0c10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=78ae445f1eec,78ad6c900136,78ae445a304f,5d3cd23a0c0f&map= 
+E1031 20:43:27.613526  127225 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.613535  127225 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.613537  127225 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.613550  127225 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.613552  127225 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x7e433a0478b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7e433a047831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7e433396ae37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7e4333966d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7e4333966c2c  torch_tpu::GetContextState<>()
+    @     0x7e4333967395  torch_tpu::GetCompilationContext()
+    @     0x7e43338ef7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7e43338ec07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7e43338ec42e  torch_tpu::EventSnapshot::Record()
+    @     0x7e43338d872e  torch_tpu::Materialize()
+    @     0x7e433387fe87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7e433387f6a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7e4333861fc5  torch_tpu::DispatchOp<>()
+    @     0x7e4334111892  torch_tpu::ApplyNullaryOp()
+    @     0x7e433405d947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7e433405d284  torch_tpu::AtenZeros()
+    @     0x7e4333a66e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7e4351087a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7e44091c2eec,7e440917404f&map= 
+*** SIGABRT received by PID 127227 (TID 127227) on cpu 39, si_code=-6, from PID 127227; stack trace: ***
+PC: @     0x7e44091c2eec  (unknown)  (unknown)
+    @     0x7e4331700137       1888  FailureSignalHandler()
+    @     0x7e4409174050  (unknown)  (unknown)
+*** Check failure stack trace: ***
+    @     0x796e3f57d8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x796e3f57d831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x796e38ea0e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x796e38e9cd4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x796e38e9cc2c  torch_tpu::GetContextState<>()
+    @     0x796e38e9d395  torch_tpu::GetCompilationContext()
+    @     0x796e38e257d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x796e38e2207b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x796e38e2242e  torch_tpu::EventSnapshot::Record()
+    @     0x796e38e0e72e  torch_tpu::Materialize()
+    @     0x796e38db5e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x796e38db56a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x796e38d97fc5  torch_tpu::DispatchOp<>()
+    @     0x796e39647892  torch_tpu::ApplyNullaryOp()
+    @     0x796e39593947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x796e39593284  torch_tpu::AtenZeros()
+    @     0x796e38f9ce09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x796e56687a16  at::_ops::zeros::redispatch()
+*** Check failure stack trace: ***
+    @     0x7bf810d9c8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7bf810d9c831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7bf80a6bfe37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7bf80a6bbd4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7bf80a6bbc2c  torch_tpu::GetContextState<>()
+    @     0x7bf80a6bc395  torch_tpu::GetCompilationContext()
+    @     0x7bf80a6447d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7bf80a64107b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7bf80a64142e  torch_tpu::EventSnapshot::Record()
+    @     0x7bf80a62d72e  torch_tpu::Materialize()
+    @     0x7bf80a5d4e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7bf80a5d46a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7bf80a5b6fc5  torch_tpu::DispatchOp<>()
+    @     0x7bf80ae66892  torch_tpu::ApplyNullaryOp()
+    @     0x7bf80adb2947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7bf80adb2284  torch_tpu::AtenZeros()
+    @     0x7bf80a7bbe09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7bf828087a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=796f0e7f6eec,796f0e7a804f&map= 
+https://symbolize.stripped_domain/r/?trace=7bf8e0013eec,7bf8dffc504f&map= 
+*** SIGABRT received by PID 127231 (TID 127231) on cpu 105, si_code=-6, from PID 127231; stack trace: ***
+*** SIGABRT received by PID 127229 (TID 127229) on cpu 211, si_code=-6, from PID 127229; stack trace: ***
+    @     0x55c0503f7e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7e44091c2eec,7e4331700136,7e440917404f,55c0503f7e0f&map= 
+E1031 20:43:27.659202  127227 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.659211  127227 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.659213  127227 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.659225  127227 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.659228  127227 coredump_hook.cc:466] RAW: Dumping core locally.
+PC: @     0x796f0e7f6eec  (unknown)  (unknown)
+PC: @     0x7bf8e0013eec  (unknown)  (unknown)
+F0000 00:00:1793479407.662727  127232 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/7' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 114780 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+    @     0x796e36b00137       1888  FailureSignalHandler()
+    @     0x796f0e7a8050  (unknown)  (unknown)
+    @     0x7bf808500137       1888  FailureSignalHandler()
+    @     0x7bf8dffc5050  (unknown)  (unknown)
+    @     0x5bfdcffe6c10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=796f0e7f6eec,796e36b00136,796f0e7a804f,5bfdcffe6c0f&map= 
+E1031 20:43:27.666286  127231 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.666295  127231 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.666301  127231 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.666313  127231 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.666315  127231 coredump_hook.cc:466] RAW: Dumping core locally.
+    @     0x5d1fb1cd7e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7bf8e0013eec,7bf808500136,7bf8dffc504f,5d1fb1cd7e0f&map= 
+E1031 20:43:27.666447  127229 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.666457  127229 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.666459  127229 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.666473  127229 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.666475  127229 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x7abeaee568b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7abeaee56831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7abea8779e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7abea8775d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7abea8775c2c  torch_tpu::GetContextState<>()
+    @     0x7abea8776395  torch_tpu::GetCompilationContext()
+    @     0x7abea86fe7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7abea86fb07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7abea86fb42e  torch_tpu::EventSnapshot::Record()
+    @     0x7abea86e772e  torch_tpu::Materialize()
+    @     0x7abea868ee87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7abea868e6a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7abea8670fc5  torch_tpu::DispatchOp<>()
+    @     0x7abea8f20892  torch_tpu::ApplyNullaryOp()
+    @     0x7abea8e6c947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7abea8e6c284  torch_tpu::AtenZeros()
+    @     0x7abea8875e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7abec6087a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7abf7e0cdeec,7abf7e07f04f&map= 
+*** SIGABRT received by PID 127230 (TID 127230) on cpu 219, si_code=-6, from PID 127230; stack trace: ***
+PC: @     0x7abf7e0cdeec  (unknown)  (unknown)
+    @     0x7abea6500137       1888  FailureSignalHandler()
+    @     0x7abf7e07f050  (unknown)  (unknown)
+    @     0x5ca138d6fe10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7abf7e0cdeec,7abea6500136,7abf7e07f04f,5ca138d6fe0f&map= 
+E1031 20:43:27.678917  127230 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.678926  127230 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.678928  127230 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.678941  127230 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.678942  127230 coredump_hook.cc:466] RAW: Dumping core locally.
+F0000 00:00:1793479407.783225  127228 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/0' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113010 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7ed0521d58b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7ed0521d5831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7ed04baf8e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7ed04baf4d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7ed04baf4c2c  torch_tpu::GetContextState<>()
+    @     0x7ed04baf5395  torch_tpu::GetCompilationContext()
+    @     0x7ed04ba7d7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7ed04ba7a07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7ed04ba7a42e  torch_tpu::EventSnapshot::Record()
+    @     0x7ed04ba6672e  torch_tpu::Materialize()
+    @     0x7ed04ba0de87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7ed04ba0d6a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7ed04b9effc5  torch_tpu::DispatchOp<>()
+    @     0x7ed04c29f892  torch_tpu::ApplyNullaryOp()
+    @     0x7ed04c1eb947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7ed04c1eb284  torch_tpu::AtenZeros()
+    @     0x7ed04bbf4e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7ed069487a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7ed12144ceec,7ed1213fe04f&map= 
+*** SIGABRT received by PID 127232 (TID 127232) on cpu 132, si_code=-6, from PID 127232; stack trace: ***
+PC: @     0x7ed12144ceec  (unknown)  (unknown)
+    @     0x7ed049900137       1888  FailureSignalHandler()
+    @     0x7ed1213fe050  (unknown)  (unknown)
+    @     0x59e98aee5e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7ed12144ceec,7ed049900136,7ed1213fe04f,59e98aee5e0f&map= 
+E1031 20:43:27.795013  127232 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:27.795021  127232 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:27.795022  127232 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:27.795031  127232 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:27.795033  127232 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x7a82c17088b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7a82c1708831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7a82bb02be37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7a82bb027d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7a82bb027c2c  torch_tpu::GetContextState<>()
+    @     0x7a82bb028395  torch_tpu::GetCompilationContext()
+    @     0x7a82bafb07d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7a82bafad07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7a82bafad42e  torch_tpu::EventSnapshot::Record()
+    @     0x7a82baf9972e  torch_tpu::Materialize()
+    @     0x7a82baf40e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7a82baf406a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7a82baf22fc5  torch_tpu::DispatchOp<>()
+    @     0x7a82bb7d2892  torch_tpu::ApplyNullaryOp()
+    @     0x7a82bb71e947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7a82bb71e284  torch_tpu::AtenZeros()
+    @     0x7a82bb127e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7a82d8887a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7a8390983eec,7a839093504f&map= 
+*** SIGABRT received by PID 127228 (TID 127228) on cpu 0, si_code=-6, from PID 127228; stack trace: ***
+PC: @     0x7a8390983eec  (unknown)  (unknown)
+    @     0x7a82b8d00137       1888  FailureSignalHandler()
+    @     0x7a8390935050  (unknown)  (unknown)
+    @     0x59f5f0ea1e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a8390983eec,7a82b8d00136,7a839093504f,59f5f0ea1e0f&map= 
+E1031 20:43:28.024483  127228 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:43:28.024492  127228 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:43:28.024494  127228 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:43:28.024506  127228 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:43:28.024507  127228 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:43:28.746647  127225 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:43:28] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:43:28] Exit code: -6[0;0m
+[10-31 20:43:28] kill_process_tree called: parent_pid=127092, include_parent=False, pid=127092
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError

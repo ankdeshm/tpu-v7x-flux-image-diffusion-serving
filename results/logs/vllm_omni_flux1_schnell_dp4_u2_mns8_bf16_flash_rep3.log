@@ -1,0 +1,148 @@
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793498560.680378   22069 pjrt_api.cc:119] GetPjrtApi was found for TPU at /usr/local/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1793498561.464875   22069 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1793498561.468101   22069 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+[0;36m(MainProcess pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[serve.py:344][0m Detected diffusion model: /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[api_utils.py:347][0m vLLM server version 0.32.0, serving model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[api_utils.py:286][0m non-default args: {'model_tag': '/dev/shm/hf_cache/FLUX.1-schnell', 'host': '0.0.0.0', 'port': 30340, 'model': '/dev/shm/hf_cache/FLUX.1-schnell'}
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[omni_base.py:211][0m [AsyncOmni] Initializing with model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[omni_engine_base.py:166][0m [OmniEngine] Initializing with model /dev/shm/hf_cache/FLUX.1-schnell
+[0;36m(APIServer pid=22069)[0;0m [33mWARNING[0m [90m11-01 02:02:49[0m [90m[ring_globals.py:76][0m FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[config_factory.py:684][0m Resolved generic diffusion final_output_type='image' for model_class_name='FluxPipeline'.
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[omni_engine_base.py:316][0m [OmniEngine] Launching Orchestrator thread with 1 stages
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[initialization.py:443][0m Loaded OmniTransferConfig with 0 connector configurations
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[stage_utils.py:178][0m Stage 0 logical-to-physical device mapping: 0->0, 1->1
+[0;36m(APIServer pid=22069)[0;0m [32mINFO[0m [90m11-01 02:02:49[0m [90m[multiproc_executor.py:372][0m Starting server...
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Pin memory is not supported on TPU.
+Pin memory is not supported on TPU.
+FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[W1101 02:03:00.419684770 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_SLICEBUILDER_ADDRESSES environment variable is an experimental feature and may change or be removed without notice. (function operator())
+[W1101 02:03:00.419705710 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_TOPOLOGY environment variable is an experimental feature and may change or be removed without notice. (function operator())
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793498580.079235   23393 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[W1101 02:03:00.583780692 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_SLICEBUILDER_ADDRESSES environment variable is an experimental feature and may change or be removed without notice. (function operator())
+[W1101 02:03:00.583798352 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_TOPOLOGY environment variable is an experimental feature and may change or be removed without notice. (function operator())
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793498580.243318   23394 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[W1101 02:03:00.648114554 tpu_hooks.cc:85] Warning: <TorchTpu/> PJRT client not available, using TPU device index 0 unchecked: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/5' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 22530 (vLLM-Omni::DiffusionWorker_SP0)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1 (function ValidateDeviceIndex)
+F0000 00:00:1793498580.309926   23393 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/5' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 22530 (vLLM-Omni::DiffusionWorker_SP0)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7bd01ede78b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7bd01ede7831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7bd01870ae37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7bd018706d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7bd018706c2c  torch_tpu::GetContextState<>()
+    @     0x7bd018707395  torch_tpu::GetCompilationContext()
+    @     0x7bd01868f7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7bd01868c07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7bd01868b9f6  torch_tpu::RecordDeviceSnapshots()
+    @     0x7bd01867c8d3  torch_tpu::MaterializeDevice()
+    @     0x7bd01877194d  torch_tpu::(anonymous namespace)::TpuDeviceGuardImpl::synchronizeDevice()
+    @     0x7bd0ec195709  pybind11::cpp_function::initialize<>()::{lambda()#1}::_FUN()
+https://symbolize.stripped_domain/r/?trace=7bd0edd5ceec,7bd0edd0e04f&map= 
+*** SIGABRT received by PID 23393 (TID 23393) on cpu 101, si_code=-6, from PID 23393; stack trace: ***
+PC: @     0x7bd0edd5ceec  (unknown)  (unknown)
+    @     0x7bd016500137       1888  FailureSignalHandler()
+    @     0x7bd0edd0e050  134672208  (unknown)
+    @     0x5a2df0594c90  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7bd0edd5ceec,7bd016500136,7bd0edd0e04f,5a2df0594c8f&map= 
+E1101 02:03:00.397099   23393 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 02:03:00.397115   23393 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 02:03:00.397119   23393 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 02:03:00.397139   23393 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 02:03:00.397142   23393 coredump_hook.cc:466] RAW: Dumping core locally.
+[W1101 02:03:00.794740551 tpu_hooks.cc:85] Warning: <TorchTpu/> PJRT client not available, using TPU device index 0 unchecked: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/4' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 22531 (vLLM-Omni::DiffusionWorker_SP1)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1 (function ValidateDeviceIndex)
+F0000 00:00:1793498580.455762   23394 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/4' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 22531 (vLLM-Omni::DiffusionWorker_SP1)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7ff0a25f48b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7ff0a25f4831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7ff09bf17e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7ff09bf13d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7ff09bf13c2c  torch_tpu::GetContextState<>()
+    @     0x7ff09bf14395  torch_tpu::GetCompilationContext()
+    @     0x7ff09be9c7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7ff09be9907b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7ff09be989f6  torch_tpu::RecordDeviceSnapshots()
+    @     0x7ff09be898d3  torch_tpu::MaterializeDevice()
+    @     0x7ff09bf7e94d  torch_tpu::(anonymous namespace)::TpuDeviceGuardImpl::synchronizeDevice()
+    @     0x7ff16f995709  pybind11::cpp_function::initialize<>()::{lambda()#1}::_FUN()
+https://symbolize.stripped_domain/r/?trace=7ff17144ceec,7ff1713fe04f&map= 
+*** SIGABRT received by PID 23394 (TID 23394) on cpu 78, si_code=-6, from PID 23394; stack trace: ***
+PC: @     0x7ff17144ceec  (unknown)  (unknown)
+    @     0x7ff099d00137       1888  FailureSignalHandler()
+    @     0x7ff1713fe050  134692688  (unknown)
+    @     0x5c6d9b5d55d0  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7ff17144ceec,7ff099d00136,7ff1713fe04f,5c6d9b5d55cf&map= 
+E1101 02:03:00.520628   23394 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 02:03:00.520636   23394 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 02:03:00.520638   23394 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 02:03:00.520647   23394 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 02:03:00.520649   23394 coredump_hook.cc:466] RAW: Dumping core locally.
+E1101 02:03:03.507210   23393 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1101 02:03:03.782700   23394 process_state.cc:794] RAW: Raising signal 6 with default behavior
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 10 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

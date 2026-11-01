@@ -1,0 +1,132 @@
+  0x794bc39c362f  Thread::ThreadBody()
+    @     0x794c9b31f1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=794bc3b9ef93,794bc3b9ef57,794bb77eece4,794bb77ef4e1,794bb653311c,794bb6540c43,794bb65374e9,794bb6524645,794bbccdd71f,794bc379404d,794bc3797f71,794bc37a0ff1,794bc39c362e,794c9b31f1f4&map= 
+https://symbolize.stripped_domain/r/?trace=794c9b320eec,794c9b2d204f,7930a400274f&map= 
+*** SIGABRT received by PID 63328 (TID 72504) on cpu 66, si_code=-6, from PID 63328; ***
+E1101 09:22:53.230694   72504 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 09:22:53.230707   72504 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 09:22:53.230710   72504 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 09:22:53.231422   72504 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 09:22:53.231427   72504 coredump_hook.cc:466] RAW: Dumping core locally.
+https://symbolize.stripped_domain/r/?trace=794c9b320eec,794c9b2d204f,79309400fa1f&map= 
+E1101 09:22:53.231464   72539 process_state.cc:1153] RAW: Signal 6 raised at PC: 0x794c9b320eec while already in FailureSignalHandler!
+E1101 09:22:53.231472   72539 process_state.cc:1157] RAW: tid: 72539 raised new signal (old_tid: 72504)
+F1101 09:22:53.140185   72504 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+E1101 09:22:59.360521   72504 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-0 (pid=63328)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-1 (pid=63329)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-3 (pid=63331)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-4 (pid=63332)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-5 (pid=63333)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:22:59[0m [90m[multiproc_executor.py:142][0m Calling terminate on diffusion worker DiffusionWorker-7 (pid=63335)
+F1101 09:23:00.968941   82176 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+F1101 09:23:00.971951   82148 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.32 = bf16[512,16128,1]{0,1,2:T(16,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.51, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["1","5"]}]}}
+*** Check failure stack trace: ***
+    @     0x7a83c219ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x7a83c219ef58  absl::log_internal::LogMessage::Flush()
+    @     0x7a83b5deece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x7a83b5def4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x7a83b4b3311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83b4b40c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83b4b374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x7a83b4b24646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83bb2dd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x7a83c1d9404e  thread::Fiber::Body()
+    @     0x7a83c1d97f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7a83c1da0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7a83c1fc362f  Thread::ThreadBody()
+    @     0x7a849997b1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a83c219ef93,7a83c219ef57,7a83b5deece4,7a83b5def4e1,7a83b4b3311c,7a83b4b40c43,7a83b4b374e9,7a83b4b24645,7a83bb2dd71f,7a83c1d9404d,7a83c1d97f71,7a83c1da0ff1,7a83c1fc362e,7a849997b1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7a849997ceec,7a849992e04f,7a5e700024bf&map= 
+*** SIGABRT received by PID 63332 (TID 82148) on cpu 34, si_code=-6, from PID 63332; ***
+E1101 09:23:01.158529   82148 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 09:23:01.158539   82148 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 09:23:01.158541   82148 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 09:23:01.158555   82148 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 09:23:01.158557   82148 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x7a83c219ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x7a83c219ef58  absl::log_internal::LogMessage::Flush()
+    @     0x7a83b5deece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x7a83b5def4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x7a83b4b3311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83b4b40c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83b4b374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x7a83b4b24646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a83bb2dd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x7a83c1d9404e  thread::Fiber::Body()
+    @     0x7a83c1d97f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7a83c1da0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7a83c1fc362f  Thread::ThreadBody()
+    @     0x7a849997b1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a83c219ef93,7a83c219ef57,7a83b5deece4,7a83b5def4e1,7a83b4b3311c,7a83b4b40c43,7a83b4b374e9,7a83b4b24645,7a83bb2dd71f,7a83c1d9404d,7a83c1d97f71,7a83c1da0ff1,7a83c1fc362e,7a849997b1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7a849997ceec,7a849992e04f,7a5dd000274f&map= 
+E1101 09:23:01.161416   82176 process_state.cc:1153] RAW: Signal 6 raised at PC: 0x7a849997ceec while already in FailureSignalHandler!
+E1101 09:23:01.161422   82176 process_state.cc:1157] RAW: tid: 82176 raised new signal (old_tid: 82148)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:23:04[0m [90m[multiproc_executor.py:142][0m Calling kill on diffusion worker DiffusionWorker-1 (pid=63329)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:23:04[0m [90m[multiproc_executor.py:142][0m Calling kill on diffusion worker DiffusionWorker-3 (pid=63331)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:23:04[0m [90m[multiproc_executor.py:142][0m Calling kill on diffusion worker DiffusionWorker-4 (pid=63332)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:23:04[0m [90m[multiproc_executor.py:142][0m Calling kill on diffusion worker DiffusionWorker-5 (pid=63333)
+[0;36m(APIServer pid=63062)[0;0m [33mWARNING[0m [90m11-01 09:23:04[0m [90m[multiproc_executor.py:142][0m Calling kill on diffusion worker DiffusionWorker-7 (pid=63335)
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:98][0m [InlineStageDiffusionClient] stage-0 [rep-0] diffusion executor died unexpectedly.
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m Diffusion request img_gen-aacf396d465276b3-901487aa failed: Executor shut down
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m Traceback (most recent call last):
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/inline_stage_diffusion_client.py", line 168, in _dispatch_request
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m     async for results in self._engine.step_streaming(request):
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 546, in step_streaming
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m     formatted_outputs = self.postprocess_output(request, output)
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 616, in postprocess_output
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m     raise RuntimeError(output.error)
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[inline_stage_diffusion_client.py:193][0m RuntimeError: Executor shut down
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:1548][0m [Orchestrator] Stage-0 replica-0 is dead; evicting it and failing its in-flight requests: ('EngineCore encountered an issue. See stack trace (above) for the root cause.', 'Stage-0 inline diffusion engine is dead')
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-aacf396d465276b3-901487aa stage-0: Executor shut down
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[stage_pool.py:1527][0m [StagePool] Stage 0 replica 0 shut down
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-aacf396d465276b3-901487aa']
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-aacf396d465276b3-901487aa
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-aacf396d465276b3-901487aa failed (input error): Executor shut down
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m Image generation failed: Executor shut down
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m Traceback (most recent call last):
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 2270, in generate_images
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     result = await _generate_with_async_omni(
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/diffusion.py", line 43, in _generate_with_async_omni
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     async for output in engine_client.generate(
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 327, in generate
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     async for output in self._process_orchestrator_results(
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni_base.py", line 279, in _process_orchestrator_results
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     self._raise_nonfatal_error_message(result)
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/omni_base.py", line 556, in _raise_nonfatal_error_message
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     raise_client_error_or(
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/errors.py", line 81, in raise_client_error_or
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m     raise fallback(message)
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[api_server.py:2312][0m RuntimeError: Executor shut down
+INFO:     127.0.0.1:44702 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:1605][0m [Orchestrator] req=img_gen-93c6b1c8f9411d06-94b4f693: stage-0 has no live replica; failing the request
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-93c6b1c8f9411d06-94b4f693 stage-0: Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-93c6b1c8f9411d06-94b4f693']
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-93c6b1c8f9411d06-94b4f693
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-93c6b1c8f9411d06-94b4f693 failed (input error): Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[errors.py:50][0m EngineDeadError: orchestrator_alive=True, errored=False, request_id=img_gen-93c6b1c8f9411d06, error_stage_id=0
+INFO:     127.0.0.1:34200 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:1605][0m [Orchestrator] req=img_gen-b59a6f72e8a68b67-9c91e148: stage-0 has no live replica; failing the request
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-b59a6f72e8a68b67-9c91e148 stage-0: Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-b59a6f72e8a68b67-9c91e148']
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-b59a6f72e8a68b67-9c91e148
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:07[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-b59a6f72e8a68b67-9c91e148 failed (input error): Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:07[0m [90m[errors.py:50][0m EngineDeadError: orchestrator_alive=True, errored=False, request_id=img_gen-b59a6f72e8a68b67, error_stage_id=0
+INFO:     127.0.0.1:34204 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[orchestrator.py:1605][0m [Orchestrator] req=img_gen-8c34327fec521e46-8e0590c1: stage-0 has no live replica; failing the request
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-8c34327fec521e46-8e0590c1 stage-0: Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-8c34327fec521e46-8e0590c1']
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-8c34327fec521e46-8e0590c1
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-8c34327fec521e46-8e0590c1 failed (input error): Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[errors.py:50][0m EngineDeadError: orchestrator_alive=True, errored=False, request_id=img_gen-8c34327fec521e46, error_stage_id=0
+INFO:     127.0.0.1:34210 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[orchestrator.py:1605][0m [Orchestrator] req=img_gen-9dda97a77e411465-b590ce63: stage-0 has no live replica; failing the request
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-9dda97a77e411465-b590ce63 stage-0: Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-9dda97a77e411465-b590ce63']
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-9dda97a77e411465-b590ce63
+[0;36m(APIServer pid=63062)[0;0m [32mINFO[0m [90m11-01 09:23:08[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-9dda97a77e411465-b590ce63 failed (input error): Stage-0 has no live replica
+[0;36m(APIServer pid=63062)[0;0m [31mERROR[0m [90m11-01 09:23:08[0m [90m[errors.py:50][0m EngineDeadError: orchestrator_alive=True, errored=False, request_id=img_gen-9dda97a77e411465, error_stage_id=0
+INFO:     127.0.0.1:34226 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error

@@ -1,0 +1,331 @@
+nd subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100%|██████████| 3/3
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+
+Loading required modules:  14%|█▍        | 1/7 [00:03<00:20,  3.35s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:03<00:08,  1.66s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:04<00:24,  4.02s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:04<00:02,  1.40it/s]
+Loading required modules:  71%|███████▏  | 5/7 [00:04<00:01,  1.90it/s]
+Loading required modules: 100%|██████████| 7/7 [00:04<00:00,  1.64it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  29%|██▊       | 2/7 [00:04<00:09,  1.93s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:04<00:02,  1.24it/s]
+Loading required modules:  71%|███████▏  | 5/7 [00:04<00:01,  1.70it/s]
+Loading required modules: 100%|██████████| 7/7 [00:04<00:00,  1.43it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:31,  5.22s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:32,  5.39s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:05<00:12,  2.58s/it][10-31 20:14:46] Attention backends for transformer: oot
+
+Loading required modules:  29%|██▊       | 2/7 [00:05<00:12,  2.53s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:06<00:36,  6.03s/it][10-31 20:14:46] Loaded transformer: FluxTransformer2DModel (sgl-diffusion version). model size: 22.15 GB, vram: 22.15 GB. avail GPU mem: 72.59 GB
+
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:35,  6.00s/it][10-31 20:14:46] Loading text_encoder_2 from /dev/shm/hf_cache/FLUX.1-schnell/text_encoder_2. avail mem: 72.59 GB
+
+
+Loading safetensors checkpoint shards: 0%|          | 0/2[A
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:35,  5.98s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.05s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.06s/it]
+
+Loading safetensors checkpoint shards: 50%|█████     | 1/2[A
+Loading required modules:  71%|███████▏  | 5/7 [00:06<00:01,  1.31it/s]
+Loading required modules: 100%|██████████| 7/7 [00:06<00:00,  1.08it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  71%|███████▏  | 5/7 [00:06<00:01,  1.30it/s]
+Loading required modules: 100%|██████████| 7/7 [00:06<00:00,  1.09it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:14,  2.84s/it]
+
+Loading safetensors checkpoint shards: 100%|██████████| 2/2[A
+Loading safetensors checkpoint shards: 100%|██████████| 2/2
+
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:14,  2.85s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:06<00:39,  6.52s/it][10-31 20:14:47] Loaded text_encoder_2: T5EncoderModel (sgl-diffusion version). model size: 8.87 GB, host pageable: 8.87 GB. avail GPU mem: 72.59 GB
+
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:14,  2.91s/it][10-31 20:14:47] Loading text_encoder from /dev/shm/hf_cache/FLUX.1-schnell/text_encoder. avail mem: 72.59 GB
+
+
+Loading safetensors checkpoint shards: 0%|          | 0/1[A
+Loading safetensors checkpoint shards: 100%|██████████| 1/1
+[10-31 20:14:47] Loaded text_encoder: CLIPTextModel (sgl-diffusion version). model size: 0.23 GB, host pageable: 0.23 GB. avail GPU mem: 72.59 GB
+[10-31 20:14:47] Loading vae from /dev/shm/hf_cache/FLUX.1-schnell/vae. avail mem: 72.59 GB
+
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.15s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.15s/it]
+Loading required modules:  71%|███████▏  | 5/7 [00:07<00:01,  1.21it/s]
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.01s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:14:47] Loaded vae: AutoencoderKL (sgl-diffusion version). model size: 0.16 GB, vram: 0.16 GB. avail GPU mem: 72.43 GB
+
+Loading required modules:  57%|█████▋    | 4/7 [00:07<00:03,  1.18s/it][10-31 20:14:47] Loading tokenizer_2 from /dev/shm/hf_cache/FLUX.1-schnell/tokenizer_2. avail mem: 72.43 GB
+
+Loading required modules:  71%|███████▏  | 5/7 [00:07<00:01,  1.21it/s]
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.01s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:14:47] Loaded tokenizer_2: T5Tokenizer (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+
+Loading required modules:  71%|███████▏  | 5/7 [00:07<00:01,  1.18it/s][10-31 20:14:47] Loading tokenizer from /dev/shm/hf_cache/FLUX.1-schnell/tokenizer. avail mem: 72.43 GB
+
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:14,  2.94s/it][10-31 20:14:47] Loaded tokenizer: CLIPTokenizer (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+[10-31 20:14:47] Loading scheduler from /dev/shm/hf_cache/FLUX.1-schnell/scheduler. avail mem: 72.43 GB
+[10-31 20:14:47] Loaded scheduler: FlowMatchEulerDiscreteScheduler (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.03s/it]
+[10-31 20:14:47] Creating pipeline stages...
+[10-31 20:14:47] Using TPU Pallas splash attention backend (falls back to SDPA per shape, or entirely off TPU v7x).
+[10-31 20:14:47] Using oot attention backend
+[10-31 20:14:47] Pipeline instantiated
+[10-31 20:14:47] Worker 0: Initialized device, model, and distributed environment.
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:14:47] Worker 0: Scheduler loop started.
+
+Loading required modules:  57%|█████▋    | 4/7 [00:07<00:03,  1.16s/it]
+Loading required modules:  86%|████████▌ | 6/7 [00:07<00:00,  1.55it/s]
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.04s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:14:47] [server-load] workers_ready_monotonic_ns=1753394088395
+[10-31 20:14:47] Starting FastAPI server.
+[2026-10-31 20:14:48] [32mINFO[0m:     Started server process [[36m26504[0m]
+[2026-10-31 20:14:48] [32mINFO[0m:     Waiting for application startup.
+[10-31 20:14:48] ZMQ Broker is listening for offline jobs on tcp://127.0.0.1:30181
+[2026-10-31 20:14:48] [32mINFO[0m:     Application startup complete.
+[2026-10-31 20:14:48] [32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:30180[0m (Press CTRL+C to quit)
+[2026-10-31 20:14:48] [32mINFO[0m:     127.0.0.1:40330 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:14:48] Diffusers version: 0.30.0.dev0
+[10-31 20:14:48] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                         fps: 24
+                      prompt: <redacted, len=196>
+                  neg_prompt: None
+                        seed: 1001
+                 infer_steps: 4
+      num_outputs_per_prompt: 1
+              guidance_scale: 0.0
+     embedded_guidance_scale: 3.5
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: /dev/shm/sglang_outputs/39fcd1c6-b22f-49c5-b2f8-d26d180e8bc3.png
+        
+[10-31 20:14:48] Running pipeline stages: ['InputValidationStage', 'prompt_encoding_stage_primary', 'LatentPreparationStage', 'TimestepPreparationStage', 'denoising_stage', 'decoding_stage']
+[10-31 20:14:48] [InputValidationStage] started...
+[10-31 20:14:48] [InputValidationStage] finished in 0.0001 seconds
+[10-31 20:14:48] [TextEncodingStage] started...
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+[10-31 20:14:49] [TextEncodingStage] finished in 1.7153 seconds
+[10-31 20:14:49] [LatentPreparationStage] started...
+[10-31 20:14:49] [LatentPreparationStage] finished in 0.0012 seconds
+[10-31 20:14:49] [TimestepPreparationStage] started...
+[10-31 20:14:49] [TimestepPreparationStage] finished in 0.0008 seconds
+[10-31 20:14:51] [DenoisingStage] started...
+
+  0%|          | 0/4 [00:00<?, ?it/s][10-31 20:14:51] TPU splash attention: q_seq=1536 kv_seq=1536 -> flash kernel blocks=(768, 1536, 1536)
+
+ 25%|██▌       | 1/4 [00:00<00:00,  4.14it/s]
+ 50%|█████     | 2/4 [00:00<00:00,  6.25it/s]
+ 75%|███████▌  | 3/4 [00:00<00:00,  6.43it/s]
+100%|██████████| 4/4 [00:00<00:00,  6.86it/s]
+100%|██████████| 4/4 [00:00<00:00,  6.40it/s]
+[10-31 20:14:52] [DenoisingStage] average time per step: 0.1566 seconds
+[10-31 20:14:52] [DenoisingStage] finished in 1.4033 seconds
+[10-31 20:14:52] [DecodingStage] started...
+[10-31 20:14:52] [DecodingStage] finished in 0.0113 seconds
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+[10-31 20:24:21] Output saved to [1;36m/dev/shm/sglang_outputs/39fcd1c6-b22f-49c5-b2f8-d26d180e8bc3.png[0;0m
+[10-31 20:24:21] Pixel data generated successfully in [92m573.72[0;0m seconds
+[10-31 20:24:21] Peak memory usage: 32385.82 MB
+[2026-10-31 20:24:21] [32mINFO[0m:     127.0.0.1:40338 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:24:21] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                         fps: 24
+                      prompt: <redacted, len=196>
+                  neg_prompt: None
+                        seed: 1100
+                 infer_steps: 4
+      num_outputs_per_prompt: 1
+              guidance_scale: 0.0
+     embedded_guidance_scale: 3.5
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: /dev/shm/sglang_outputs/f1646915-ab09-4ea9-9a94-02ee93abd749.png
+        
+[10-31 20:24:21] Running pipeline stages: ['InputValidationStage', 'prompt_encoding_stage_primary', 'LatentPreparationStage', 'TimestepPreparationStage', 'denoising_stage', 'decoding_stage']
+[10-31 20:24:21] [InputValidationStage] started...
+[10-31 20:24:21] [InputValidationStage] finished in 0.0000 seconds
+[10-31 20:24:21] [TextEncodingStage] started...
+[10-31 20:24:21] [TextEncodingStage] finished in 0.0019 seconds
+[10-31 20:24:21] [LatentPreparationStage] started...
+[10-31 20:24:21] [LatentPreparationStage] finished in 0.0008 seconds
+[10-31 20:24:21] [TimestepPreparationStage] started...
+[10-31 20:24:21] [TimestepPreparationStage] finished in 0.0005 seconds
+[10-31 20:24:21] [DenoisingStage] started...
+
+  0%|          | 0/4 [00:00<?, ?it/s][10-31 20:24:21] Pixel data generated successfully in [92m6.42[0;0m seconds
+[10-31 20:24:21] Peak memory usage: 32339.92 MB
+[10-31 20:24:21] Pixel data generated successfully in [92m6.42[0;0m seconds
+[10-31 20:24:21] Peak memory usage: 32457.82 MB
+[10-31 20:24:21] Pixel data generated successfully in [92m6.42[0;0m seconds
+[10-31 20:24:21] Peak memory usage: 32457.82 MB
+[2026-10-31 20:24:21] [32mINFO[0m:     127.0.0.1:56866 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:21] [32mINFO[0m:     127.0.0.1:56842 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:21] [32mINFO[0m:     127.0.0.1:56852 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+
+ 25%|██▌       | 1/4 [00:00<00:01,  2.18it/s]
+ 50%|█████     | 2/4 [00:00<00:00,  2.10it/s]
+ 75%|███████▌  | 3/4 [00:01<00:00,  3.22it/s]
+100%|██████████| 4/4 [00:01<00:00,  4.37it/s]
+100%|██████████| 4/4 [00:01<00:00,  3.44it/s]
+[10-31 20:24:23] [DenoisingStage] average time per step: 0.2912 seconds
+[10-31 20:24:23] [DenoisingStage] finished in 1.1701 seconds
+[10-31 20:24:23] [DecodingStage] started...
+[10-31 20:24:23] [DecodingStage] finished in 0.0104 seconds
+[10-31 20:24:27] Pixel data generated successfully in [92m5.32[0;0m seconds
+[10-31 20:24:27] Peak memory usage: 33032.30 MB
+[10-31 20:24:27] Output saved to [1;36m/dev/shm/sglang_outputs/f1646915-ab09-4ea9-9a94-02ee93abd749.png[0;0m
+[10-31 20:24:27] Pixel data generated successfully in [92m5.32[0;0m seconds
+[10-31 20:24:27] Peak memory usage: 32982.30 MB
+[10-31 20:24:27] Pixel data generated successfully in [92m5.33[0;0m seconds
+[10-31 20:24:27] Peak memory usage: 25493.12 MB
+[2026-10-31 20:24:27] [32mINFO[0m:     127.0.0.1:46786 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:24:27] Pixel data generated successfully in [92m5.32[0;0m seconds
+[10-31 20:24:27] Peak memory usage: 33032.30 MB
+[2026-10-31 20:24:27] [32mINFO[0m:     127.0.0.1:46798 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:27] [32mINFO[0m:     127.0.0.1:46778 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:27] [32mINFO[0m:     127.0.0.1:46810 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:24:27] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                         fps: 24
+                      prompt: <redacted, len=167>
+                  neg_prompt: None
+                        seed: 1104
+                 infer_steps: 4
+      num_outputs_per_prompt: 1
+              guidance_scale: 0.0
+     embedded_guidance_scale: 3.5
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: /dev/shm/sglang_outputs/2d2cfd0a-5160-4c34-961e-d17b39661caa.png
+        
+[10-31 20:24:27] Running pipeline stages: ['InputValidationStage', 'prompt_encoding_stage_primary', 'LatentPreparationStage', 'TimestepPreparationStage', 'denoising_stage', 'decoding_stage']
+[10-31 20:24:27] [InputValidationStage] started...
+[10-31 20:24:27] [InputValidationStage] finished in 0.0000 seconds
+[10-31 20:24:27] [TextEncodingStage] started...
+[10-31 20:24:30] [TextEncodingStage] finished in 2.9621 seconds
+[10-31 20:24:30] [LatentPreparationStage] started...
+[10-31 20:24:30] [LatentPreparationStage] finished in 0.0010 seconds
+[10-31 20:24:30] [TimestepPreparationStage] started...
+[10-31 20:24:30] [TimestepPreparationStage] finished in 0.0005 seconds
+[10-31 20:24:30] [DenoisingStage] started...
+
+  0%|          | 0/4 [00:00<?, ?it/s]
+ 25%|██▌       | 1/4 [00:00<00:00,  9.00it/s]
+ 75%|███████▌  | 3/4 [00:00<00:00, 10.43it/s]
+100%|██████████| 4/4 [00:00<00:00, 10.38it/s]
+[10-31 20:24:30] [DenoisingStage] average time per step: 0.0965 seconds
+[10-31 20:24:30] [DenoisingStage] finished in 0.3908 seconds
+[10-31 20:24:30] [DecodingStage] started...
+[10-31 20:24:30] [DecodingStage] finished in 0.0108 seconds
+[10-31 20:24:33] Output saved to [1;36m/dev/shm/sglang_outputs/2d2cfd0a-5160-4c34-961e-d17b39661caa.png[0;0m
+[10-31 20:24:33] Pixel data generated successfully in [92m6.14[0;0m seconds
+[10-31 20:24:33] Peak memory usage: 32974.29 MB
+[10-31 20:24:33] Pixel data generated successfully in [92m6.15[0;0m seconds
+[10-31 20:24:33] Peak memory usage: 33038.02 MB
+[10-31 20:24:33] Pixel data generated successfully in [92m6.15[0;0m seconds
+[10-31 20:24:33] Peak memory usage: 32944.30 MB
+[10-31 20:24:33] Pixel data generated successfully in [92m6.15[0;0m seconds
+[10-31 20:24:33] Peak memory usage: 33038.30 MB
+[2026-10-31 20:24:33] [32mINFO[0m:     127.0.0.1:46828 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:33] [32mINFO[0m:     127.0.0.1:46824 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:33] [32mINFO[0m:     127.0.0.1:46842 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[2026-10-31 20:24:33] [32mINFO[0m:     127.0.0.1:46850 - "[1mPOST /v1/images/generations HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:24:33] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                         fps: 24
+                      prompt: <redacted, len=196>
+                  neg_prompt: None
+                        seed: 4000
+                 infer_steps: 4
+      num_outputs_per_prompt: 1
+              guidance_scale: 0.0
+     embedded_guidance_scale: 3.5
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: /dev/shm/sglang_outputs/e3bb9cc6-ba7d-4732-a559-39663f62a9ff.png
+        
+[10-31 20:24:33] Running pipeline stages: ['InputValidationStage', 'prompt_encoding_stage_primary', 'LatentPreparationStage', 'TimestepPreparationStage', 'denoising_stage', 'decoding_stage']
+[10-31 20:24:33] [InputValidationStage] started...
+[10-31 20:24:33] [InputValidationStage] finished in 0.0000 seconds
+[10-31 20:24:33] [TextEncodingStage] started...
+[10-31 20:24:33] [TextEncodingStage] finished in 0.0018 seconds
+[10-31 20:24:33] [LatentPreparationStage] started...
+[10-31 20:24:33] [LatentPreparationStage] finished in 0.0008 seconds
+[10-31 20:24:33] [TimestepPreparationStage] started...
+[10-31 20:24:33] [TimestepPreparationStage] finished in 0.0005 seconds
+[10-31 20:24:33] [DenoisingStage] started...
+
+  0%|          | 0/4 [00:00<?, ?it/s]
+ 25%|██▌       | 1/4 [00:00<00:00,  9.88it/s]
+ 50%|█████     | 2/4 [00:00<00:00,  9.69it/s]
+100%|██████████| 4/4 [00:00<00:00, 10.15it/s]
+100%|██████████| 4/4 [00:00<00:00, 10.07it/s]
+[10-31 20:24:33] [DenoisingStage] average time per step: 0.0995 seconds
+[10-31 20:24:33] [DenoisingStage] finished in 0.4029 seconds
+[10-31 20:24:33] [DecodingStage] started...
+[10-31 20:24:33] [DecodingStage] finished in 0.0089 seconds
+[2026-10-31 20:26:33] [32mINFO[0m:     Shutting down
+[2026-10-31 20:26:33] [32mINFO[0m:     Waiting for connections to close. (CTRL+C to force quit)
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

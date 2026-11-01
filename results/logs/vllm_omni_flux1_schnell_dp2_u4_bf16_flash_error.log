@@ -1,0 +1,182 @@
+WorkLoop()
+    @     0x7ee33d7a0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7ee33d9c362f  Thread::ThreadBody()
+    @     0x7ee41526f1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7ee33db9ef93,7ee33db9ef57,7ee3317eece4,7ee3317ef4e1,7ee33053311c,7ee330540c43,7ee3305374e9,7ee330524645,7ee336cdd71f,7ee33d79404d,7ee33d797f71,7ee33d7a0ff1,7ee33d9c362e,7ee41526f1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7ee415270eec,7ee41522204f,7ebd50003f7f&map= 
+*** SIGABRT received by PID 45116 (TID 62875) on cpu 215, si_code=-6, from PID 45116; ***
+E1101 09:20:24.442470   62875 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 09:20:24.442482   62875 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 09:20:24.442484   62875 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+*** Check failure stack trace: ***
+    @     0x7ee33db9ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x7ee33db9ef58  absl::log_internal::LogMessage::Flush()
+    @     0x7ee3317eece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x7ee3317ef4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x7ee33053311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7ee330540c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7ee3305374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x7ee330524646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7ee336cdd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x7ee33d79404e  thread::Fiber::Body()
+    @     0x7ee33d797f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7ee33d7a0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7ee33d9c362f  Thread::ThreadBody()
+    @     0x7ee41526f1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7ee33db9ef93,7ee33db9ef57,7ee3317eece4,7ee3317ef4e1,7ee33053311c,7ee330540c43,7ee3305374e9,7ee330524645,7ee336cdd71f,7ee33d79404d,7ee33d797f71,7ee33d7a0ff1,7ee33d9c362e,7ee41526f1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7ee415270eec,7ee41522204f,7ed64423406f&map= 
+E1101 09:20:24.444284   62868 process_state.cc:1153] RAW: Signal 6 raised at PC: 0x7ee415270eec while already in FailureSignalHandler!
+E1101 09:20:24.444291   62868 process_state.cc:1157] RAW: tid: 62868 raised new signal (old_tid: 62875)
+E1101 09:20:24.444554   62875 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 09:20:24.444557   62875 coredump_hook.cc:466] RAW: Dumping core locally.
+F1101 09:20:24.356690   62875 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+E1101 09:20:30.904099   62875 process_state.cc:794] RAW: Raising signal 6 with default behavior
+F1101 09:20:32.182238   62332 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+F1101 09:20:32.182891   49686 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.32 = bf16[512,16128,1]{0,1,2:T(16,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.51, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["1","5"]}]}}
+*** Check failure stack trace: ***
+    @     0x787869d9ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x787869d9ef58  absl::log_internal::LogMessage::Flush()
+    @     0x78785d9eece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x78785d9ef4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x78785c73311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x78785c740c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x78785c7374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x78785c724646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x787862edd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x78786999404e  thread::Fiber::Body()
+    @     0x787869997f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7878699a0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x787869bc362f  Thread::ThreadBody()
+    @     0x7879415c21f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=787869d9ef93,787869d9ef57,78785d9eece4,78785d9ef4e1,78785c73311c,78785c740c43,78785c7374e9,78785c724645,787862edd71f,78786999404d,787869997f71,7878699a0ff1,787869bc362e,7879415c21f4&map= 
+https://symbolize.stripped_domain/r/?trace=7879415c3eec,78794157504f,7862480091af&map= 
+*** SIGABRT received by PID 45117 (TID 49686) on cpu 130, si_code=-6, from PID 45117; ***
+E1101 09:20:32.282542   49686 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 09:20:32.282556   49686 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 09:20:32.282561   49686 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 09:20:32.282579   49686 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 09:20:32.282582   49686 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x787869d9ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x787869d9ef58  absl::log_internal::LogMessage::Flush()
+    @     0x78785d9eece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x78785d9ef4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x78785c73311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x78785c740c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x78785c7374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x78785c724646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x787862edd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x78786999404e  thread::Fiber::Body()
+    @     0x787869997f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7878699a0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x787869bc362f  Thread::ThreadBody()
+    @     0x7879415c21f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=787869d9ef93,787869d9ef57,78785d9eece4,78785d9ef4e1,78785c73311c,78785c740c43,78785c7374e9,78785c724645,787862edd71f,78786999404d,787869997f71,7878699a0ff1,787869bc362e,7879415c21f4&map= 
+https://symbolize.stripped_domain/r/?trace=7879415c3eec,78794157504f,78628c05272f&map= 
+E1101 09:20:32.282946   62332 process_state.cc:1153] RAW: Signal 6 raised at PC: 0x7879415c3eec while already in FailureSignalHandler!
+E1101 09:20:32.282951   62332 process_state.cc:1157] RAW: tid: 62332 raised new signal (old_tid: 49686)
+Calling terminate on diffusion worker DiffusionWorker-1 (pid=45117)
+Calling terminate on diffusion worker DiffusionWorker-3 (pid=45119)
+F1101 09:20:32.182238   62332 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+E1101 09:20:40.679421   49686 process_state.cc:794] RAW: Raising signal 6 with default behavior
+F1101 09:20:42.109088   49651 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.35 = bf16[1,512,16128]{1,2,0:T(8,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.55, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["0","5"]}]}}
+F1101 09:20:42.109951   62987 fusion_emitter.cc:12078] Check failed: rank == best_window_bounds_in_chunks.size() Cannot find a valid window for %fusion.32 = bf16[512,16128,1]{0,1,2:T(16,128)(2,1)} fusion(%param.0, %param.1, %param.2, %param.3, %param.4), kind=kLoop, calls=%fused_computation.51, metadata={op_name="add/add"}, backend_config={"flag_configs":[],"scoped_memory_configs":[],"used_scoped_memory_configs":[],"aliasing_operands":{"lists":[{"indices":["1","5"]}]}}
+*** Check failure stack trace: ***
+    @     0x7a507239ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x7a507239ef58  absl::log_internal::LogMessage::Flush()
+    @     0x7a5065feece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x7a5065fef4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x7a5064d3311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a5064d40c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a5064d374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x7a5064d24646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a506b4dd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x7a5071f9404e  thread::Fiber::Body()
+    @     0x7a5071f97f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7a5071fa0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7a50721c362f  Thread::ThreadBody()
+    @     0x7a5149b9b1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a507239ef93,7a507239ef57,7a5065feece4,7a5065fef4e1,7a5064d3311c,7a5064d40c43,7a5064d374e9,7a5064d24645,7a506b4dd71f,7a5071f9404d,7a5071f97f71,7a5071fa0ff1,7a50721c362e,7a5149b9b1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7a5149b9ceec,7a5149b4e04f,7a2aec2d6bcf&map= 
+*** SIGABRT received by PID 45119 (TID 62987) on cpu 102, si_code=-6, from PID 45119; ***
+E1101 09:20:42.207722   62987 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1101 09:20:42.207733   62987 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1101 09:20:42.207736   62987 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1101 09:20:42.207750   62987 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1101 09:20:42.207753   62987 coredump_hook.cc:466] RAW: Dumping core locally.
+*** Check failure stack trace: ***
+    @     0x7a507239ef94  absl::log_internal::LogMessage::SendToLog()
+    @     0x7a507239ef58  absl::log_internal::LogMessage::Flush()
+    @     0x7a5065feece5  xla::jellyfish::FusionEmitter::ComputeWindowConfigInternal()
+    @     0x7a5065fef4e2  xla::jellyfish::FusionEmitter::Emit()
+    @     0x7a5064d3311d  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a5064d40c44  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a5064d374ea  xla::jellyfish::LoweringEmitter::AddWorkUnit()::$_1::operator()()
+    @     0x7a5064d24646  std::__u::__function::__policy_func<>::__call_func<>()
+    @     0x7a506b4dd720  absl::internal_any_invocable::RemoteInvoker<>()
+    @     0x7a5071f9404e  thread::Fiber::Body()
+    @     0x7a5071f97f72  thread::(anonymous namespace)::FutexDomainThread::WorkLoop()
+    @     0x7a5071fa0ff2  thread::CommonFiberDomainThread::Run()
+    @     0x7a50721c362f  Thread::ThreadBody()
+    @     0x7a5149b9b1f5  (unknown)
+https://symbolize.stripped_domain/r/?trace=7a507239ef93,7a507239ef57,7a5065feece4,7a5065fef4e1,7a5064d3311c,7a5064d40c43,7a5064d374e9,7a5064d24645,7a506b4dd71f,7a5071f9404d,7a5071f97f71,7a5071fa0ff1,7a50721c362e,7a5149b9b1f4&map= 
+https://symbolize.stripped_domain/r/?trace=7a5149b9ceec,7a5149b4e04f,7a42f400c06f&map= 
+E1101 09:20:42.208675   49651 process_state.cc:1153] RAW: Signal 6 raised at PC: 0x7a5149b9ceec while already in FailureSignalHandler!
+E1101 09:20:42.208682   49651 process_state.cc:1157] RAW: tid: 49651 raised new signal (old_tid: 62987)
+Calling kill on diffusion worker DiffusionWorker-3 (pid=45119)
+[StageDiffusionProc] fatal engine failure detected (diffusion executor failed); signaling run_loop to send DIFFUSION_PROC_DEAD and exit.
+Diffusion request img_gen-bbd369565bbe2a56-9bc29e02 failed: Executor shut down
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 409, in _dispatch_request
+    result = await self._process_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 208, in _process_request
+    async for results in self._engine.step_streaming(request):
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 546, in step_streaming
+    formatted_outputs = self.postprocess_output(request, output)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 616, in postprocess_output
+    raise RuntimeError(output.error)
+RuntimeError: Executor shut down
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:47[0m [90m[stage_diffusion_client.py:256][0m [StageDiffusionClient] stage-0 [rep-0] subprocess error for img_gen-bbd369565bbe2a56-9bc29e02: Executor shut down
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:47[0m [90m[stage_diffusion_client.py:228][0m [StageDiffusionClient] stage-0 [rep-0] received DIFFUSION_PROC_DEAD sentinel from subprocess.
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:47[0m [90m[orchestrator.py:1548][0m [Orchestrator] Stage-0 replica-0 is dead; evicting it and failing its in-flight requests: EngineCore encountered an issue. See stack trace (above) for the root cause.
+[0;36m(APIServer pid=44363)[0;0m [32mINFO[0m [90m11-01 09:20:47[0m [90m[utils.py:628][0m [shutdown] Process manager: send sigterm to process StageDiffusionProc
+StageDiffusionProc encountered a fatal error.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 765, in run_diffusion_proc
+    asyncio.run(proc.run_loop(request_address, response_address))
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 536, in run_loop
+    raise RuntimeError(
+RuntimeError: StageDiffusionProc executor reported permanent failure; tearing down the diffusion subprocess.
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:47[0m [90m[async_omni_base.py:268][0m [AsyncOmni] Orchestrator error for req=img_gen-bbd369565bbe2a56-9bc29e02 stage-0: Executor shut down
+[0;36m(APIServer pid=44363)[0;0m [32mINFO[0m [90m11-01 09:20:49[0m [90m[stage_pool.py:1527][0m [StagePool] Stage 0 replica 0 shut down
+[0;36m(APIServer pid=44363)[0;0m [32mINFO[0m [90m11-01 09:20:49[0m [90m[orchestrator.py:679][0m [Orchestrator] Aborted request(s) ['img_gen-bbd369565bbe2a56-9bc29e02']
+[0;36m(APIServer pid=44363)[0;0m [32mINFO[0m [90m11-01 09:20:49[0m [90m[async_omni_base.py:512][0m [AsyncOmni] Aborted request(s) img_gen-bbd369565bbe2a56-9bc29e02
+[0;36m(APIServer pid=44363)[0;0m [32mINFO[0m [90m11-01 09:20:49[0m [90m[async_omni.py:356][0m [AsyncOmni] Request img_gen-bbd369565bbe2a56-9bc29e02 failed (input error): Executor shut down
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m Image generation failed: Executor shut down
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m Traceback (most recent call last):
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 2270, in generate_images
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     result = await _generate_with_async_omni(
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/diffusion.py", line 43, in _generate_with_async_omni
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     async for output in engine_client.generate(
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 327, in generate
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     async for output in self._process_orchestrator_results(
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni_base.py", line 279, in _process_orchestrator_results
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     self._raise_nonfatal_error_message(result)
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/omni_base.py", line 556, in _raise_nonfatal_error_message
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     raise_client_error_or(
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/errors.py", line 81, in raise_client_error_or
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m     raise fallback(message)
+[0;36m(APIServer pid=44363)[0;0m [31mERROR[0m [90m11-01 09:20:49[0m [90m[api_server.py:2312][0m RuntimeError: Executor shut down
+INFO:     127.0.0.1:47828 - "POST /v1/images/generations HTTP/1.1" 500 Internal Server Error

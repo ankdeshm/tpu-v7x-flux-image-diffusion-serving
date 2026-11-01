@@ -1,0 +1,78 @@
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793499156.950184   81323 pjrt_api.cc:119] GetPjrtApi was found for TPU at /usr/local/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1793499157.784775   81323 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1793499157.787213   81323 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+[0;36m(MainProcess pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[serve.py:344][0m Detected diffusion model: /dev/shm/hf_cache/FLUX.1-dev
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[api_utils.py:347][0m vLLM server version 0.32.0, serving model /dev/shm/hf_cache/FLUX.1-dev
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[api_utils.py:286][0m non-default args: {'model_tag': '/dev/shm/hf_cache/FLUX.1-dev', 'host': '0.0.0.0', 'port': 30280, 'model': '/dev/shm/hf_cache/FLUX.1-dev'}
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[omni_base.py:211][0m [AsyncOmni] Initializing with model /dev/shm/hf_cache/FLUX.1-dev
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[omni_engine_base.py:166][0m [OmniEngine] Initializing with model /dev/shm/hf_cache/FLUX.1-dev
+[0;36m(APIServer pid=81323)[0;0m [33mWARNING[0m [90m11-01 02:12:45[0m [90m[ring_globals.py:76][0m FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[config_factory.py:684][0m Resolved generic diffusion final_output_type='image' for model_class_name='FluxPipeline'.
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[omni_engine_base.py:316][0m [OmniEngine] Launching Orchestrator thread with 1 stages
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[initialization.py:443][0m Loaded OmniTransferConfig with 0 connector configurations
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[stage_utils.py:178][0m Stage 0 logical-to-physical device mapping: 0->0, 1->1
+[0;36m(APIServer pid=81323)[0;0m [32mINFO[0m [90m11-01 02:12:45[0m [90m[multiproc_executor.py:372][0m Starting server...
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Pin memory is not supported on TPU.
+Pin memory is not supported on TPU.
+FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[W1101 02:12:55.098079870 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_SLICEBUILDER_ADDRESSES environment variable is an experimental feature and may change or be removed without notice. (function operator())
+[W1101 02:12:55.098103803 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_TOPOLOGY environment variable is an experimental feature and may change or be removed without notice. (function operator())
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793499175.757633   82050 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[W1101 02:12:55.103965575 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_SLICEBUILDER_ADDRESSES environment variable is an experimental feature and may change or be removed without notice. (function operator())
+[W1101 02:12:55.103983702 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_TOPOLOGY environment variable is an experimental feature and may change or be removed without notice. (function operator())
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793499175.763515   82049 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+/workspace/vllm-torchtpu/src/vllm_torchtpu/layers/adapter/router_topk.py:38: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> jax_op is experimental and subject to change: torch.tpu.pallas.jax_op is experimental and subject to change.
+  _op = pallas.jax_op("pallas::moe_router_topk", router_topk)
+/workspace/vllm-torchtpu/src/vllm_torchtpu/layers/adapter/router_topk.py:38: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> jax_op is experimental and subject to change: torch.tpu.pallas.jax_op is experimental and subject to change.
+  _op = pallas.jax_op("pallas::moe_router_topk", router_topk)
+[W1101 02:12:57.162907030 socket.cpp:764] [c10d] The client socket has failed to connect to [localhost]:32300 (errno: 99 - Cannot assign requested address).
+W0000 00:00:1793499178.145414   82050 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=1 devices_per_host=unset world_size=2). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793499178.155471   82049 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=0 devices_per_host=unset world_size=2). Every rank will publish to the world store individually, which is slower at scale.
+/workspace/vllm-torchtpu/src/vllm_torchtpu/platforms/tpu_platform.py:696: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if not torch.tpu.is_initialized():
+/workspace/vllm-torchtpu/src/vllm_torchtpu/platforms/tpu_platform.py:696: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if not torch.tpu.is_initialized():
+WARNING:vllm_omni.diffusion.profiler.diffusion_pipeline_profiler:[DiffusionPipelineProfiler] Method path tokenizer.forward not found
+WARNING:vllm_omni.diffusion.registry:Sequence parallelism is enabled (sp_size=2) but no transformer with _sp_plan found. SP hooks not applied. Consider adding _sp_plan to your transformer model.
+
+Multi-thread loading shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+WARNING:vllm_omni.diffusion.profiler.diffusion_pipeline_profiler:[DiffusionPipelineProfiler] Method path tokenizer.forward not found
+WARNING:vllm_omni.diffusion.registry:Sequence parallelism is enabled (sp_size=2) but no transformer with _sp_plan found. SP hooks not applied. Consider adding _sp_plan to your transformer model.
+
+Multi-thread loading shards:  33% Completed | 1/3 [00:00<00:01,  1.63it/s]
+
+Multi-thread loading shards:  67% Completed | 2/3 [00:02<00:01,  1.14s/it]
+
+Multi-thread loading shards: 100% Completed | 3/3 [00:03<00:00,  1.39s/it]
+
+Multi-thread loading shards: 100% Completed | 3/3 [00:03<00:00,  1.27s/it]
+
+
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 12 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

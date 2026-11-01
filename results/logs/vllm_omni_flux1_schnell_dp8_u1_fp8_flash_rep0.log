@@ -1,0 +1,324 @@
+12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 474, in load_model
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     self.model_runner.load_model(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_model_runner.py", line 358, in load_model
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     self.pipeline = model_loader.load_model(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m                     ^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 758, in load_model
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     model = self._init_from_load_format(load_format, target_device, custom_pipeline_name, is_hsdp=False)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 1280, in _init_from_load_format
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     model = initialize_model(self.od_config)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/registry.py", line 509, in initialize_model
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     model = model_class(od_config=od_config)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/flux/pipeline_flux.py", line 127, in __init__
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     recursive_replace_linear(self.text_encoder, od_config)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 126, in recursive_replace_linear
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     _recursive_replace(model, prefix="")
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     _recursive_replace(child_module, prefix=qual_name)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     _recursive_replace(child_module, prefix=qual_name)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     _recursive_replace(child_module, prefix=qual_name)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   [Previous line repeated 1 more time]
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 120, in _recursive_replace
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     new_module = replace_linear_class(child_module, style, quant_config, prefix=qual_name)
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 94, in replace_linear_class
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     return vllm_linear_cls(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 376, in __init__
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     self.quant_method.create_weights(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/online/fp8.py", line 243, in create_weights
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     self.fp8_linear = init_fp8_linear_kernel(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m                       ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 790, in init_fp8_linear_kernel
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     kernel_type = choose_scaled_mm_linear_kernel(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 720, in choose_scaled_mm_linear_kernel
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m     raise ValueError(
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m ValueError: Failed to find a kernel that can implement the ScaledMM linear layer. Reasons: 
+[0;36m(DiffusionWorker pid=70802)[0;0m [31mERROR[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:497][0m 
+[0;36m(DiffusionWorker pid=70802)[0;0m [32mINFO[0m [90m11-01 02:10:02[0m [90m[omni_engine_base.py:925][0m [OmniEngine] Shutting down Orchestrator
+Exception in thread orchestrator:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+    loop.run_until_complete(_run_orchestrator())
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+    self._initialize_stages(stage_init_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+    self._runtime.initialize()
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 319, in initialize
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+    initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+    raise primary_exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+    client = self._initialize_replica(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+    return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+    client, resources = launch_diffusion_stage_replica(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+    client = initialize_diffusion_stage(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+    return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 58, in create_diffusion_client
+    return InlineStageDiffusionClient(model, od_config, metadata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/inline_stage_diffusion_client.py", line 71, in __init__
+    self._engine = DiffusionEngine.make_engine(self.od_config)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 1386, in make_engine
+    engine = engine_class(config, scheduler=scheduler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 333, in __init__
+    self._init_executor(od_config)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 411, in _init_executor
+    self.executor = executor_class(od_config)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/executor/abstract.py", line 84, in __init__
+    self._init_executor()
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/executor/uniproc_executor.py", line 67, in _init_executor
+    self.driver_worker = WorkerWrapperBase(
+                         ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 1936, in __init__
+    worker = worker_class(**worker_init_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 332, in __init__
+    self.load_model(load_format=self.od_config.diffusion_load_format)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 474, in load_model
+    self.model_runner.load_model(
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_model_runner.py", line 358, in load_model
+    self.pipeline = model_loader.load_model(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 758, in load_model
+    model = self._init_from_load_format(load_format, target_device, custom_pipeline_name, is_hsdp=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 1280, in _init_from_load_format
+    model = initialize_model(self.od_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/registry.py", line 509, in initialize_model
+    model = model_class(od_config=od_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/flux/pipeline_flux.py", line 127, in __init__
+    recursive_replace_linear(self.text_encoder, od_config)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 126, in recursive_replace_linear
+    _recursive_replace(model, prefix="")
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+    _recursive_replace(child_module, prefix=qual_name)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+    _recursive_replace(child_module, prefix=qual_name)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+    _recursive_replace(child_module, prefix=qual_name)
+  [Previous line repeated 1 more time]
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 120, in _recursive_replace
+    new_module = replace_linear_class(child_module, style, quant_config, prefix=qual_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 94, in replace_linear_class
+    return vllm_linear_cls(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 376, in __init__
+    self.quant_method.create_weights(
+  File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/online/fp8.py", line 243, in create_weights
+    self.fp8_linear = init_fp8_linear_kernel(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 790, in init_fp8_linear_kernel
+    kernel_type = choose_scaled_mm_linear_kernel(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 720, in choose_scaled_mm_linear_kernel
+    raise ValueError(
+ValueError: Failed to find a kernel that can implement the ScaledMM linear layer. Reasons: 
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+[rank0]:     self.run()
+[rank0]:   File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+[rank0]:     self._target(*self._args, **self._kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+[rank0]:     loop.run_until_complete(_run_orchestrator())
+[rank0]:   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+[rank0]:     return future.result()
+[rank0]:            ^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+[rank0]:     self._initialize_stages(stage_init_timeout)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+[rank0]:     self._runtime.initialize()
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 319, in initialize
+[rank0]:     raise exc
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+[rank0]:     initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+[rank0]:                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+[rank0]:     raise primary_exc
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+[rank0]:     client = self._initialize_replica(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+[rank0]:     return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+[rank0]:     client, resources = launch_diffusion_stage_replica(
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+[rank0]:     client = initialize_diffusion_stage(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+[rank0]:     return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 58, in create_diffusion_client
+[rank0]:     return InlineStageDiffusionClient(model, od_config, metadata)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/inline_stage_diffusion_client.py", line 71, in __init__
+[rank0]:     self._engine = DiffusionEngine.make_engine(self.od_config)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 1386, in make_engine
+[rank0]:     engine = engine_class(config, scheduler=scheduler)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 333, in __init__
+[rank0]:     self._init_executor(od_config)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/diffusion_engine.py", line 411, in _init_executor
+[rank0]:     self.executor = executor_class(od_config)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/executor/abstract.py", line 84, in __init__
+[rank0]:     self._init_executor()
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/executor/uniproc_executor.py", line 67, in _init_executor
+[rank0]:     self.driver_worker = WorkerWrapperBase(
+[rank0]:                          ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 1936, in __init__
+[rank0]:     worker = worker_class(**worker_init_kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 332, in __init__
+[rank0]:     self.load_model(load_format=self.od_config.diffusion_load_format)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_worker.py", line 474, in load_model
+[rank0]:     self.model_runner.load_model(
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/worker/diffusion_model_runner.py", line 358, in load_model
+[rank0]:     self.pipeline = model_loader.load_model(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 758, in load_model
+[rank0]:     model = self._init_from_load_format(load_format, target_device, custom_pipeline_name, is_hsdp=False)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/model_loader/diffusers_loader.py", line 1280, in _init_from_load_format
+[rank0]:     model = initialize_model(self.od_config)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/registry.py", line 509, in initialize_model
+[rank0]:     model = model_class(od_config=od_config)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/flux/pipeline_flux.py", line 127, in __init__
+[rank0]:     recursive_replace_linear(self.text_encoder, od_config)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 126, in recursive_replace_linear
+[rank0]:     _recursive_replace(model, prefix="")
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[rank0]:     _recursive_replace(child_module, prefix=qual_name)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[rank0]:     _recursive_replace(child_module, prefix=qual_name)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 122, in _recursive_replace
+[rank0]:     _recursive_replace(child_module, prefix=qual_name)
+[rank0]:   [Previous line repeated 1 more time]
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 120, in _recursive_replace
+[rank0]:     new_module = replace_linear_class(child_module, style, quant_config, prefix=qual_name)
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/models/utils.py", line 94, in replace_linear_class
+[rank0]:     return vllm_linear_cls(
+[rank0]:            ^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/linear.py", line 376, in __init__
+[rank0]:     self.quant_method.create_weights(
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/online/fp8.py", line 243, in create_weights
+[rank0]:     self.fp8_linear = init_fp8_linear_kernel(
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 790, in init_fp8_linear_kernel
+[rank0]:     kernel_type = choose_scaled_mm_linear_kernel(
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/__init__.py", line 720, in choose_scaled_mm_linear_kernel
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Failed to find a kernel that can implement the ScaledMM linear layer. Reasons: 
+
+
+[rank0]: The above exception was the direct cause of the following exception:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/usr/local/bin/vllm", line 10, in <module>
+[rank0]:     sys.exit(main())
+[rank0]:              ^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 40, in main
+[rank0]:     if maybe_run_omni():
+[rank0]:        ^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 34, in maybe_run_omni
+[rank0]:     omni_main()
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+[rank0]:     args.dispatch_function(args)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/cli/serve.py", line 178, in cmd
+[rank0]:     uvloop.run(omni_run_server(args))
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+[rank0]:     return __asyncio.run(
+[rank0]:            ^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+[rank0]:     return runner.run(main)
+[rank0]:            ^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+[rank0]:     return self._loop.run_until_complete(task)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+[rank0]:     return await main
+[rank0]:            ^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 256, in omni_run_server
+[rank0]:     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 382, in omni_run_server_worker
+[rank0]:     async with build_async_omni(
+[rank0]:                ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+[rank0]:     return await anext(self.gen)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 590, in build_async_omni
+[rank0]:     async with build_async_omni_from_stage_config(
+[rank0]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+[rank0]:     return await anext(self.gen)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 700, in build_async_omni_from_stage_config
+[rank0]:     async_omni = AsyncOmni(model=model, **kwargs)
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 91, in __init__
+[rank0]:     AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+[rank0]:     OmniBase.__init__(self, model=model, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/omni_base.py", line 218, in __init__
+[rank0]:     self.engine = self._create_engine(
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 87, in _create_engine
+[rank0]:     return AsyncOmniEngine(**engine_kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 331, in __init__
+[rank0]:     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+[rank0]:   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 549, in _wait_for_orchestrator_init
+[rank0]:     startup_future.result(
+[rank0]:   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+[rank0]:     return self.__get_result()
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+[rank0]:     raise self._exception
+[rank0]: RuntimeError: Orchestrator initialization failed: Failed to find a kernel that can implement the ScaledMM linear layer. Reasons: 
+
+I0000 00:00:1793499002.438843   70802 compilation_cache.cc:356] Compilation cache evicted.
+I0000 00:00:1793499002.438869   70802 compilation_cache.cc:203] CompilationCache final stats: num_cache_reqs=0
+num_cache_hits=0 {NA}
+num_compilations=0
+peak_compilation_memory_bytes=unknown
+

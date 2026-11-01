@@ -1,0 +1,274 @@
+m(APIServer pid=3666)[0;0m [32mINFO[0m [90m11-01 09:08:43[0m [90m[stage_runtime.py:1345][0m [StageRuntime] Stage 0 replica 0 initialized (diffusion)
+[0;36m(APIServer pid=3666)[0;0m [32mINFO[0m [90m11-01 09:08:43[0m [90m[stage_utils.py:178][0m Stage 0 logical-to-physical device mapping: 1->1
+/usr/local/lib/python3.12/site-packages/torch_tpu/__init__.py:37: UserWarning: <TorchTpu/Performance/TcMalloc/> tcmalloc is not loaded; TorchTPU host performance may be degraded due to glibc ptmalloc contention. Preload libtcmalloc before starting Python (e.g. LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4), or set PYTHONWARNINGS="ignore:<TorchTpu/Performance/TcMalloc/" to suppress this warning.
+  _tcmalloc_check.check_tcmalloc()
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Pin memory is not supported on TPU.
+FlashInfer ring kernels are unavailable. Reason: No module named 'flashinfer'
+[W1101 09:08:53.342042694 tpu_hooks.cc:85] Warning: <TorchTpu/> PJRT client not available, using TPU device index 0 unchecked: ABORTED: failed to initialize the PjRt plugin: Internal error when accessing libtpu multi-process lockfile. Run "$ sudo rm /tmp/libtpu_lockfile". (function ValidateDeviceIndex)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+F0000 00:00:1793524133.328432    6625 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: ABORTED: failed to initialize the PjRt plugin: Internal error when accessing libtpu multi-process lockfile. Run "$ sudo rm /tmp/libtpu_lockfile".
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7ae50d65f8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7ae50d65f831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7ae506f82e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7ae506f7ed4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7ae506f7ec2c  torch_tpu::GetContextState<>()
+    @     0x7ae506f7f395  torch_tpu::GetCompilationContext()
+    @     0x7ae506f077d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7ae506f0407b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7ae506f039f6  torch_tpu::RecordDeviceSnapshots()
+    @     0x7ae506ef48d3  torch_tpu::MaterializeDevice()
+    @     0x7ae506fe994d  torch_tpu::(anonymous namespace)::TpuDeviceGuardImpl::synchronizeDevice()
+    @     0x7ae5da995709  pybind11::cpp_function::initialize<>()::{lambda()#1}::_FUN()
+[0;36m(APIServer pid=3666)[0;0m [32mINFO[0m [90m11-01 09:08:53[0m [90m[utils.py:628][0m [shutdown] Process manager: send sigterm to process StageDiffusionProc
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m [StageRuntime] Stage initialization failed; shutting down 1 initialized client(s)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m Traceback (most recent call last):
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     raise primary_exc
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     client = self._initialize_replica(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     client, resources = launch_diffusion_stage_replica(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     client = initialize_diffusion_stage(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 59, in create_diffusion_client
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     proc_manager = StageDiffusionProcManager(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 831, in __init__
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     self._wait_until_started(handshake_address, stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 873, in _wait_until_started
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     wait_for_engine_startup_with_deadline(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1426, in wait_for_engine_startup
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m     raise RuntimeError(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:08:55[0m [90m[stage_runtime.py:313][0m RuntimeError: Frontend process failed during engine core initialization. See root cause above. Failed frontend proc(s): {'StageDiffusionProc': None}
+[0;36m(APIServer pid=3666)[0;0m [32mINFO[0m [90m11-01 09:08:55[0m [90m[utils.py:628][0m [shutdown] Process manager: send sigterm to process StageDiffusionProc
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m [OmniEngine] Orchestrator thread crashed
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m Traceback (most recent call last):
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     loop.run_until_complete(_run_orchestrator())
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     return future.result()
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     self._initialize_stages(stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     self._runtime.initialize()
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 319, in initialize
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     raise exc
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     raise primary_exc
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     client = self._initialize_replica(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     client, resources = launch_diffusion_stage_replica(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     client = initialize_diffusion_stage(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 59, in create_diffusion_client
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     proc_manager = StageDiffusionProcManager(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 831, in __init__
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     self._wait_until_started(handshake_address, stage_init_timeout)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 873, in _wait_until_started
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     wait_for_engine_startup_with_deadline(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1426, in wait_for_engine_startup
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m     raise RuntimeError(
+[0;36m(APIServer pid=3666)[0;0m [31mERROR[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:497][0m RuntimeError: Frontend process failed during engine core initialization. See root cause above. Failed frontend proc(s): {'StageDiffusionProc': None}
+[0;36m(APIServer pid=3666)[0;0m [32mINFO[0m [90m11-01 09:09:00[0m [90m[omni_engine_base.py:925][0m [OmniEngine] Shutting down Orchestrator
+Exception in thread orchestrator:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+    loop.run_until_complete(_run_orchestrator())
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+    self._initialize_stages(stage_init_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+    self._runtime.initialize()
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 319, in initialize
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+    initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+    raise primary_exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+    client = self._initialize_replica(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+    return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+    client, resources = launch_diffusion_stage_replica(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+    client = initialize_diffusion_stage(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+    return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 59, in create_diffusion_client
+    proc_manager = StageDiffusionProcManager(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 831, in __init__
+    self._wait_until_started(handshake_address, stage_init_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 873, in _wait_until_started
+    wait_for_engine_startup_with_deadline(
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+    wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1426, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Frontend process failed during engine core initialization. See root cause above. Failed frontend proc(s): {'StageDiffusionProc': None}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+    loop.run_until_complete(_run_orchestrator())
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+    self._initialize_stages(stage_init_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+    self._runtime.initialize()
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 319, in initialize
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 300, in initialize
+    initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1020, in _initialize_stage_replicas
+    raise primary_exc
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 981, in _init_group
+    client = self._initialize_replica(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1210, in _initialize_replica
+    return self._initialize_local_diffusion_replica(plan, stage_init_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_runtime.py", line 1331, in _initialize_local_diffusion_replica
+    client, resources = launch_diffusion_stage_replica(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_engine_startup.py", line 1627, in launch_diffusion_stage_replica
+    client = initialize_diffusion_stage(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_utils.py", line 2103, in initialize_diffusion_stage
+    return create_diffusion_client(model, od_config, metadata, stage_init_timeout, use_inline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_client.py", line 59, in create_diffusion_client
+    proc_manager = StageDiffusionProcManager(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 831, in __init__
+    self._wait_until_started(handshake_address, stage_init_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/diffusion/stage_diffusion_proc.py", line 873, in _wait_until_started
+    wait_for_engine_startup_with_deadline(
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+    wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1426, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Frontend process failed during engine core initialization. See root cause above. Failed frontend proc(s): {'StageDiffusionProc': None}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/vllm", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 40, in main
+    if maybe_run_omni():
+       ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 34, in maybe_run_omni
+    omni_main()
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/cli/serve.py", line 178, in cmd
+    uvloop.run(omni_run_server(args))
+  File "/usr/local/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 256, in omni_run_server
+    await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 382, in omni_run_server_worker
+    async with build_async_omni(
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 590, in build_async_omni
+    async with build_async_omni_from_stage_config(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/openai/api_server.py", line 700, in build_async_omni_from_stage_config
+    async_omni = AsyncOmni(model=model, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 91, in __init__
+    AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+    OmniBase.__init__(self, model=model, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/omni_base.py", line 218, in __init__
+    self.engine = self._create_engine(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/entrypoints/async_omni.py", line 87, in _create_engine
+    return AsyncOmniEngine(**engine_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 331, in __init__
+    self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  File "/usr/local/lib/python3.12/site-packages/vllm_omni/engine/omni_engine_base.py", line 549, in _wait_for_orchestrator_init
+    startup_future.result(
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+RuntimeError: Orchestrator initialization failed: Frontend process failed during engine core initialization. See root cause above. Failed frontend proc(s): {'StageDiffusionProc': None}

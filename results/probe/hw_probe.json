@@ -1,0 +1,38 @@
+{
+  "vfio_devices": [
+    "/dev/vfio/0",
+    "/dev/vfio/1",
+    "/dev/vfio/2",
+    "/dev/vfio/3",
+    "/dev/vfio/4",
+    "/dev/vfio/5",
+    "/dev/vfio/6",
+    "/dev/vfio/7",
+    "/dev/vfio/vfio"
+  ],
+  "vbar_sock_exists": true,
+  "env_tpu_vars": {
+    "TPU_PROCESS_ADDRESSES": "localhost:8471",
+    "TPU_TOPOLOGY": "2x2x1",
+    "TPU_WORKER_ID": "0",
+    "TPU_SKIP_MDS_QUERY": "1",
+    "TPU_TOPOLOGY_WRAP": "false,false,false",
+    "TPU_VISIBLE_CHIPS": "2,3,0,1",
+    "TPU_CHIPS_PER_HOST_BOUNDS": "2,2,1",
+    "TPU_PROCESS_PORT": "8471",
+    "TPU_LOG_DIR": "/tmp/tpu_logs/stage-and-probe",
+    "TPU_ACCELERATOR_TYPE": "tpu7x-8",
+    "TPU_RUNTIME_METRICS_PORTS": "8431,8432,8433,8434,8435,8436,8437,8438",
+    "TPU_TOPOLOGY_ALT": "false",
+    "TPU_HOST_BOUNDS": "1,1,1",
+    "PJRT_DEVICE": "TPU",
+    "VBAR_CONTROL_SERVICE_URL": "unix:///var/run/tpu-plugin/vbar.sock",
+    "TPU_WORKER_HOSTNAMES": "localhost",
+    "TORCH_TPU_INTERNAL_MATERIALIZE_COLLECTIVE_TENSORS": "false"
+  },
+  "test_full_8core": {
+    "rc": 1,
+    "stdout": "",
+    "stderr": "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1793475751.357896      20 pjrt_api.cc:119] GetPjrtApi was found for TPU at /usr/local/lib/python3.12/site-packages/libtpu/libtpu.so\nI0000 00:00:1793475752.074026      20 device_rt.cc:166] PjRt runtime initialization deferred for tpu\nSuccessfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')\nRegistered Python module for 'tpu'.\nDevice type: tpu, Device index: default\nInitializing TPU distributed runtime\nI0000 00:00:1793475752.081615      20 libtpu_version.cc:63] Setting libtpu version to: 0.0.50\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/site-packages/torch_tpu/_internal/utils/annotations.py\", line 267, in wrapper\n    raise RuntimeError(f\"{msg} {reason}\" if reason else msg)\nRuntimeError: device_count is internal to TorchTPU and can only be called by the PyTorch framework (torch and torch_tpu). Use torch.accelerator.device_count instead.\n"
+  }
+}

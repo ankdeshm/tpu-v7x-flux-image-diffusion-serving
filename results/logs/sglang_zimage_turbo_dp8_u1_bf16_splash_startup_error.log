@@ -1,0 +1,389 @@
+ironment variable is an experimental feature and may change or be removed without notice. (function operator())
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+[W1031 20:45:40.662424888 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS environment variable is an experimental feature and may change or be removed without notice. (function operator())
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+[W1031 20:45:40.694504105 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS environment variable is an experimental feature and may change or be removed without notice. (function operator())
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+[W1031 20:45:40.786844318 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS environment variable is an experimental feature and may change or be removed without notice. (function operator())
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+[W1031 20:45:40.812779193 env_vars.h:405] Warning: <TorchTpu/ApiStage/ExperimentalApi/> the TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS environment variable is an experimental feature and may change or be removed without notice. (function operator())
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:53: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+[10-31 20:45:45] Scheduler (dp replica 7) bind at endpoint: tcp://0.0.0.0:5580
+[10-31 20:45:45] Scheduler (dp replica 2) bind at endpoint: tcp://0.0.0.0:5575
+[10-31 20:45:45] Scheduler (dp replica 1) bind at endpoint: tcp://0.0.0.0:5574
+[10-31 20:45:45] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+[10-31 20:45:45] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479545.948083  140277 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+W0000 00:00:1793479545.948080  140282 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:45:45] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479545.950029  140276 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:45:45] Scheduler (dp replica 5) bind at endpoint: tcp://0.0.0.0:5578
+[10-31 20:45:45] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479545.959309  140280 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:45:45] Scheduler (dp replica 6) bind at endpoint: tcp://0.0.0.0:5579
+[10-31 20:45:45] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479545.977566  140281 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+[10-31 20:45:46] Scheduler (dp replica 0) bind at endpoint: tcp://0.0.0.0:5573
+[10-31 20:45:46] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479546.013335  140275 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+F0000 00:00:1793479546.096141  140277 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/5' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113009 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+F0000 00:00:1793479546.102080  140276 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/3' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113008 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7ee23969c8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7ee23969c831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7ee232fbfe37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7ee232fbbd4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7ee232fbbc2c  torch_tpu::GetContextState<>()
+    @     0x7ee232fbc395  torch_tpu::GetCompilationContext()
+    @     0x7ee232f447d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7ee232f4107b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7ee232f4142e  torch_tpu::EventSnapshot::Record()
+    @     0x7ee232f2d72e  torch_tpu::Materialize()
+    @     0x7ee232ed4e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7ee232ed46a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7ee232eb6fc5  torch_tpu::DispatchOp<>()
+    @     0x7ee233766892  torch_tpu::ApplyNullaryOp()
+    @     0x7ee2336b2947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7ee2336b2284  torch_tpu::AtenZeros()
+    @     0x7ee2330bbe09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7ee250887a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7ee308915eec,7ee3088c704f&map= 
+*** SIGABRT received by PID 140277 (TID 140277) on cpu 70, si_code=-6, from PID 140277; stack trace: ***
+PC: @     0x7ee308915eec  (unknown)  (unknown)
+*** Check failure stack trace: ***
+    @     0x78204563e8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x78204563e831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x78203ef61e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x78203ef5dd4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x78203ef5dc2c  torch_tpu::GetContextState<>()
+    @     0x78203ef5e395  torch_tpu::GetCompilationContext()
+    @     0x78203eee67d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x78203eee307b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x78203eee342e  torch_tpu::EventSnapshot::Record()
+    @     0x78203eecf72e  torch_tpu::Materialize()
+    @     0x78203ee76e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x78203ee766a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x78203ee58fc5  torch_tpu::DispatchOp<>()
+    @     0x78203f708892  torch_tpu::ApplyNullaryOp()
+    @     0x78203f654947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x78203f654284  torch_tpu::AtenZeros()
+    @     0x78203f05de09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x78205c887a16  at::_ops::zeros::redispatch()
+    @     0x7ee230d00137       1888  FailureSignalHandler()
+    @     0x7ee3088c7050  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7821148beeec,78211487004f&map= 
+*** SIGABRT received by PID 140276 (TID 140276) on cpu 85, si_code=-6, from PID 140276; stack trace: ***
+PC: @     0x7821148beeec  (unknown)  (unknown)
+    @     0x5608f8f67e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7ee308915eec,7ee230d00136,7ee3088c704f,5608f8f67e0f&map= 
+E1031 20:45:46.498838  140277 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:45:46.498850  140277 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:45:46.498852  140277 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:45:46.498872  140277 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:45:46.498874  140277 coredump_hook.cc:466] RAW: Dumping core locally.
+    @     0x78203cd00137       1888  FailureSignalHandler()
+    @     0x782114870050  (unknown)  (unknown)
+    @     0x594bf4b99e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7821148beeec,78203cd00136,78211487004f,594bf4b99e0f&map= 
+E1031 20:45:46.505135  140276 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:45:46.505145  140276 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:45:46.505148  140276 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:45:46.505161  140276 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:45:46.505169  140276 coredump_hook.cc:466] RAW: Dumping core locally.
+[10-31 20:45:47] Scheduler (dp replica 4) bind at endpoint: tcp://0.0.0.0:5577
+F0000 00:00:1793479547.087364  140275 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/4' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113007 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: === 
+csrc/common/status_builder.cc:99
+
+[10-31 20:45:47] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479547.096137  140279 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+*** Check failure stack trace: ***
+    @     0x79ac048a58b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x79ac048a5831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x79abfe1c8e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x79abfe1c4d4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x79abfe1c4c2c  torch_tpu::GetContextState<>()
+    @     0x79abfe1c5395  torch_tpu::GetCompilationContext()
+    @     0x79abfe14d7d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x79abfe14a07b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x79abfe14a42e  torch_tpu::EventSnapshot::Record()
+    @     0x79abfe13672e  torch_tpu::Materialize()
+    @     0x79abfe0dde87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x79abfe0dd6a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x79abfe0bffc5  torch_tpu::DispatchOp<>()
+    @     0x79abfe96f892  torch_tpu::ApplyNullaryOp()
+    @     0x79abfe8bb947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x79abfe8bb284  torch_tpu::AtenZeros()
+    @     0x79abfe2c4e09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x79ac1ba87a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=79acd3a1beec,79acd39cd04f&map= 
+*** SIGABRT received by PID 140275 (TID 140275) on cpu 94, si_code=-6, from PID 140275; stack trace: ***
+PC: @     0x79acd3a1beec  (unknown)  (unknown)
+    @     0x79abfbf00137       1888  FailureSignalHandler()
+    @     0x79acd39cd050  (unknown)  (unknown)
+    @     0x56247eee5e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=79acd3a1beec,79abfbf00136,79acd39cd04f,56247eee5e0f&map= 
+E1031 20:45:47.116397  140275 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:45:47.116405  140275 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:45:47.116412  140275 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:45:47.116423  140275 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:45:47.116425  140275 coredump_hook.cc:466] RAW: Dumping core locally.
+[10-31 20:45:47] Scheduler (dp replica 3) bind at endpoint: tcp://0.0.0.0:5576
+[10-31 20:45:47] [TPU] TPU env:
+  TORCH_TPU_SLICEBUILDER_ADDRESSES=localhost:36859,localhost:37165,localhost:40111,localhost:37131,localhost:44805,localhost:33841,localhost:45527,localhost:45759
+  TORCH_TPU_TOPOLOGY=2,2,1,2
+  TPU_WORKER_HOSTNAMES=localhost
+  TPU_WORKER_ID=0
+  TPU_TOPOLOGY=2x2x1
+  TPU_PREMAPPED_BUFFER_SIZE=536870912
+  LIBTPU_INIT_ARGS=--xla_tpu_use_dynamic_smem_negotiation=true --xla_tpu_sparse_core_all_reduce_offload_min_size_in_bytes=67108864 --xla_tpu_sparse_core_all_gather_offload_min_size_in_bytes=67108864  --xla_tpu_use_enhanced_launch_barrier=true --xla_tpu_enable_sparse_core_collective_offload_all_reduce=false --xla_tpu_use_associative_scan_emitter=false --xla_tpu_save_original_hlo_module=false
+  SGLANG_NATIVE_MOVE_KV_CACHE=1
+  TORCH_TPU_ALLOW_LEGACY_DEVICE_APIS=1
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1793479547.214920  140278 environment.cc:70] libtpu_init_args contains --xla_tpu_use_enhanced_launch_barrier=true, this can cause distributed hangs. Rewriting environment variable to false.
+F0000 00:00:1793479547.523435  140278 compilation.cc:533] Check failed: context.ok() Failed to create default compilation context: FAILED_PRECONDITION: [TorchTPU] Failed to acquire a TPU device node '/dev/vfio/0' because it is already opened by another process on this host.
+
+Colliding process(es):
+  - PID 113010 (python3 -c 
+import os, time, torch, torch.distributed as dist
+os.environ["JAX_PLATFORMS"] = "cpu"
+import torch_tpu
+dist.init_pro)
+
+
+Remediation:
+When running multiple processes on a single TPU host, each process must be allocated a distinct device. Please set the TPU_VISIBLE_DEVICES environment variable for each process, e.g.:
+  Process 0: export TPU_VISIBLE_DEVICES=0
+  Process 1: export TPU_VISIBLE_DEVICES=1
+=== Source Location Trace: ===
+csrc/common/status_builder.cc:99
+
+*** Check failure stack trace: ***
+    @     0x7fe6dd71f8b4  absl::lts_20260526::log_internal::LogMessage::SendToLog()
+    @     0x7fe6dd71f831  absl::lts_20260526::log_internal::LogMessage::Flush()
+    @     0x7fe6d7042e37  torch_tpu::GetDefaultCompilationContext()::$_0::operator()()
+    @     0x7fe6d703ed4b  torch_tpu::GetDefaultCompilationContext()
+    @     0x7fe6d703ec2c  torch_tpu::GetContextState<>()
+    @     0x7fe6d703f395  torch_tpu::GetCompilationContext()
+    @     0x7fe6d6fc77d9  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshotLocked()
+    @     0x7fe6d6fc407b  torch_tpu::(anonymous namespace)::StreamState::RequestEventSnapshot()
+    @     0x7fe6d6fc442e  torch_tpu::EventSnapshot::Record()
+    @     0x7fe6d6fb072e  torch_tpu::Materialize()
+    @     0x7fe6d6f57e87  torch_tpu::(anonymous namespace)::DeferNeverDispatch()
+    @     0x7fe6d6f576a4  torch_tpu::internal::CreateDeferredDeviceBufferList()
+    @     0x7fe6d6f39fc5  torch_tpu::DispatchOp<>()
+    @     0x7fe6d77e9892  torch_tpu::ApplyNullaryOp()
+    @     0x7fe6d7735947  torch_tpu::(anonymous namespace)::CreateConstantFilledTensor()
+    @     0x7fe6d7735284  torch_tpu::AtenZeros()
+    @     0x7fe6d713ee09  c10::impl::wrap_kernel_functor_unboxed_<>::call()
+    @     0x7fe6f4887a16  at::_ops::zeros::redispatch()
+https://symbolize.stripped_domain/r/?trace=7fe7ac897eec,7fe7ac84904f&map= 
+*** SIGABRT received by PID 140278 (TID 140278) on cpu 112, si_code=-6, from PID 140278; stack trace: ***
+PC: @     0x7fe7ac897eec  (unknown)  (unknown)
+    @     0x7fe6d4d00137       1888  FailureSignalHandler()
+    @     0x7fe7ac849050  (unknown)  (unknown)
+    @     0x5c4c27859e10  (unknown)  (unknown)
+https://symbolize.stripped_domain/r/?trace=7fe7ac897eec,7fe6d4d00136,7fe7ac84904f,5c4c27859e0f&map= 
+E1031 20:45:47.608609  140278 coredump_hook.cc:309] RAW: Remote crash data gathering hook invoked.
+E1031 20:45:47.608618  140278 client.cc:261] RAW: Coroner client retries enabled, will retry for up to 30 sec.
+E1031 20:45:47.608619  140278 coredump_hook.cc:404] RAW: Sending fingerprint to remote end.
+E1031 20:45:47.608631  140278 coredump_hook.cc:414] RAW: Cannot send fingerprint to Coroner: [NOT_FOUND] stat failed on crash reporting socket /var/google/services/logmanagerd/remote_coredump.socket (Is the listener running?): No such file or directory
+E1031 20:45:47.608633  140278 coredump_hook.cc:466] RAW: Dumping core locally.
+E1031 20:45:48.357607  140277 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:45:48.706556  140276 process_state.cc:794] RAW: Raising signal 6 with default behavior
+E1031 20:45:48.862674  140275 process_state.cc:794] RAW: Raising signal 6 with default behavior
+[91m[10-31 20:45:48] Rank 0 scheduler is dead. Please check if there are relevant logs.[0;0m
+[91m[10-31 20:45:48] Exit code: -6[0;0m
+[10-31 20:45:48] kill_process_tree called: parent_pid=140135, include_parent=False, pid=140135
+Traceback (most recent call last):
+  File "/usr/local/bin/sglang", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/main.py", line 51, in main
+    serve(args, extra_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 213, in serve
+    registered.backend.run(request)
+  File "/usr/local/lib/python3.12/site-packages/sglang/cli/serve.py", line 131, in _run_diffusion
+    execute_serve_cmd(parsed_args, remaining_argv)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/entrypoints/cli/serve.py", line 39, in execute_serve_cmd
+    dispatch_launch(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 786, in dispatch_launch
+    launch_server(server_args)
+  File "/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/launch_server.py", line 196, in launch_server
+    data = reader.recv()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError

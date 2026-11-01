@@ -1,0 +1,274 @@
+8451.325044   48979 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=2 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793478451.535132   48982 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=5 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793478451.565750   48981 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=4 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793478451.672949   48983 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=6 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793478451.689133   48978 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=1 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+W0000 00:00:1793478451.691608   48977 process_group_tpu.cc:1299] Node-local store disabled: LOCAL_RANK or TORCH_TPU_DEVICES_PER_HOST is unset (local_rank=0 devices_per_host=unset world_size=8). Every rank will publish to the world store individually, which is slower at scale.
+[10-31 20:27:31] No pipeline_class_name specified, using model_index.json
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] Available plugins for group vllm.platform_plugins:
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] - torchtpu -> vllm_torchtpu.platforms:register_tpu_platform
+[10-31 20:27:32] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[10-31 20:27:32] Completed TPU patch callbacks at import: vllm_torchtpu.env_override:_patch_jax_pallas_fori_lowering
+[93m[10-31 20:27:32] Skipping pipeline module sglang.multimodal_gen.runtime.pipelines.hunyuan3d_pipeline during discovery due to import failure: No module named 'trimesh'[0;0m
+[93m[10-31 20:27:32] Skipping pipeline module sglang.multimodal_gen.runtime.pipelines.joy_echo_pipeline during discovery due to import failure: No module named 'torchaudio'[0;0m
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[91m[10-31 20:27:32] Unable to poll TPU GCE Metadata. Got status code: 404 and content: Not Found
+[0;0m
+[10-31 20:27:32] TPU info: node_name=None | tpu_type=tpu7x-8 | worker_id=0 | num_chips=8 | num_cores_per_chip=2
+[10-31 20:27:32] Platform plugin torchtpu is activated
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[93m[10-31 20:27:32] Pin memory is not supported on TPU.[0;0m
+[10-31 20:27:33] Diffusers version: 0.30.0.dev0
+[10-31 20:27:33] Diffusers version: 0.30.0.dev0
+[10-31 20:27:33] Using pipeline from model_index.json: FluxPipeline
+[10-31 20:27:33] Loading pipeline modules...
+[10-31 20:27:33] Model already exists locally and is complete
+[10-31 20:27:33] Model path: /dev/shm/hf_cache/FLUX.1-schnell
+[10-31 20:27:33] Diffusers version: 0.30.0.dev0
+[10-31 20:27:33] Loading pipeline modules from config: {'_class_name': 'FluxPipeline', '_diffusers_version': '0.30.0.dev0', 'scheduler': ['diffusers', 'FlowMatchEulerDiscreteScheduler'], 'text_encoder': ['transformers', 'CLIPTextModel'], 'text_encoder_2': ['transformers', 'T5EncoderModel'], 'tokenizer': ['transformers', 'CLIPTokenizer'], 'tokenizer_2': ['transformers', 'T5TokenizerFast'], 'transformer': ['diffusers', 'FluxTransformer2DModel'], 'vae': ['diffusers', 'AutoencoderKL']}
+[10-31 20:27:33] Loading required components: ['text_encoder', 'text_encoder_2', 'tokenizer', 'tokenizer_2', 'vae', 'transformer', 'scheduler']
+[10-31 20:27:33] Memory-aware component load order: ['transformer', 'text_encoder_2', 'text_encoder', 'vae', 'tokenizer_2', 'tokenizer', 'scheduler']
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+[10-31 20:27:33] Loading transformer from /dev/shm/hf_cache/FLUX.1-schnell/transformer. avail mem: 94.74 GB
+[10-31 20:27:33] Loading FluxTransformer2DModel from 3 safetensors file(s) , param_dtype: torch.bfloat16
+[10-31 20:27:33] Using TPU Pallas splash attention backend (falls back to SDPA per shape, or entirely off TPU v7x).
+[10-31 20:27:33] TPU splash attention: splash=on (per-shape SDPA fallback).
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards: 0%|          | 0/3[A/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100%|██████████| 3/3
+
+Loading required modules:   0%|          | 0/7 [00:00<?, ?it/s]/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/platforms/tpu.py:91: UserWarning: <TorchTpu/ApiStage/ExperimentalApi/> is_initialized is experimental and subject to change: is_initialized() is experimental and subject to change without notice.
+  if torch.tpu.is_initialized():
+[10-31 20:27:37] Attention backends for transformer: oot
+[10-31 20:27:37] Loaded transformer: FluxTransformer2DModel (sgl-diffusion version). model size: 22.15 GB, vram: 22.15 GB. avail GPU mem: 72.59 GB
+
+Loading required modules:  14%|█▍        | 1/7 [00:04<00:25,  4.33s/it][10-31 20:27:37] Loading text_encoder_2 from /dev/shm/hf_cache/FLUX.1-schnell/text_encoder_2. avail mem: 72.59 GB
+
+
+Loading safetensors checkpoint shards: 0%|          | 0/2[A
+
+Loading safetensors checkpoint shards: 50%|█████     | 1/2[A
+
+Loading safetensors checkpoint shards: 100%|██████████| 2/2[A
+Loading safetensors checkpoint shards: 100%|██████████| 2/2
+[10-31 20:27:37] Loaded text_encoder_2: T5EncoderModel (sgl-diffusion version). model size: 8.87 GB, host pageable: 8.87 GB. avail GPU mem: 72.59 GB
+
+Loading required modules:  29%|██▊       | 2/7 [00:04<00:10,  2.09s/it][10-31 20:27:37] Loading text_encoder from /dev/shm/hf_cache/FLUX.1-schnell/text_encoder. avail mem: 72.59 GB
+
+
+Loading safetensors checkpoint shards: 0%|          | 0/1[A
+Loading safetensors checkpoint shards: 100%|██████████| 1/1
+[10-31 20:27:37] Loaded text_encoder: CLIPTextModel (sgl-diffusion version). model size: 0.23 GB, host pageable: 0.23 GB. avail GPU mem: 72.59 GB
+[10-31 20:27:37] Loading vae from /dev/shm/hf_cache/FLUX.1-schnell/vae. avail mem: 72.59 GB
+[10-31 20:27:38] Loaded vae: AutoencoderKL (sgl-diffusion version). model size: 0.16 GB, vram: 0.16 GB. avail GPU mem: 72.43 GB
+
+Loading required modules:  57%|█████▋    | 4/7 [00:05<00:02,  1.15it/s][10-31 20:27:38] Loading tokenizer_2 from /dev/shm/hf_cache/FLUX.1-schnell/tokenizer_2. avail mem: 72.43 GB
+[10-31 20:27:38] Loaded tokenizer_2: T5Tokenizer (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+
+Loading required modules:  71%|███████▏  | 5/7 [00:05<00:01,  1.58it/s][10-31 20:27:38] Loading tokenizer from /dev/shm/hf_cache/FLUX.1-schnell/tokenizer. avail mem: 72.43 GB
+[10-31 20:27:38] Loaded tokenizer: CLIPTokenizer (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+[10-31 20:27:38] Loading scheduler from /dev/shm/hf_cache/FLUX.1-schnell/scheduler. avail mem: 72.43 GB
+[10-31 20:27:38] Loaded scheduler: FlowMatchEulerDiscreteScheduler (sgl-diffusion version). model size: NA GB, weights: none. avail GPU mem: 72.43 GB
+
+Loading required modules: 100%|██████████| 7/7 [00:05<00:00,  1.32it/s]
+[10-31 20:27:38] Creating pipeline stages...
+[10-31 20:27:38] Using TPU Pallas splash attention backend (falls back to SDPA per shape, or entirely off TPU v7x).
+[10-31 20:27:38] Using oot attention backend
+[10-31 20:27:38] Pipeline instantiated
+[10-31 20:27:38] Worker 0: Initialized device, model, and distributed environment.
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:27:38] Worker 0: Scheduler loop started.
+
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:32,  5.39s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:05<00:34,  5.68s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:13,  2.66s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:13,  2.69s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:06<00:37,  6.29s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.10s/it]
+Loading required modules:  71%|███████▏  | 5/7 [00:06<00:01,  1.25it/s]
+Loading required modules: 100%|██████████| 7/7 [00:06<00:00,  1.05it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  14%|█▍        | 1/7 [00:06<00:40,  6.73s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:06<00:03,  1.14s/it]
+Loading required modules:  14%|█▍        | 1/7 [00:06<00:41,  6.87s/it]
+Loading required modules:  71%|███████▏  | 5/7 [00:06<00:01,  1.20it/s]
+Loading required modules:  29%|██▊       | 2/7 [00:06<00:14,  2.96s/it]
+Loading required modules: 100%|██████████| 7/7 [00:06<00:00,  1.01it/s]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  14%|█▍        | 1/7 [00:07<00:43,  7.18s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:07<00:03,  1.20s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:07<00:15,  3.10s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:07<00:15,  3.11s/it]
+Loading required modules:  86%|████████▌ | 6/7 [00:07<00:00,  1.51it/s]
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.05s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  14%|█▍        | 1/7 [00:07<00:45,  7.51s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:07<00:03,  1.25s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:07<00:03,  1.24s/it]
+Loading required modules:  71%|███████▏  | 5/7 [00:07<00:01,  1.12it/s]
+Loading required modules:  71%|███████▏  | 5/7 [00:07<00:01,  1.13it/s]
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.10s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules: 100%|██████████| 7/7 [00:07<00:00,  1.10s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  29%|██▊       | 2/7 [00:07<00:16,  3.31s/it]
+Loading required modules:  29%|██▊       | 2/7 [00:07<00:16,  3.36s/it]
+Loading required modules:  57%|█████▋    | 4/7 [00:08<00:03,  1.31s/it]
+Loading required modules:  86%|████████▌ | 6/7 [00:08<00:00,  1.39it/s]
+Loading required modules: 100%|██████████| 7/7 [00:08<00:00,  1.16s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+
+Loading required modules:  57%|█████▋    | 4/7 [00:08<00:03,  1.33s/it]
+Loading required modules:  86%|████████▌ | 6/7 [00:08<00:00,  1.37it/s]
+Loading required modules: 100%|██████████| 7/7 [00:08<00:00,  1.19s/it]
+/usr/local/lib/python3.12/site-packages/sglang/multimodal_gen/runtime/utils/perf_logger.py:216: UserWarning: <TorchTpu/ApiStage/InternalApi/> is_available is internal to TorchTPU and may change or be removed without notice. Use torch.accelerator.is_available instead.
+  if not torch.get_device_module().is_available():
+[10-31 20:27:41] [server-load] workers_ready_monotonic_ns=2526935201634
+[10-31 20:27:41] Starting FastAPI server.
+[2026-10-31 20:27:41] [32mINFO[0m:     Started server process [[36m48835[0m]
+[2026-10-31 20:27:41] [32mINFO[0m:     Waiting for application startup.
+[10-31 20:27:41] ZMQ Broker is listening for offline jobs on tcp://127.0.0.1:30181
+[2026-10-31 20:27:41] [32mINFO[0m:     Application startup complete.
+[2026-10-31 20:27:41] [32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:30180[0m (Press CTRL+C to quit)
+[2026-10-31 20:27:42] [32mINFO[0m:     127.0.0.1:51976 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+[10-31 20:27:42] Diffusers version: 0.30.0.dev0
+[10-31 20:27:42] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                         fps: 24
+                      prompt: <redacted, len=196>
+                  neg_prompt: None
+                        seed: 1001
+                 infer_steps: 4
+      num_outputs_per_prompt: 1
+              guidance_scale: 0.0
+     embedded_guidance_scale: 3.5
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: /dev/shm/sglang_outputs/642a224b-2301-483e-949c-f186a19a4327.png
+        
+[10-31 20:27:42] Running pipeline stages: ['InputValidationStage', 'prompt_encoding_stage_primary', 'LatentPreparationStage', 'TimestepPreparationStage', 'denoising_stage', 'decoding_stage']
+[10-31 20:27:42] [InputValidationStage] started...
+[10-31 20:27:42] [InputValidationStage] finished in 0.0000 seconds
+[10-31 20:27:42] [TextEncodingStage] started...
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+/usr/local/lib/python3.12/site-packages/sglang/srt/layers/quantization/unquant.py:540: UserWarning: <TorchTpu/Performance/> TPU is using HIGHEST precision as requested, but performance may be significantly lower. Consider using torch.set_float32_matmul_precision('medium') for better performance. (Triggered internally at csrc/ops/precision_context.cc:70.)
+  return F.linear(x, layer.weight, bias)
+[10-31 20:27:45] [TextEncodingStage] finished in 2.2938 seconds
+[10-31 20:27:45] [LatentPreparationStage] started...
+[10-31 20:27:45] [LatentPreparationStage] finished in 0.0009 seconds
+[10-31 20:27:45] [TimestepPreparationStage] started...
+[10-31 20:27:45] [TimestepPreparationStage] finished in 0.0006 seconds
+[10-31 20:27:47] [DenoisingStage] started...
+
+  0%|          | 0/4 [00:00<?, ?it/s][10-31 20:27:47] TPU splash attention: q_seq=1536 kv_seq=1536 -> flash kernel blocks=(768, 1536, 1536)
+
+ 25%|██▌       | 1/4 [00:00<00:00,  3.96it/s]
+ 75%|███████▌  | 3/4 [00:00<00:00,  7.22it/s]
+100%|██████████| 4/4 [00:00<00:00,  7.35it/s]
+[10-31 20:27:48] [DenoisingStage] average time per step: 0.1363 seconds
+[10-31 20:27:48] [DenoisingStage] finished in 0.7229 seconds
+[10-31 20:27:48] [DecodingStage] started...
+[10-31 20:27:48] [DecodingStage] finished in 0.0095 seconds

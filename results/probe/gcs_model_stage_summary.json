@@ -1,0 +1,23 @@
+{
+  "black-forest-labs/FLUX.1-schnell": {
+    "repo_id": "black-forest-labs/FLUX.1-schnell",
+    "accessible": true,
+    "files": 25,
+    "size_gb": 33.73,
+    "stage_s": 189.87
+  },
+  "black-forest-labs/FLUX.1-dev": {
+    "repo_id": "black-forest-labs/FLUX.1-dev",
+    "accessible": true,
+    "files": 26,
+    "size_gb": 33.75,
+    "stage_s": 190.96
+  },
+  "Tongyi-MAI/Z-Image-Turbo": {
+    "repo_id": "Tongyi-MAI/Z-Image-Turbo",
+    "accessible": true,
+    "files": 21,
+    "size_gb": 32.85,
+    "stage_s": 302.6
+  }
+}
