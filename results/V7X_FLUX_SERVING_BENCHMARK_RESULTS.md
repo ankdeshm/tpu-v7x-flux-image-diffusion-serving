@@ -1,12 +1,12 @@
 # Cloud TPU `v7x-8` (`Ironwood`) — FLUX & Image Diffusion TorchTPU Serving Benchmark Results
 
-- **Project / Region / Zone:** `diesel-patrol-382622` / `us-central1` / `us-central1-c`
-- **Cluster & Isolated Nodepool:** `ank-tpu-v5p-usc1` -> **`ank-v7-spot-pool`** (`tpu7x-standard-4t`, `1` host × `4` physical `v7x` chips = `8` TensorCores / `760 GiB` HBM3e / `1,512 GiB` host RAM, topology `2x2x1`)
-- **GCS Artifacts:** `gs://ank-usc1-bucket-314837540096/flux-serving-results/` & `gs://ank-usc1-bucket-314837540096/flux-serving-scripts/`
+- **Project / Region / Zone:** `YOUR_GCP_PROJECT_ID` / `us-central1` / `us-central1-c`
+- **Cluster & Isolated Nodepool:** `tpu-v5p-cluster` -> **`tpu-v7x-4-spot-pool`** (`tpu7x-standard-4t`, `1` host × `4` physical `v7x` chips = `8` TensorCores / `760 GiB` HBM3e / `1,512 GiB` host RAM, topology `2x2x1`)
+- **GCS Artifacts:** `gs://YOUR_GCS_BUCKET/flux-serving-results/` & `gs://YOUR_GCS_BUCKET/flux-serving-scripts/`
 - **GitHub Repository:** [`ankdeshm/tpu-v7x-flux-image-diffusion-serving`](https://github.com/ankdeshm/tpu-v7x-flux-image-diffusion-serving) (`/Users/deshmukhankita/ankita-dev/github-repos/tpu-v7x-flux-image-diffusion-serving`)
 - **100% TorchTPU Serving Stack (`torch_tpu 0.2.0` GA + `libtpu 0.0.50`):**
-  1. **`sglang-torchtpu`:** `us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/sglang-torchtpu-diffusion:v0.2.0` (`sglang serve`, OpenAI `/v1/images/generations` API)
-  2. **`vllm-omni` (`vllm-torchtpu`):** `us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/vllm-torchtpu-omni:v0.32.0` (`vllm serve --omni`, OpenAI `/v1/images/generations` & `/v1/chat/completions` API)
+  1. **`sglang-torchtpu`:** `us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/sglang-torchtpu-diffusion:v0.2.0` (`sglang serve`, OpenAI `/v1/images/generations` API)
+  2. **`vllm-omni` (`vllm-torchtpu`):** `us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0` (`vllm serve --omni`, OpenAI `/v1/images/generations` & `/v1/chat/completions` API)
 - **Status:** `IN_PROGRESS` — Staging models into `900 GiB` `/dev/shm/hf_cache` + regional GCS & probing sub-host `DP × Ulysses` topologies on `gke-tpu-58112ace-2qgx`.
 
 ---

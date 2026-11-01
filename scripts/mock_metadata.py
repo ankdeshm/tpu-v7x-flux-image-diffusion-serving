@@ -56,7 +56,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
             "TPU_WORKER_ID": "0",
             "ALT": "false",
             "CHIPS_PER_HOST_BOUNDS": "2,2,1",
-            "CONSUMER_PROJECT_ID": "tpu-prod-env-one-vm",
+            "CONSUMER_PROJECT_ID": "mock-tpu-project",
             "ENABLE_ICI_RESILIENCY": "false",
             "ENABLE_IMPROVED_REROUTE_ALLREDUCE_STRATEGY": "false",
             "HOST_BOUNDS": "1,1,1",
@@ -75,7 +75,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
                 "TPU_WORKER_ID: '0'\n"
                 "ALT: 'false'\n"
                 "CHIPS_PER_HOST_BOUNDS: '2,2,1'\n"
-                "CONSUMER_PROJECT_ID: 'tpu-prod-env-one-vm'\n"
+                "CONSUMER_PROJECT_ID: 'mock-tpu-project'\n"
                 "ENABLE_ICI_RESILIENCY: 'false'\n"
                 "ENABLE_IMPROVED_REROUTE_ALLREDUCE_STRATEGY: 'false'\n"
                 "HOST_BOUNDS: '1,1,1'\n"
@@ -100,7 +100,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
         elif path.endswith("/computeMetadata/v1/instance/attributes/agent-worker-number"):
             response_body = b"0"
         elif path.endswith("/computeMetadata/v1/project/project-id"):
-            response_body = b"tpu-prod-env-one-vm"
+            response_body = b"mock-tpu-project"
         elif path.endswith("/computeMetadata/v1/project/numeric-project-id"):
             response_body = b"1234567890"
         elif path.endswith("/computeMetadata/v1/universe/universe-domain") or path.endswith("/universe-domain"):

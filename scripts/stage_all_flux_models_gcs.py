@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Parallel Hugging Face Hub -> regional GCS (`gs://ank-usc1-bucket-314837540096/models/`) stager
+"""Parallel Hugging Face Hub -> regional GCS (`gs://YOUR_GCS_BUCKET/models/`) stager
 for FLUX.1-schnell, FLUX.1-dev, and Z-Image-Turbo (Diffusers shards only, skipping duplicate monolithic root files).
 """
 
@@ -13,7 +13,7 @@ import requests
 from google.cloud import storage
 from huggingface_hub import HfApi, hf_hub_url
 
-BUCKET = "ank-usc1-bucket-314837540096"
+BUCKET = "YOUR_GCS_BUCKET"
 PREFIX = "models"
 HF_TOKEN = os.environ.get("HF_TOKEN") or None
 
@@ -136,4 +136,4 @@ if __name__ == "__main__":
     storage.Client().bucket(BUCKET).blob("flux-serving-results/probe/gcs_model_stage_summary.json").upload_from_string(
         json.dumps(summary, indent=2), content_type="application/json"
     )
-    print("Uploaded staging summary to gs://ank-usc1-bucket-314837540096/flux-serving-results/probe/gcs_model_stage_summary.json")
+    print("Uploaded staging summary to gs://YOUR_GCS_BUCKET/flux-serving-results/probe/gcs_model_stage_summary.json")

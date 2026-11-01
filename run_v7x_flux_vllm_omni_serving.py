@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Phase 2: Comprehensive TorchTPU FLUX & Image Diffusion Serving Benchmark on TPU v7x-8 (`ank-v7-spot-pool`)
-Engine: `vllm-omni` (`vllm-torchtpu`) (`us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/vllm-torchtpu-omni:v0.32.0`)
+"""Phase 2: Comprehensive TorchTPU FLUX & Image Diffusion Serving Benchmark on TPU v7x-8 (`tpu-v7x-4-spot-pool`)
+Engine: `vllm-omni` (`vllm-torchtpu`) (`us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0`)
 
 Covers:
   1. Models:
@@ -136,7 +136,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
             "TPU_WORKER_ID": "0",
             "ALT": "false",
             "CHIPS_PER_HOST_BOUNDS": "2,2,1",
-            "CONSUMER_PROJECT_ID": "tpu-prod-env-one-vm",
+            "CONSUMER_PROJECT_ID": "mock-tpu-project",
             "ENABLE_ICI_RESILIENCY": "false",
             "ENABLE_IMPROVED_REROUTE_ALLREDUCE_STRATEGY": "false",
             "HOST_BOUNDS": "1,1,1",
@@ -155,7 +155,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
                 "TPU_WORKER_ID: '0'\n"
                 "ALT: 'false'\n"
                 "CHIPS_PER_HOST_BOUNDS: '2,2,1'\n"
-                "CONSUMER_PROJECT_ID: 'tpu-prod-env-one-vm'\n"
+                "CONSUMER_PROJECT_ID: 'mock-tpu-project'\n"
                 "ENABLE_ICI_RESILIENCY: 'false'\n"
                 "ENABLE_IMPROVED_REROUTE_ALLREDUCE_STRATEGY: 'false'\n"
                 "HOST_BOUNDS: '1,1,1'\n"
@@ -180,7 +180,7 @@ class MockMetadataHandler(BaseHTTPRequestHandler):
         elif path.endswith("/computeMetadata/v1/instance/attributes/agent-worker-number"):
             response_body = b"0"
         elif path.endswith("/computeMetadata/v1/project/project-id"):
-            response_body = b"tpu-prod-env-one-vm"
+            response_body = b"mock-tpu-project"
         elif path.endswith("/computeMetadata/v1/project/numeric-project-id"):
             response_body = b"1234567890"
         elif path.endswith("/computeMetadata/v1/universe/universe-domain") or path.endswith("/universe-domain"):
@@ -326,6 +326,7 @@ def ensure_subhost_isolation_ready() -> None:
                 time.sleep(0.2)
 
     plat_candidates = [
+        Path("/workspace/vllm-torchtpu/src/vllm_torchtpu/omni/platform.py"),
         Path("/workspace/vllm-torchtpu/vllm_torchtpu/omni/platform.py"),
     ]
     for p_cand in plat_candidates:
@@ -909,6 +910,8 @@ def _write_deploy_yaml(
         stage_cfg["num_replicas"] = num_replicas
     if devices is not None:
         stage_cfg["devices"] = devices
+    elif ulysses_degree == 8:
+        stage_cfg["devices"] = "0,1,2,3,4,5,6,7"
     if attention_backend.upper() in ("TORCH_SDPA", "TPU_SDPA", "SDPA"):
         stage_cfg["diffusion_attention_backend"] = "TORCH_SDPA"
 
@@ -935,6 +938,7 @@ def _spawn_vllm_omni_proc(
             "TPU_PREMAPPED_BUFFER_SIZE": str(512 * 1024**2),
             "JAX_COMPILATION_CACHE_DIR": "/dev/shm/xla_cache_vllm_omni",
             "VLLM_DISABLE_LOG_LOGO": "1",
+            "TPU_VISIBLE_CHIPS": "0,1,2,3,4,5,6,7",
         }
     )
     if Path("/tmp/metadata_hook.so").exists():
@@ -1021,7 +1025,7 @@ def start_vllm_omni_cluster(
                 tmp_r = Path(f"/tmp/vo_u1_rep{r}")
                 tmp_r.mkdir(parents=True, exist_ok=True)
                 cfg_p = Path(f"/tmp/deploy_{group_id}_rep{r}.yaml")
-                _write_deploy_yaml(cfg_p, ulysses_degree=1, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization)
+                _write_deploy_yaml(cfg_p, ulysses_degree=1, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization, devices=str(r))
                 lp = Path(f"/tmp/{group_id}_rep{r}.log")
                 extra_env = {
                     "VLLM_OMNI_LOCAL_RANKS": str(r),
@@ -1030,6 +1034,7 @@ def start_vllm_omni_cluster(
                     "OMNI_MASTER_PORT": str(42100 + r * 20),
                     "TPU_RUNTIME_METRICS_PORTS": str(8431 + r),
                     "TMPDIR": str(tmp_r),
+                    "TPU_VISIBLE_CHIPS": str(r),
                 }
                 proc = _spawn_vllm_omni_proc(model_path, p_http, cfg_p, lp, extra_env)
                 procs.append(proc)
@@ -1078,7 +1083,7 @@ def start_vllm_omni_cluster(
                 tmp_r = Path(f"/tmp/vo_u2_rep{r}")
                 tmp_r.mkdir(parents=True, exist_ok=True)
                 cfg_p = Path(f"/tmp/deploy_{group_id}_rep{r}.yaml")
-                _write_deploy_yaml(cfg_p, ulysses_degree=2, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization)
+                _write_deploy_yaml(cfg_p, ulysses_degree=2, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization, devices=f"{2 * r},{2 * r + 1}")
                 lp = Path(f"/tmp/{group_id}_rep{r}.log")
                 extra_env = {
                     "VLLM_OMNI_LOCAL_RANKS": f"{2 * r},{2 * r + 1}",
@@ -1088,6 +1093,7 @@ def start_vllm_omni_cluster(
                     "OMNI_MASTER_PORT": str(42300 + r * 20),
                     "TPU_RUNTIME_METRICS_PORTS": f"{8431 + 2 * r},{8432 + 2 * r}",
                     "TMPDIR": str(tmp_r),
+                    "TPU_VISIBLE_CHIPS": f"{2 * r},{2 * r + 1}",
                 }
                 proc = _spawn_vllm_omni_proc(model_path, p_http, cfg_p, lp, extra_env)
                 procs.append(proc)
@@ -1137,7 +1143,7 @@ def start_vllm_omni_cluster(
                     tmp_r = Path(f"/tmp/vo_u4_rep{r}")
                     tmp_r.mkdir(parents=True, exist_ok=True)
                     cfg_p = Path(f"/tmp/deploy_{group_id}_{topo_try.replace(',', '')}_rep{r}.yaml")
-                    _write_deploy_yaml(cfg_p, ulysses_degree=4, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization)
+                    _write_deploy_yaml(cfg_p, ulysses_degree=4, max_num_seqs=max_num_seqs, attention_backend=attention_backend, quantization=quantization, devices=lrs)
                     lp = Path(f"/tmp/{group_id}_{topo_try.replace(',', '')}_rep{r}.log")
                     extra_env = {
                         "VLLM_OMNI_LOCAL_RANKS": lrs,
@@ -1147,6 +1153,7 @@ def start_vllm_omni_cluster(
                         "OMNI_MASTER_PORT": str(42500 + r * 20),
                         "TPU_RUNTIME_METRICS_PORTS": ",".join(str(8431 + 4 * r + k) for k in range(4)),
                         "TMPDIR": str(tmp_r),
+                        "TPU_VISIBLE_CHIPS": lrs,
                     }
                     proc = _spawn_vllm_omni_proc(model_path, p_http, cfg_p, lp, extra_env)
                     procs.append(proc)
@@ -1751,7 +1758,7 @@ def make_point_key(grp: dict[str, Any], pt: dict[str, Any]) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--gcs-bucket", default="ank-usc1-bucket-314837540096")
+    ap.add_argument("--gcs-bucket", default="YOUR_GCS_BUCKET")
     ap.add_argument("--gcs-prefix", default="flux-serving-results")
     ap.add_argument("--port", type=int, default=30280)
     args = ap.parse_args()
@@ -1789,7 +1796,7 @@ def main() -> None:
         summary_payload = {
             "updated_at": utc_now(),
             "engine": "vllm-omni",
-            "image": "us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/vllm-torchtpu-omni:v0.32.0",
+            "image": "us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0",
             "node": os.uname().nodename,
             "total_points_recorded": len(completed),
             "results": list(completed.values()),

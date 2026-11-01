@@ -381,7 +381,7 @@ def stage_models(bucket: str, cache_root: Path) -> dict[str, Any]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--gcs-bucket", default="ank-usc1-bucket-314837540096")
+    ap.add_argument("--gcs-bucket", default="YOUR_GCS_BUCKET")
     args = ap.parse_args()
 
     cache_root = Path("/dev/shm/hf_cache")
@@ -416,7 +416,7 @@ def main() -> None:
     raw = json.dumps(report, indent=2).encode("utf-8")
     Path("/dev/shm/flux_stage_probe_report.json").write_bytes(raw)
     gcs_upload_bytes(args.gcs_bucket, "flux-serving-results/probe/stage_probe_report.json", raw)
-    log("Uploaded full probe & staging report to gs://ank-usc1-bucket-314837540096/flux-serving-results/probe/stage_probe_report.json")
+    log("Uploaded full probe & staging report to gs://YOUR_GCS_BUCKET/flux-serving-results/probe/stage_probe_report.json")
 
 
 if __name__ == "__main__":

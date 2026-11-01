@@ -4,8 +4,13 @@ tmpfs           900G     0  900G   0% /dev/shm
 [2026-10-31T19:54:00.941566+00:00][sglang-flux-v7x] 
 ==================== [1/14] Group: sglang_flux1_schnell_dp8_u1_bf16_splash (19/19 pending) ====================
 [2026-10-31T19:54:01.134201+00:00][sglang-flux-v7x] Staging black-forest-labs/FLUX.1-schnell into /dev/shm/hf_cache/FLUX.1-schnell (checking regional GCS mirror first)...
-[2026-10-31T19:54:41.018103+00:00][sglang-flux-v7x] Hydrated 33.73 GB from gs://ank-usc1-bucket-314837540096/models/black-forest-labs/FLUX.1-schnell/ -> /dev/shm/hf_cache/FLUX.1-schnell in 39.8s (0.85 GB/s)
-Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files:   8%|▊         | 2/25 [00:00<00:01, 17.62it/s]Fetching 25 files:  56%|█████▌    | 14/25 [00:00<00:00, 71.87it/s]Fetching 25 files:  88%|████████▊ | 22/25 [00:03<00:00,  5.01it/s]Fetching 25 files: 100%|██████████| 25/25 [00:08<00:00,  3.06it/s]
+[2026-10-31T19:54:41.018103+00:00][sglang-flux-v7x] Hydrated 33.73 GB from gs://YOUR_GCS_BUCKET/models/black-forest-labs/FLUX.1-schnell/ -> /dev/shm/hf_cache/FLUX.1-schnell in 39.8s (0.85 GB/s)
+
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]
+Fetching 25 files:   8%|▊         | 2/25 [00:00<00:01, 17.62it/s]
+Fetching 25 files:  56%|█████▌    | 14/25 [00:00<00:00, 71.87it/s]
+Fetching 25 files:  88%|████████▊ | 22/25 [00:03<00:00,  5.01it/s]
+Fetching 25 files: 100%|██████████| 25/25 [00:08<00:00,  3.06it/s]
 [2026-10-31T19:54:49.414870+00:00][sglang-flux-v7x] Model black-forest-labs/FLUX.1-schnell ready at /dev/shm/hf_cache/FLUX.1-schnell (33.73 GB in 48.3s)
 [2026-10-31T19:54:51.931471+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-schnell --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
 [2026-10-31T19:55:30.000956+00:00][sglang-flux-v7x] SGLang ready on :30180 in 38.07s (dp=8, ulysses=1, attn=tpu_splash_attn, quant=bf16)
@@ -17,7 +22,7 @@ tmpfs           900G     0  900G   0% /dev/shm
 [2026-10-31T19:56:05.508686+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c8: running n=16 warm requests at concurrency c=8...
 [2026-10-31T19:56:14.625077+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s1|c8 -> p50=4.433s (4432.8 ms/step) | img/s=1.790 (107.4 IPM) | cold=24.18s | HBM=32.25 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
 [2026-10-31T19:56:16.029942+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c1: running n=4 warm requests at concurrency c=1...
-[2026-10-31T19:56:33.042771+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_512x512_4step.png
+[2026-10-31T19:56:33.042771+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://YOUR_GCS_BUCKET/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_512x512_4step.png
 [2026-10-31T19:56:33.205520+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c1 -> p50=4.229s (1057.4 ms/step) | img/s=0.236 (14.2 IPM) | cold=24.18s | HBM=32.22 GiB (measured) | hosts@60IPM=5 hosts@300IPM=22
 [2026-10-31T19:56:37.519961+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c8: running n=16 warm requests at concurrency c=8...
 [2026-10-31T19:56:44.511295+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|512x512|s4|c8 -> p50=3.378s (844.6 ms/step) | img/s=2.347 (140.8 IPM) | cold=24.18s | HBM=32.26 GiB (measured) | hosts@60IPM=1 hosts@300IPM=3
@@ -31,7 +36,7 @@ tmpfs           900G     0  900G   0% /dev/shm
 [2026-10-31T19:59:05.141284+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c16: running n=32 warm requests at concurrency c=16...
 [2026-10-31T19:59:13.739304+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s1|c16 -> p50=3.062s (3062.0 ms/step) | img/s=3.805 (228.3 IPM) | cold=121.35s | HBM=34.49 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
 [2026-10-31T19:59:16.786794+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c1: running n=4 warm requests at concurrency c=1...
-[2026-10-31T19:59:26.913162+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1024x1024_4step.png
+[2026-10-31T19:59:26.913162+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://YOUR_GCS_BUCKET/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1024x1024_4step.png
 [2026-10-31T19:59:27.088942+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c1 -> p50=2.461s (615.4 ms/step) | img/s=0.399 (23.9 IPM) | cold=121.35s | HBM=32.5 GiB (measured) | hosts@60IPM=3 hosts@300IPM=13
 [2026-10-31T19:59:29.591717+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c2: running n=8 warm requests at concurrency c=2...
 [2026-10-31T19:59:42.350988+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1024x1024|s4|c2 -> p50=2.465s (616.4 ms/step) | img/s=0.636 (38.2 IPM) | cold=121.35s | HBM=34.23 GiB (measured) | hosts@60IPM=2 hosts@300IPM=8
@@ -47,7 +52,7 @@ tmpfs           900G     0  900G   0% /dev/shm
 [2026-10-31T20:02:25.799065+00:00][sglang-flux-v7x]   [COLD OK] 1344x768 steps=4: cold_compile_infer_s=119.04s (pixel_std=71.5)
 [2026-10-31T20:02:25.799099+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 1344x768 (steps=4)...
 [2026-10-31T20:02:31.127356+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c1: running n=4 warm requests at concurrency c=1...
-[2026-10-31T20:02:41.197161+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1344x768_4step.png
+[2026-10-31T20:02:41.197161+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://YOUR_GCS_BUCKET/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_1344x768_4step.png
 [2026-10-31T20:02:41.386292+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c1 -> p50=2.428s (607.0 ms/step) | img/s=0.402 (24.1 IPM) | cold=119.04s | HBM=32.52 GiB (measured) | hosts@60IPM=3 hosts@300IPM=13
 [2026-10-31T20:02:43.873119+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c8: running n=16 warm requests at concurrency c=8...
 [2026-10-31T20:02:49.144129+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|1344x768|s4|c8 -> p50=2.458s (614.4 ms/step) | img/s=3.145 (188.7 IPM) | cold=119.04s | HBM=32.52 GiB (measured) | hosts@60IPM=1 hosts@300IPM=2
@@ -62,7 +67,7 @@ tmpfs           900G     0  900G   0% /dev/shm
 [2026-10-31T20:12:58.916841+00:00][sglang-flux-v7x]   [COLD OK] 2048x2048 steps=4: cold_compile_infer_s=456.04s (pixel_std=59.86)
 [2026-10-31T20:12:58.916880+00:00][sglang-flux-v7x]   [DP WARMUP] Warming all 8 DP replicas concurrently on 2048x2048 (steps=4)...
 [2026-10-31T20:13:19.613827+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c1: running n=3 warm requests at concurrency c=1...
-[2026-10-31T20:13:49.924104+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://ank-usc1-bucket-314837540096/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_2048x2048_4step.png
+[2026-10-31T20:13:49.924104+00:00][sglang-flux-v7x]   [SAMPLE PNG] Uploaded gs://YOUR_GCS_BUCKET/flux-serving-results/samples/sglang_flux_1-schnell_dp8u1_bf16_2048x2048_4step.png
 [2026-10-31T20:13:50.099121+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c1 -> p50=9.900s (2475.1 ms/step) | img/s=0.100 (6.0 IPM) | cold=456.04s | HBM=63.07 GiB (measured) | hosts@60IPM=11 hosts@300IPM=51
 [2026-10-31T20:14:00.140550+00:00][sglang-flux-v7x]   [BENCH] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c8: running n=8 warm requests at concurrency c=8...
 [2026-10-31T20:14:10.667624+00:00][sglang-flux-v7x]   [OK] sglang|FLUX.1-schnell|dp8_u1|BF16|tpu_splash_attn|2048x2048|s4|c8 -> p50=9.966s (2491.5 ms/step) | img/s=0.774 (46.4 IPM) | cold=456.04s | HBM=63.07 GiB (measured) | hosts@60IPM=2 hosts@300IPM=7
@@ -370,8 +375,14 @@ EOFError
 [2026-10-31T20:41:44.328290+00:00][sglang-flux-v7x] 
 ==================== [9/14] Group: sglang_flux1_dev_dp8_u1_bf16_splash (18/18 pending) ====================
 [2026-10-31T20:41:44.328431+00:00][sglang-flux-v7x] Staging black-forest-labs/FLUX.1-dev into /dev/shm/hf_cache/FLUX.1-dev (checking regional GCS mirror first)...
-[2026-10-31T20:42:28.903668+00:00][sglang-flux-v7x] Hydrated 33.75 GB from gs://ank-usc1-bucket-314837540096/models/black-forest-labs/FLUX.1-dev/ -> /dev/shm/hf_cache/FLUX.1-dev in 44.5s (0.76 GB/s)
-Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]Fetching 26 files:   4%|▍         | 1/26 [00:00<00:02,  8.91it/s]Fetching 26 files:  58%|█████▊    | 15/26 [00:00<00:00, 70.73it/s]Fetching 26 files:  85%|████████▍ | 22/26 [00:03<00:00,  5.66it/s]Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  2.50it/s]Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  3.48it/s]
+[2026-10-31T20:42:28.903668+00:00][sglang-flux-v7x] Hydrated 33.75 GB from gs://YOUR_GCS_BUCKET/models/black-forest-labs/FLUX.1-dev/ -> /dev/shm/hf_cache/FLUX.1-dev in 44.5s (0.76 GB/s)
+
+Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]
+Fetching 26 files:   4%|▍         | 1/26 [00:00<00:02,  8.91it/s]
+Fetching 26 files:  58%|█████▊    | 15/26 [00:00<00:00, 70.73it/s]
+Fetching 26 files:  85%|████████▍ | 22/26 [00:03<00:00,  5.66it/s]
+Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  2.50it/s]
+Fetching 26 files: 100%|██████████| 26/26 [00:07<00:00,  3.48it/s]
 [2026-10-31T20:42:36.553717+00:00][sglang-flux-v7x] Model black-forest-labs/FLUX.1-dev ready at /dev/shm/hf_cache/FLUX.1-dev (33.75 GB in 52.2s)
 [2026-10-31T20:42:39.077076+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/FLUX.1-dev --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
 [2026-10-31T20:43:03.083194+00:00][sglang-flux-v7x] Group sglang_flux1_dev_dp8_u1_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):
@@ -571,8 +582,14 @@ EOFError
 [2026-10-31T20:44:33.371038+00:00][sglang-flux-v7x] 
 ==================== [13/14] Group: sglang_zimage_turbo_dp8_u1_bf16_splash (10/10 pending) ====================
 [2026-10-31T20:44:33.371175+00:00][sglang-flux-v7x] Staging Tongyi-MAI/Z-Image-Turbo into /dev/shm/hf_cache/Z-Image-Turbo (checking regional GCS mirror first)...
-[2026-10-31T20:45:16.661516+00:00][sglang-flux-v7x] Hydrated 32.85 GB from gs://ank-usc1-bucket-314837540096/models/Tongyi-MAI/Z-Image-Turbo/ -> /dev/shm/hf_cache/Z-Image-Turbo in 43.2s (0.76 GB/s)
-Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:  10%|▉         | 2/21 [00:00<00:01, 17.68it/s]Fetching 21 files:  43%|████▎     | 9/21 [00:00<00:00, 44.68it/s]Fetching 21 files:  67%|██████▋   | 14/21 [00:00<00:00, 44.55it/s]Fetching 21 files:  90%|█████████ | 19/21 [00:03<00:00,  3.54it/s]Fetching 21 files: 100%|██████████| 21/21 [00:07<00:00,  2.71it/s]
+[2026-10-31T20:45:16.661516+00:00][sglang-flux-v7x] Hydrated 32.85 GB from gs://YOUR_GCS_BUCKET/models/Tongyi-MAI/Z-Image-Turbo/ -> /dev/shm/hf_cache/Z-Image-Turbo in 43.2s (0.76 GB/s)
+
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]
+Fetching 21 files:  10%|▉         | 2/21 [00:00<00:01, 17.68it/s]
+Fetching 21 files:  43%|████▎     | 9/21 [00:00<00:00, 44.68it/s]
+Fetching 21 files:  67%|██████▋   | 14/21 [00:00<00:00, 44.55it/s]
+Fetching 21 files:  90%|█████████ | 19/21 [00:03<00:00,  3.54it/s]
+Fetching 21 files: 100%|██████████| 21/21 [00:07<00:00,  2.71it/s]
 [2026-10-31T20:45:24.568514+00:00][sglang-flux-v7x] Model Tongyi-MAI/Z-Image-Turbo ready at /dev/shm/hf_cache/Z-Image-Turbo (32.85 GB in 51.2s)
 [2026-10-31T20:45:27.089646+00:00][sglang-flux-v7x] Launching SGLang server: sglang serve --model-path /dev/shm/hf_cache/Z-Image-Turbo --host 0.0.0.0 --port 30180 --num-gpus 8 --dp-size 8 --ulysses-degree 1 --attention-backend tpu_splash_attn --warmup-mode off --output-path /dev/shm/sglang_outputs
 [2026-10-31T20:45:51.116514+00:00][sglang-flux-v7x] Group sglang_zimage_turbo_dp8_u1_bf16_splash failed at server startup/execution: sglang serve exited early (rc=1):

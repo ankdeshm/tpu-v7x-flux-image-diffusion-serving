@@ -41,8 +41,8 @@ Reproducible TorchTPU serving infrastructure, containers, Kubernetes Job manifes
 │   ├── stage_and_probe_flux.py                 # Node /dev/shm/hf_cache hydrator + sub-host topology probe
 │   └── run_v7x_flux_serving.py                 # Full sglang-torchtpu & vLLM-Omni FLUX benchmark harness
 ├── k8s/
-│   ├── v7x-spot-flux-sglang-serving.yaml       # GKE Spot Job (ank-v7-spot-pool, 2x2x1) for sglang-torchtpu
-│   └── v7x-spot-flux-vllm-omni-serving.yaml    # GKE Spot Job (ank-v7-spot-pool, 2x2x1) for vLLM-Omni
+│   ├── v7x-spot-flux-sglang-serving.yaml       # GKE Spot Job (tpu-v7x-4-spot-pool, 2x2x1) for sglang-torchtpu
+│   └── v7x-spot-flux-vllm-omni-serving.yaml    # GKE Spot Job (tpu-v7x-4-spot-pool, 2x2x1) for vLLM-Omni
 └── results/                                    # Auto-synced Markdown & JSONL benchmark summaries
 ```
 
@@ -52,8 +52,8 @@ Reproducible TorchTPU serving infrastructure, containers, Kubernetes Job manifes
 
 ```bash
 # 1. Upload serving benchmark harnesses to regional GCS
-CLOUDSDK_METRICS_ENVIRONMENT=datacloud.antigravity gcloud storage cp scripts/*.py gs://ank-usc1-bucket-314837540096/flux-serving-scripts/
+CLOUDSDK_METRICS_ENVIRONMENT=datacloud.antigravity gcloud storage cp scripts/*.py gs://YOUR_GCS_BUCKET/flux-serving-scripts/
 
-# 2. Launch TorchTPU FLUX benchmark suite on single-host TPU v7x-8 (ank-v7-spot-pool)
-CLOUDSDK_METRICS_ENVIRONMENT=datacloud.antigravity kubectl --context=gke_diesel-patrol-382622_us-central1_ank-tpu-v5p-usc1 apply -f k8s/v7x-spot-flux-sglang-serving.yaml
+# 2. Launch TorchTPU FLUX benchmark suite on single-host TPU v7x-8 (tpu-v7x-4-spot-pool)
+CLOUDSDK_METRICS_ENVIRONMENT=datacloud.antigravity kubectl --context=gke_YOUR_GCP_PROJECT_ID_us-central1_tpu-v5p-cluster apply -f k8s/v7x-spot-flux-sglang-serving.yaml
 ```

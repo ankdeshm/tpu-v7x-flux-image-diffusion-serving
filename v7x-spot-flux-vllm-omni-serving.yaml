@@ -19,7 +19,7 @@ spec:
       restartPolicy: Never
       serviceAccountName: default
       nodeSelector:
-        cloud.google.com/gke-nodepool: ank-v7-spot-pool
+        cloud.google.com/gke-nodepool: tpu-v7x-4-spot-pool
         cloud.google.com/gke-tpu-accelerator: tpu7x
         cloud.google.com/gke-tpu-topology: 2x2x1
       tolerations:
@@ -31,7 +31,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: vllm-omni-flux-bench
-        image: us-central1-docker.pkg.dev/diesel-patrol-382622/vllm/vllm-torchtpu-omni:v0.32.0
+        image: us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
@@ -54,9 +54,9 @@ spec:
           df -h /dev/shm
           TOK=$(curl -sS -H "Metadata-Flavor: Google" "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
           curl -fsSL -H "Authorization: Bearer ${TOK}" \
-            "https://storage.googleapis.com/storage/v1/b/ank-usc1-bucket-314837540096/o/flux-serving-scripts%2Frun_v7x_flux_vllm_omni_serving.py?alt=media" \
+            "https://storage.googleapis.com/storage/v1/b/YOUR_GCS_BUCKET/o/flux-serving-scripts%2Frun_v7x_flux_vllm_omni_serving.py?alt=media" \
             -o /tmp/run_v7x_flux_vllm_omni_serving.py
-          exec python3 -u /tmp/run_v7x_flux_vllm_omni_serving.py --gcs-bucket=ank-usc1-bucket-314837540096 --gcs-prefix=flux-serving-results
+          exec python3 -u /tmp/run_v7x_flux_vllm_omni_serving.py --gcs-bucket=YOUR_GCS_BUCKET --gcs-prefix=flux-serving-results
         resources:
           requests:
             google.com/tpu: "4"

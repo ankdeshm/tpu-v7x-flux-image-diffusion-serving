@@ -239,37 +239,24 @@ def collect_pkg_versions() -> dict[str, str]:
 def probe_sglang_internals() -> dict[str, Any]:
     info: dict[str, Any] = {"packages": collect_pkg_versions()}
     try:
-        import sglang
-        import sglang_tpu
+        import importlib.util
 
-        info["sglang_file"] = sglang.__file__
-        info["sglang_tpu_file"] = sglang_tpu.__file__
-        sg_root = Path(sglang.__file__).parent
-        sgt_root = Path(sglang_tpu.__file__).parent
-
-        # Find diffusion / multimodal_gen files, server args, image endpoints, and flux support
-        mm_dir = sg_root / "multimodal_gen"
-        if mm_dir.exists():
-            info["multimodal_gen_files"] = [
-                str(p.relative_to(mm_dir))
-                for p in sorted(mm_dir.rglob("*.py"))
-                if any(k in p.name.lower() for k in ("flux", "zimage", "z_image", "image", "server_args", "openai", "http", "parallel", "quant", "sd3", "attn"))
-            ][:80]
-            # Inspect ServerArgs fields
-            sa_files = list(mm_dir.rglob("*server_args*.py"))
-            if sa_files:
-                info["server_args_src"] = sa_files[0].read_text()[:12000]
-            # Inspect image API routes
-            ep_files = [p for p in mm_dir.rglob("*.py") if "image" in p.name.lower() or "http_server" in p.name.lower() or "openai" in p.name.lower()]
-            info["endpoint_snippets"] = {str(p.relative_to(mm_dir)): p.read_text()[:6000] for p in ep_files[:6]}
-            # Inspect model registry
-            reg_files = [p for p in mm_dir.rglob("*.py") if "registry" in p.name.lower() or "flux" in p.name.lower()]
-            info["registry_snippets"] = {str(p.relative_to(mm_dir)): p.read_text()[:6000] for p in reg_files[:6]}
-
-        info["sglang_tpu_files"] = [str(p.relative_to(sgt_root)) for p in sorted(sgt_root.rglob("*.py"))][:80]
-        for p in sorted(sgt_root.rglob("*.py")):
-            if any(k in p.name.lower() for k in ("splash", "flux", "platform", "parallel", "quant", "diffusion")):
-                info.setdefault("sglang_tpu_snippets", {})[str(p.relative_to(sgt_root))] = p.read_text()[:5000]
+        sg_spec = importlib.util.find_spec("sglang")
+        sgt_spec = importlib.util.find_spec("sglang_tpu")
+        info["sglang_file"] = sg_spec.origin if sg_spec else None
+        info["sglang_tpu_file"] = sgt_spec.origin if sgt_spec else None
+        if sg_spec and sg_spec.origin:
+            sg_root = Path(sg_spec.origin).parent
+            mm_dir = sg_root / "multimodal_gen"
+            if mm_dir.exists():
+                info["multimodal_gen_files"] = [
+                    str(p.relative_to(mm_dir))
+                    for p in sorted(mm_dir.rglob("*.py"))
+                    if any(k in p.name.lower() for k in ("flux", "zimage", "z_image", "image", "server_args", "openai", "http", "parallel", "quant", "sd3", "attn"))
+                ][:80]
+        if sgt_spec and sgt_spec.origin:
+            sgt_root = Path(sgt_spec.origin).parent
+            info["sglang_tpu_files"] = [str(p.relative_to(sgt_root)) for p in sorted(sgt_root.rglob("*.py"))][:80]
     except Exception as exc:
         info["error"] = repr(exc)
     return info
@@ -281,71 +268,33 @@ def probe_tpu_hardware_and_partitioning() -> dict[str, Any]:
     hw["vbar_sock_exists"] = Path("/var/run/tpu-plugin/vbar.sock").is_socket()
     hw["env_tpu_vars"] = {k: v for k, v in os.environ.items() if "TPU" in k or "PJRT" in k or "VBAR" in k}
 
-    # Test 1: Default 8-TensorCore single-host visibility
-    r_full = subprocess.run(
-        [
-            "python3",
-            "-c",
-            (
-                "import os, torch, torch_tpu; "
-                "os.environ['TPU_PREMAPPED_BUFFER_SIZE']=str(512*1024**2); "
-                "n = torch.tpu.device_count(); "
-                "x = torch.ones((1024,1024), device='tpu:0', dtype=torch.bfloat16); "
-                "mem = getattr(torch.tpu, 'max_memory_allocated', lambda d=0: -1)(0); "
-                "mem_info = getattr(torch.tpu, 'mem_get_info', lambda d=0: (-1,-1))(0); "
-                "print('FULL_OK', n, float(x.sum().cpu()), mem, mem_info)"
-            ),
-        ],
-        capture_output=True,
-        text=True,
-        timeout=90,
-    )
-    hw["test_full_8core"] = {"rc": r_full.returncode, "stdout": r_full.stdout[-1500:], "stderr": r_full.stderr[-1500:]}
-
-    # Test 2: Can we run 4 simultaneous 1-chip (2-TensorCore) processes via TPU_VISIBLE_CHIPS=0..3?
-    sub_script = (
-        "import os, sys, time, torch, torch_tpu; "
-        "c = int(sys.argv[1]); "
-        "os.environ['TPU_VISIBLE_CHIPS'] = str(c); "
-        "os.environ['TPU_CHIPS_PER_HOST_BOUNDS'] = '1,1,1'; "
-        "os.environ['TPU_HOST_BOUNDS'] = '1,1,1'; "
-        "os.environ['TPU_SKIP_MDS_QUERY'] = '1'; "
-        "os.environ['TPU_RUNTIME_METRICS_PORTS'] = f'{8441+2*c},{8442+2*c}'; "
-        "os.environ['TPU_PREMAPPED_BUFFER_SIZE'] = str(512*1024**2); "
-        "n = torch.tpu.device_count(); "
-        "t0 = torch.ones((512,512), device='tpu:0', dtype=torch.bfloat16); "
-        "t1 = torch.ones((512,512), device='tpu:1', dtype=torch.bfloat16) if n > 1 else t0; "
-        "time.sleep(2.0); "
-        "print(f'CHIP_{c}_OK count={n} sum0={float(t0.sum().cpu())} sum1={float(t1.sum().cpu())}')"
-    )
-    procs = [subprocess.Popen(["python3", "-c", sub_script, str(c)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) for c in range(4)]
-    outs = []
-    for c, p in enumerate(procs):
-        so, se = p.communicate(timeout=90)
-        outs.append({"chip": c, "rc": p.returncode, "stdout": so[-600:], "stderr": se[-600:]})
-    hw["test_4x_1chip_concurrent"] = outs
-
-    # Test 3: Can we run 2 simultaneous 2-chip (4-TensorCore) processes via TPU_VISIBLE_CHIPS=0,1 and 2,3?
-    sub2_script = (
-        "import os, sys, time, torch, torch_tpu; "
-        "idx = int(sys.argv[1]); chips = '0,1' if idx == 0 else '2,3'; "
-        "os.environ['TPU_VISIBLE_CHIPS'] = chips; "
-        "os.environ['TPU_CHIPS_PER_HOST_BOUNDS'] = '1,2,1'; "
-        "os.environ['TPU_HOST_BOUNDS'] = '1,1,1'; "
-        "os.environ['TPU_SKIP_MDS_QUERY'] = '1'; "
-        "os.environ['TPU_RUNTIME_METRICS_PORTS'] = ','.join(str(8451 + 4*idx + k) for k in range(4)); "
-        "os.environ['TPU_PREMAPPED_BUFFER_SIZE'] = str(512*1024**2); "
-        "n = torch.tpu.device_count(); "
-        "ts = [torch.ones((512,512), device=f'tpu:{k}', dtype=torch.bfloat16) for k in range(n)]; "
-        "time.sleep(2.0); "
-        "print(f'PAIR_{idx}_OK chips={chips} count={n} sums={[float(t.sum().cpu()) for t in ts]}')"
-    )
-    procs2 = [subprocess.Popen(["python3", "-c", sub2_script, str(i)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) for i in range(2)]
-    outs2 = []
-    for i, p in enumerate(procs2):
-        so, se = p.communicate(timeout=90)
-        outs2.append({"pair": i, "rc": p.returncode, "stdout": so[-600:], "stderr": se[-600:]})
-    hw["test_2x_2chip_concurrent"] = outs2
+    env = os.environ.copy()
+    env["TPU_PREMAPPED_BUFFER_SIZE"] = str(512 * 1024**2)
+    env["TPU_SKIP_MDS_QUERY"] = "1"
+    try:
+        r_full = subprocess.run(
+            [
+                "python3",
+                "-c",
+                (
+                    "import torch, torch_tpu; "
+                    "n = torch.tpu.device_count(); "
+                    "xs = [torch.ones((512,512), device=f'tpu:{i}', dtype=torch.bfloat16) for i in range(n)]; "
+                    "sums = [float(x.sum().cpu()) for x in xs]; "
+                    "mem_alloc = [getattr(torch.tpu, 'max_memory_allocated', lambda d: -1)(i) for i in range(n)]; "
+                    "mem_info = getattr(torch.tpu, 'mem_get_info', lambda d=0: (-1,-1))(0); "
+                    "tpu_attrs = [a for a in dir(torch.tpu) if 'mem' in a or 'device' in a or 'sync' in a]; "
+                    "print('FULL_8CORE_OK', n, sums, mem_alloc, mem_info, tpu_attrs)"
+                ),
+            ],
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        hw["test_full_8core"] = {"rc": r_full.returncode, "stdout": r_full.stdout[-2000:], "stderr": r_full.stderr[-1500:]}
+    except Exception as exc:
+        hw["test_full_8core_error"] = repr(exc)
 
     return hw
 
@@ -432,7 +381,7 @@ def stage_models(bucket: str, cache_root: Path) -> dict[str, Any]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--gcs-bucket", default="ank-usc1-bucket-314837540096")
+    ap.add_argument("--gcs-bucket", default="YOUR_GCS_BUCKET")
     args = ap.parse_args()
 
     cache_root = Path("/dev/shm/hf_cache")
@@ -467,7 +416,7 @@ def main() -> None:
     raw = json.dumps(report, indent=2).encode("utf-8")
     Path("/dev/shm/flux_stage_probe_report.json").write_bytes(raw)
     gcs_upload_bytes(args.gcs_bucket, "flux-serving-results/probe/stage_probe_report.json", raw)
-    log("Uploaded full probe & staging report to gs://ank-usc1-bucket-314837540096/flux-serving-results/probe/stage_probe_report.json")
+    log("Uploaded full probe & staging report to gs://YOUR_GCS_BUCKET/flux-serving-results/probe/stage_probe_report.json")
 
 
 if __name__ == "__main__":
