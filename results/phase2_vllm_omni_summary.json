@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-01T11:12:51.751026+00:00",
+  "updated_at": "2026-11-01T11:48:22.185588+00:00",
   "engine": "vllm-omni",
   "image": "us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0",
-  "node": "v7x-spot-flux-vllm-omni-serving-v6ffk",
-  "total_points_recorded": 67,
+  "node": "v7x-spot-flux-vllm-omni-serving-x85vr",
+  "total_points_recorded": 62,
   "results": [
     {
       "point_key": "vllm-omni|FLUX.1-schnell|dp4_u2_mns8|BF16|tpu_flash_attn|1024x1024|s4|c4",
@@ -2039,7 +2039,7 @@
       "steps": 4,
       "concurrency": 1,
       "error": "HTTP 500: {\"error\":{\"message\":\"Image generation failed: Executor shut down\",\"type\":\"Internal Server Error\",\"param\":null,\"code\":500}}",
-      "timestamp": "2026-11-01T11:08:05.736125+00:00"
+      "timestamp": "2026-11-01T11:45:53.930132+00:00"
     },
     {
       "point_key": "vllm-omni|FLUX.1-schnell|dp4_u2|BF16|tpu_flash_attn|768x1344|s4|c4",
@@ -2057,7 +2057,7 @@
       "steps": 4,
       "concurrency": 4,
       "error": "HTTP 500: {\"error\":{\"message\":\"Image generation failed: Executor shut down\",\"type\":\"Internal Server Error\",\"param\":null,\"code\":500}}",
-      "timestamp": "2026-11-01T11:08:22.055597+00:00"
+      "timestamp": "2026-11-01T11:46:12.110834+00:00"
     },
     {
       "point_key": "vllm-omni|FLUX.1-schnell|dp2_u4|BF16|tpu_flash_attn|768x1344|s4|c1",
@@ -2075,97 +2075,7 @@
       "steps": 4,
       "concurrency": 1,
       "error": "HTTP 500: {\"error\":{\"message\":\"Image generation failed: Executor shut down\",\"type\":\"Internal Server Error\",\"param\":null,\"code\":500}}",
-      "timestamp": "2026-11-01T11:10:37.213895+00:00"
-    },
-    {
-      "point_key": "vllm-omni|FLUX.1-schnell|dp1_u8|BF16|tpu_flash_attn|768x1344|s4|c1",
-      "status": "error",
-      "engine": "vllm-omni",
-      "group_id": "vllm_omni_flux1_schnell_dp1_u8_bf16_flash",
-      "cluster_mode": "single_8core_dp1_u8_mns1",
-      "model": "FLUX.1-schnell",
-      "dp_size": 1,
-      "ulysses_degree": 8,
-      "max_num_seqs": 1,
-      "precision": "BF16",
-      "attention_backend": "tpu_flash_attn",
-      "size": "768x1344",
-      "steps": 4,
-      "concurrency": 1,
-      "error": "HTTP 500: {\"error\":{\"message\":\"Image generation failed: Executor shut down\",\"type\":\"Internal Server Error\",\"param\":null,\"code\":500}}",
-      "timestamp": "2026-11-01T11:12:50.537895+00:00"
-    },
-    {
-      "point_key": "vllm-omni|FLUX.1-schnell|dp1_u8|BF16|tpu_flash_attn|2048x2048|s1|c1",
-      "status": "error",
-      "engine": "vllm-omni",
-      "group_id": "vllm_omni_flux1_schnell_dp1_u8_bf16_flash",
-      "cluster_mode": "single_8core_dp1_u8_mns1",
-      "model": "FLUX.1-schnell",
-      "dp_size": 1,
-      "ulysses_degree": 8,
-      "max_num_seqs": 1,
-      "precision": "BF16",
-      "attention_backend": "tpu_flash_attn",
-      "size": "2048x2048",
-      "steps": 1,
-      "concurrency": 1,
-      "error": "HTTP 500: {\"error\":{\"message\":\"Stage-0 has no live replica\",\"type\":\"InternalServerError\",\"param\":null,\"code\":500,\"request_id\":\"img_gen-b0c346d0130fe07c\",\"error_stage_id\":0}}",
-      "timestamp": "2026-11-01T11:12:50.805700+00:00"
-    },
-    {
-      "point_key": "vllm-omni|FLUX.1-schnell|dp1_u8|BF16|tpu_flash_attn|2048x2048|s4|c1",
-      "status": "error",
-      "engine": "vllm-omni",
-      "group_id": "vllm_omni_flux1_schnell_dp1_u8_bf16_flash",
-      "cluster_mode": "single_8core_dp1_u8_mns1",
-      "model": "FLUX.1-schnell",
-      "dp_size": 1,
-      "ulysses_degree": 8,
-      "max_num_seqs": 1,
-      "precision": "BF16",
-      "attention_backend": "tpu_flash_attn",
-      "size": "2048x2048",
-      "steps": 4,
-      "concurrency": 1,
-      "error": "HTTP 500: {\"error\":{\"message\":\"Stage-0 has no live replica\",\"type\":\"InternalServerError\",\"param\":null,\"code\":500,\"request_id\":\"img_gen-b6ccb5e35b45b0a9\",\"error_stage_id\":0}}",
-      "timestamp": "2026-11-01T11:12:51.094832+00:00"
-    },
-    {
-      "point_key": "vllm-omni|FLUX.1-schnell|dp1_u8|BF16|tpu_flash_attn|2048x2048|s4|c2",
-      "status": "error",
-      "engine": "vllm-omni",
-      "group_id": "vllm_omni_flux1_schnell_dp1_u8_bf16_flash",
-      "cluster_mode": "single_8core_dp1_u8_mns1",
-      "model": "FLUX.1-schnell",
-      "dp_size": 1,
-      "ulysses_degree": 8,
-      "max_num_seqs": 1,
-      "precision": "BF16",
-      "attention_backend": "tpu_flash_attn",
-      "size": "2048x2048",
-      "steps": 4,
-      "concurrency": 2,
-      "error": "HTTP 500: {\"error\":{\"message\":\"Stage-0 has no live replica\",\"type\":\"InternalServerError\",\"param\":null,\"code\":500,\"request_id\":\"img_gen-8efb9a0c8d431421\",\"error_stage_id\":0}}",
-      "timestamp": "2026-11-01T11:12:51.375548+00:00"
-    },
-    {
-      "point_key": "vllm-omni|FLUX.1-schnell|dp1_u8|BF16|tpu_flash_attn|2048x2048|s4|c4",
-      "status": "error",
-      "engine": "vllm-omni",
-      "group_id": "vllm_omni_flux1_schnell_dp1_u8_bf16_flash",
-      "cluster_mode": "single_8core_dp1_u8_mns1",
-      "model": "FLUX.1-schnell",
-      "dp_size": 1,
-      "ulysses_degree": 8,
-      "max_num_seqs": 1,
-      "precision": "BF16",
-      "attention_backend": "tpu_flash_attn",
-      "size": "2048x2048",
-      "steps": 4,
-      "concurrency": 4,
-      "error": "HTTP 500: {\"error\":{\"message\":\"Stage-0 has no live replica\",\"type\":\"InternalServerError\",\"param\":null,\"code\":500,\"request_id\":\"img_gen-8f512ea740d8fd9f\",\"error_stage_id\":0}}",
-      "timestamp": "2026-11-01T11:12:51.666036+00:00"
+      "timestamp": "2026-11-01T11:48:22.097014+00:00"
     }
   ]
 }
