@@ -3,7 +3,7 @@
 - **Project / Region / Zone:** `YOUR_GCP_PROJECT_ID` / `us-central1` / `us-central1-c`
 - **Cluster & Isolated Nodepool:** `tpu-v5p-cluster` -> **`tpu-v7x-4-spot-pool`** (`tpu7x-standard-4t`, `1` host × `4` physical `v7x` chips = `8` TensorCores / `760 GiB` HBM3e / `1,512 GiB` host RAM, topology `2x2x1`)
 - **GCS Artifacts:** `gs://YOUR_GCS_BUCKET/flux-serving-results/` & `gs://YOUR_GCS_BUCKET/flux-serving-scripts/`
-- **GitHub Repository:** [`ankdeshm/tpu-v7x-flux-image-diffusion-serving`](https://github.com/ankdeshm/tpu-v7x-flux-image-diffusion-serving) (`/Users/deshmukhankita/ankita-dev/github-repos/tpu-v7x-flux-image-diffusion-serving`)
+- **GitHub Repository:** [`ankdeshm/tpu-v7x-flux-image-diffusion-serving`](https://github.com/ankdeshm/tpu-v7x-flux-image-diffusion-serving) (`.`)
 - **100% TorchTPU Serving Stack (`torch_tpu 0.2.0` GA + `libtpu 0.0.50`):**
   1. **`sglang-torchtpu`:** `us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/sglang-torchtpu-diffusion:v0.2.0` (`sglang serve`, OpenAI `/v1/images/generations` API)
   2. **`vllm-omni` (`vllm-torchtpu`):** `us-central1-docker.pkg.dev/YOUR_GCP_PROJECT_ID/vllm/vllm-torchtpu-omni:v0.32.0` (`vllm serve --omni`, OpenAI `/v1/images/generations` & `/v1/chat/completions` API)
